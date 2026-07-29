@@ -1,3 +1,4 @@
+// js/articles-loader.js
 document.addEventListener('DOMContentLoaded', function() {
   const articlesGrid = document.getElementById('articlesGrid');
   if (!articlesGrid) return;
@@ -30,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="tag-group">
             ${article.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
           </div>
-          <a href="articles/article-${article.id}.html" class="btn btn-primary" style="margin-top: 16px; width: 100%; justify-content: center;">
+          <a href="${article.url}" class="btn btn-primary" style="margin-top: 16px; width: 100%; justify-content: center;">
             <i class="fas fa-book-open"></i> Read Article
           </a>
         </div>
@@ -39,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
       articlesGrid.appendChild(card);
     });
 
+    // Trigger animations
     setTimeout(() => {
       document.querySelectorAll('.fade-up').forEach(el => {
         el.classList.add('visible');
