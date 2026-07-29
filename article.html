@@ -1,106 +1,350 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Articles - Hivemaa</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <link rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Articles - Hivemaa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+        /* Additional styles for article cards */
+        .article-card .card-img {
+            height: 180px;
+            background: var(--light-grey);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 3rem;
+        }
+        .article-card .card-body {
+            padding: 24px;
+        }
+        .article-card .card-body h3 {
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+        }
+        .article-card .meta {
+            display: flex;
+            gap: 16px;
+            font-size: 0.8rem;
+            opacity: 0.6;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+        .article-card .meta i {
+            font-size: 0.8rem;
+            margin-right: 4px;
+            color: inherit;
+        }
+        .tag-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 12px;
+        }
+        .tag {
+            background: var(--light-grey);
+            padding: 6px 16px;
+            border-radius: 60px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text);
+            opacity: 0.8;
+        }
+    </style>
 </head>
 <body>
-  <nav class="container">
-    <a href="index.html" class="logo">
-      <img src="hivemaa-home-logo.png" alt="Hivemaa" style="height: 40px; width: auto; display: inline-block; vertical-align: middle;" />
-      <span style="font-weight: 700; font-size: 1.6rem; margin-left: 10px; vertical-align: middle;">Hivemaa</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="news.html">News</a></li>
-      <li><a href="articles.html" class="active">Articles</a></li>
-      <li><a href="opportunities.html">Opportunities</a></li>
-      <li><a href="research.html">Research</a></li>
-      <li><a href="innovation.html">Innovation</a></li>
-      <li><a href="resources.html">Resources</a></li>
-      <li><a href="https://whatsapp.com/channel/0029VbCFWDHLSmbhFp89fk37" target="_blank">Community</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <div class="nav-actions">
-      <button class="dark-toggle" id="darkToggle"><i class="fas fa-moon"></i></button>
-    </div>
-  </nav>
-
-  <main class="container">
-    <section class="section">
-      <h1 class="section-title">All Articles</h1>
-      <p class="section-sub">Explore our collection of agricultural insights and innovations</p>
-      
-      <div class="search-wrap">
-        <input type="text" id="searchInput" placeholder="Search articles..." />
-        <button id="searchBtn"><i class="fas fa-search"></i></button>
-      </div>
-
-      <div id="articlesGrid" class="card-grid"></div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <h4>Hivemaa</h4>
-          <p>AgriTech for Africa — connecting agriculture with technology.</p>
-          <div class="footer-socials">
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-          </div>
-          <div style="margin-top: 16px; font-size: 0.95rem; opacity: 0.8;">
-            <p><i class="fas fa-phone"></i> +234 07066347583, +234 08181464849</p>
-            <p><i class="fas fa-envelope"></i> hivemaainnovative@gmail.com</p>
-          </div>
-        </div>
-        <div>
-          <h4>Quick Links</h4>
-          <ul>
+    <nav class="container">
+        <a href="index.html" class="logo">
+            <img src="hivemaa-home-logo.png" alt="Hivemaa" style="height: 40px; width: auto; display: inline-block; vertical-align: middle;" />
+            <span style="font-weight: 700; font-size: 1.6rem; margin-left: 10px; vertical-align: middle;">Hivemaa</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="news.html">News</a></li>
-            <li><a href="articles.html">Articles</a></li>
+            <li><a href="articles.html" class="active">Articles</a></li>
             <li><a href="opportunities.html">Opportunities</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Resources</h4>
-          <ul>
             <li><a href="research.html">Research</a></li>
             <li><a href="innovation.html">Innovation</a></li>
             <li><a href="resources.html">Resources</a></li>
             <li><a href="https://whatsapp.com/channel/0029VbCFWDHLSmbhFp89fk37" target="_blank">Community</a></li>
-          </ul>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button class="dark-toggle" id="darkToggle"><i class="fas fa-moon"></i></button>
         </div>
-        <div>
-          <h4>Legal</h4>
-          <ul>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Use</a></li>
-            <li><a href="https://whatsapp.com/channel/0029VbCFWDHLSmbhFp89fk37" target="_blank">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>&copy; 2026 Hivemaa. All rights reserved.</span>
-        <span>Designed with <i class="fas fa-heart" style="color: var(--primary);"></i> for Africa</span>
-      </div>
-    </div>
-  </footer>
+    </nav>
 
-  <script src="js/script.js"></script>
-  <script src="js/articles-data.js"></script>
-  <script src="js/articles-loader.js"></script>
-  <script src="js/search.js"></script>
+    <main class="container">
+        <section class="section">
+            <h1 class="section-title">All Articles</h1>
+            <p class="section-sub">Explore our collection of agricultural insights and innovations</p>
+
+            <div class="search-wrap">
+                <input type="text" id="searchInput" placeholder="Search articles..." />
+                <button id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+
+            <div id="articlesGrid" class="card-grid"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h4>Hivemaa</h4>
+                    <p>AgriTech for Africa — connecting agriculture with technology.</p>
+                    <div class="footer-socials">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <div style="margin-top: 16px; font-size: 0.95rem; opacity: 0.8;">
+                        <p><i class="fas fa-phone"></i> +234 07066347583, +234 08181464849</p>
+                        <p><i class="fas fa-envelope"></i> hivemaainnovative@gmail.com</p>
+                    </div>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="articles.html">Articles</a></li>
+                        <li><a href="opportunities.html">Opportunities</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="research.html">Research</a></li>
+                        <li><a href="innovation.html">Innovation</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="https://whatsapp.com/channel/0029VbCFWDHLSmbhFp89fk37" target="_blank">Community</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="https://whatsapp.com/channel/0029VbCFWDHLSmbhFp89fk37" target="_blank">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Hivemaa. All rights reserved.</span>
+                <span>Designed with <i class="fas fa-heart" style="color: var(--primary);"></i> for Africa</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // ==========================================
+        // ALL ARTICLE DATA IS HERE (no external file needed)
+        // ==========================================
+        const articlesData = [
+            {
+                id: 1,
+                title: "AI-powered soil health monitoring",
+                excerpt: "New platform helps farmers monitor soil in real-time using machine learning.",
+                category: "Technology",
+                author: "Dr. Sarah Okonkwo",
+                date: "May 12, 2026",
+                readTime: "5 min read",
+                tags: ["AI", "Soil", "Technology"],
+                featured: true,
+                url: "articles/article-1.html"
+            },
+            {
+                id: 2,
+                title: "Drone seeding initiative in Kenya",
+                excerpt: "Startup scales reforestation efforts with drone technology.",
+                category: "Innovation",
+                author: "James Mwangi",
+                date: "May 10, 2026",
+                readTime: "3 min read",
+                tags: ["Drones", "Kenya", "Innovation"],
+                featured: true,
+                url: "articles/article-2.html"
+            },
+            {
+                id: 3,
+                title: "Real-time market prices dashboard",
+                excerpt: "Empowering smallholder farmers with live commodity pricing data.",
+                category: "Data",
+                author: "Amara Okafor",
+                date: "May 8, 2026",
+                readTime: "4 min read",
+                tags: ["Market", "Data", "Farmers"],
+                featured: false,
+                url: "articles/article-3.html"
+            },
+            {
+                id: 4,
+                title: "AI in Agriculture: The Future of Farming",
+                excerpt: "How machine learning is transforming crop yields.",
+                category: "Technology",
+                author: "Prof. Kwame Nkrumah",
+                date: "April 28, 2026",
+                readTime: "8 min read",
+                tags: ["AI", "Machine Learning", "Future"],
+                featured: true,
+                url: "articles/article-4.html"
+            },
+            {
+                id: 5,
+                title: "Hydroponics: Soilless Farming for Africa",
+                excerpt: "Urban agriculture solutions for food security.",
+                category: "Innovation",
+                author: "Zainab Ahmed",
+                date: "April 22, 2026",
+                readTime: "6 min read",
+                tags: ["Hydroponics", "Urban", "Food Security"],
+                featured: false,
+                url: "articles/article-5.html"
+            },
+            {
+                id: 6,
+                title: "Precision Agriculture with Satellite Data",
+                excerpt: "How satellite imagery drives smarter farming decisions.",
+                category: "Technology",
+                author: "Hivemaa Team",
+                date: "April 15, 2026",
+                readTime: "7 min read",
+                tags: ["Satellite", "Precision", "Data"],
+                featured: true,
+                url: "articles/article-6.html"
+            }
+        ];
+
+        // ==========================================
+        // RENDER ARTICLES
+        // ==========================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const grid = document.getElementById('articlesGrid');
+            if (!grid) return;
+
+            function renderArticles(articles) {
+                grid.innerHTML = '';
+
+                if (!articles || articles.length === 0) {
+                    grid.innerHTML = '<p style="text-align:center;opacity:0.6;padding:40px 0;">No articles found. Check back soon!</p>';
+                    return;
+                }
+
+                articles.forEach(article => {
+                    const card = document.createElement('article');
+                    card.className = 'card article-card fade-up';
+                    card.dataset.tags = article.tags ? article.tags.join(' ') : '';
+
+                    let icon = 'fa-newspaper';
+                    if (article.category === 'Technology') icon = 'fa-microchip';
+                    else if (article.category === 'Innovation') icon = 'fa-lightbulb';
+                    else if (article.category === 'Data') icon = 'fa-chart-line';
+
+                    card.innerHTML = `
+                        <div class="card-img">
+                            <i class="fas ${icon}"></i>
+                        </div>
+                        <div class="card-body">
+                            <h3>${article.title || 'Untitled'}</h3>
+                            <p>${article.excerpt || ''}</p>
+                            <div class="meta">
+                                <span><i class="far fa-calendar-alt"></i> ${article.date || 'Unknown date'}</span>
+                                <span><i class="far fa-clock"></i> ${article.readTime || '3 min read'}</span>
+                                <span><i class="far fa-user"></i> ${article.author || 'Hivemaa'}</span>
+                            </div>
+                            <div class="tag-group">
+                                ${article.tags ? article.tags.map(tag => `<span class="tag">${tag}</span>`).join('') : ''}
+                            </div>
+                            <a href="${article.url || '#'}" class="btn btn-primary" style="margin-top: 16px; width: 100%; justify-content: center;">
+                                <i class="fas fa-book-open"></i> Read Article
+                            </a>
+                        </div>
+                    `;
+
+                    grid.appendChild(card);
+                });
+
+                // Trigger fade-in animations
+                setTimeout(() => {
+                    document.querySelectorAll('.fade-up').forEach(el => {
+                        el.classList.add('visible');
+                    });
+                }, 100);
+            }
+
+            // Render the articles
+            renderArticles(articlesData);
+
+            // ==========================================
+            // SEARCH FUNCTIONALITY
+            // ==========================================
+            const searchInput = document.getElementById('searchInput');
+            const searchBtn = document.getElementById('searchBtn');
+
+            if (searchInput && searchBtn) {
+                function performSearch() {
+                    const query = searchInput.value.trim().toLowerCase();
+
+                    if (!query) {
+                        document.querySelectorAll('.article-card').forEach(card => {
+                            card.style.border = 'none';
+                            card.style.opacity = '1';
+                        });
+                        const msg = document.querySelector('.search-result-msg');
+                        if (msg) msg.remove();
+                        return;
+                    }
+
+                    const cards = document.querySelectorAll('.article-card');
+                    let found = 0;
+
+                    cards.forEach((card) => {
+                        const title = card.querySelector('h3')?.textContent?.toLowerCase() || '';
+                        const excerpt = card.querySelector('p')?.textContent?.toLowerCase() || '';
+                        const tags = card.dataset.tags?.toLowerCase() || '';
+
+                        if (title.includes(query) || excerpt.includes(query) || tags.includes(query)) {
+                            card.style.border = '2px solid var(--primary)';
+                            card.style.opacity = '1';
+                            found++;
+                        } else {
+                            card.style.border = 'none';
+                            card.style.opacity = '0.3';
+                        }
+                    });
+
+                    const existingMsg = document.querySelector('.search-result-msg');
+                    if (found === 0) {
+                        if (!existingMsg) {
+                            const msg = document.createElement('p');
+                            msg.className = 'search-result-msg';
+                            msg.style.textAlign = 'center';
+                            msg.style.marginTop = '20px';
+                            msg.style.color = 'var(--primary)';
+                            msg.textContent = 'No articles found. Try a different keyword.';
+                            grid.after(msg);
+                        }
+                    } else {
+                        existingMsg?.remove();
+                    }
+                }
+
+                searchBtn.addEventListener('click', performSearch);
+                searchInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') performSearch();
+                });
+            }
+        });
+    </script>
 </body>
 </html>
