@@ -1,9 +1,7 @@
-// Dark Mode Toggle
 document.addEventListener('DOMContentLoaded', function() {
   const toggle = document.getElementById('darkToggle');
   if (!toggle) return;
 
-  // Check for saved preference
   if (localStorage.getItem('darkMode') === 'enabled') {
     document.body.classList.add('dark');
     toggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
@@ -22,9 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Scroll Fade-in Animation
   const fadeEls = document.querySelectorAll('.fade-up');
-  
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -38,12 +34,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   fadeEls.forEach(el => observer.observe(el));
 
-  // Smooth scroll for internal links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const href = this.getAttribute('href');
       if (href === '#') return;
-      
       const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
@@ -52,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Active navigation link highlighting
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-links a').forEach(link => {
     const linkPage = link.getAttribute('href');
