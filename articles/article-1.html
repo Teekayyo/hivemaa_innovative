@@ -15,19 +15,32 @@
     .article-meta { display: flex; gap: 20px; opacity: 0.6; margin-bottom: 30px; flex-wrap: wrap; }
     .article-body { font-size: 1.1rem; line-height: 1.8; opacity: 0.9; }
     .article-body p { margin-bottom: 20px; }
+    .article-body h2 { margin-top: 40px; margin-bottom: 16px; font-size: 1.8rem; }
+    .article-body h3 { margin-top: 30px; margin-bottom: 12px; font-size: 1.3rem; }
+    .article-body ul, .article-body ol { margin-bottom: 20px; padding-left: 30px; }
+    .article-body li { margin-bottom: 10px; }
+    .article-body blockquote { 
+      border-left: 4px solid var(--primary); 
+      padding: 16px 24px; 
+      margin: 20px 0; 
+      background: var(--light-grey); 
+      border-radius: 8px;
+      font-style: italic;
+    }
     .share-buttons { display: flex; gap: 12px; margin: 30px 0; flex-wrap: wrap; }
     .share-btn { padding: 10px 20px; border-radius: 60px; border: none; cursor: pointer; transition: 0.2s; display: inline-flex; align-items: center; gap: 8px; }
     .share-btn:hover { transform: scale(1.05); }
     .share-twitter { background: #1DA1F2; color: white; }
     .share-linkedin { background: #0A66C2; color: white; }
     .share-facebook { background: #1877F2; color: white; }
+    .share-whatsapp { background: #25D366; color: white; }
   </style>
 </head>
 <body>
   <nav class="container">
     <a href="../index.html" class="logo">
-      <span class="logo-icon"><i class="fas fa-seedling"></i></span>
-      Hivemaa
+      <img src="../hivemaa-home-logo.png" alt="Hivemaa" style="height: 40px; width: auto; display: inline-block; vertical-align: middle;" />
+      <span style="font-weight: 700; font-size: 1.6rem; margin-left: 10px; vertical-align: middle;">Hivemaa</span>
     </a>
     <ul class="nav-links">
       <li><a href="../index.html">Home</a></li>
@@ -38,7 +51,7 @@
       <li><a href="../research.html">Research</a></li>
       <li><a href="../innovation.html">Innovation</a></li>
       <li><a href="../resources.html">Resources</a></li>
-      <li><a href="../community.html">Community</a></li>
+      <li><a href="https://whatsapp.com/channel/0029VbCFWDHLSmbhFp89fk37" target="_blank">Community</a></li>
       <li><a href="../contact.html">Contact</a></li>
     </ul>
     <div class="nav-actions">
@@ -49,22 +62,115 @@
   <main class="container">
     <div class="article-content">
       <h1>AI-powered soil health monitoring</h1>
+      
       <div class="article-meta">
         <span><i class="far fa-user"></i> Dr. Sarah Okonkwo</span>
         <span><i class="far fa-calendar-alt"></i> May 12, 2026</span>
         <span><i class="far fa-clock"></i> 5 min read</span>
+        <span><i class="fas fa-tags"></i> AI, Soil Health, Technology</span>
       </div>
 
       <div class="share-buttons">
         <button class="share-btn share-twitter"><i class="fab fa-twitter"></i> Share</button>
         <button class="share-btn share-linkedin"><i class="fab fa-linkedin-in"></i> Share</button>
         <button class="share-btn share-facebook"><i class="fab fa-facebook-f"></i> Share</button>
+        <button class="share-btn share-whatsapp"><i class="fab fa-whatsapp"></i> Share</button>
       </div>
 
       <div class="article-body">
-        <p>Artificial intelligence is revolutionizing soil health monitoring across Africa. New platforms are using machine learning algorithms to analyze soil samples and provide real-time recommendations to farmers.</p>
-        <p>This technology helps farmers make informed decisions about fertilizer application, crop selection, and irrigation scheduling. Early adopters have reported yield increases of up to 30%.</p>
-        <p>The platform combines satellite imagery, IoT sensors, and AI to create a comprehensive soil health dashboard accessible via mobile phone.</p>
+        <p>Soil health is the foundation of agricultural productivity, yet it remains one of the most under-monitored and undervalued aspects of farming across Africa. Traditional soil testing methods are often expensive, time-consuming, and inaccessible to smallholder farmers who make up the majority of the continent's agricultural workforce.</p>
+
+        <p>Enter artificial intelligence. A new wave of AI-powered soil health monitoring platforms is transforming how farmers understand and manage their soil, making precision agriculture accessible to everyone.</p>
+
+        <h2>The Challenge of Soil Health Monitoring</h2>
+        <p>For decades, farmers have relied on visual inspection, traditional knowledge, and occasional laboratory testing to assess soil health. These methods have significant limitations:</p>
+        <ul>
+          <li><strong>Cost:</strong> Laboratory tests can cost hundreds of dollars per sample</li>
+          <li><strong>Time:</strong> Results can take weeks to return</li>
+          <li><strong>Access:</strong> Many rural areas lack testing facilities</li>
+          <li><strong>Complexity:</strong> Interpreting results requires specialized knowledge</li>
+        </ul>
+
+        <p>For smallholder farmers with limited resources, these barriers mean that soil management decisions are often made without reliable data.</p>
+
+        <h2>How AI is Changing the Game</h2>
+        <p>AI-powered soil monitoring platforms are addressing these challenges through a combination of technologies:</p>
+
+        <h3>1. Machine Learning from Satellite Imagery</h3>
+        <p>Advanced algorithms analyze satellite images to detect soil characteristics from space. By examining patterns in vegetation, soil colour, and moisture content, AI can provide valuable insights without requiring physical soil samples.</p>
+
+        <h3>2. Mobile-Based Analysis</h3>
+        <p>Smartphone apps now allow farmers to take photos of their soil and receive instant analysis. The AI compares the image against thousands of reference samples to provide recommendations on soil type, nutrient levels, and potential deficiencies.</p>
+
+        <h3>3. IoT Sensor Networks</h3>
+        <p>Affordable sensors placed in the ground continuously monitor soil moisture, temperature, and pH levels. This data is transmitted to the cloud where AI models analyze trends and provide real-time alerts.</p>
+
+        <h3>4. Predictive Modelling</h3>
+        <p>AI can predict future soil health trends based on current conditions, weather forecasts, and historical data. This allows farmers to plan proactively rather than react to problems as they arise.</p>
+
+        <blockquote>
+          "AI-powered soil monitoring has the potential to increase crop yields by up to 30% while reducing fertilizer costs by 20%." 
+          <br/>— Dr. Sarah Okonkwo, Agricultural Technology Researcher
+        </blockquote>
+
+        <h2>Benefits for African Farmers</h2>
+        <p>The impact of AI-powered soil health monitoring is already being felt across Africa:</p>
+        <ul>
+          <li><strong>Increased yields:</strong> Farmers using AI insights report 20-30% higher yields</li>
+          <li><strong>Reduced costs:</strong> Optimized fertilizer application saves 15-25% on input costs</li>
+          <li><strong>Environmental protection:</strong> Targeted fertilizer use reduces soil degradation and water pollution</li>
+          <li><strong>Climate resilience:</strong> Better soil health improves drought resistance</li>
+          <li><strong>Knowledge transfer:</strong> Farmers learn about soil science through accessible technology</li>
+        </ul>
+
+        <h2>Success Stories from the Field</h2>
+        <p>In Kenya, a pilot program with 500 smallholder farmers using AI-powered soil monitoring achieved remarkable results:</p>
+        <ul>
+          <li>Maize yields increased by 34% on average</li>
+          <li>Fertilizer costs decreased by 22%</li>
+          <li>80% of farmers reported better understanding of their soil</li>
+          <li>85% planned to continue using the technology</li>
+        </ul>
+
+        <p>Similar programs in Nigeria, Ghana, and Ethiopia are showing comparable results, with growing interest from agricultural extension services and government agencies.</p>
+
+        <h2>Challenges and Opportunities</h2>
+        <p>While the potential of AI-powered soil monitoring is enormous, several challenges remain:</p>
+        <ul>
+          <li><strong>Digital literacy:</strong> Training farmers to use technology effectively</li>
+          <li><strong>Internet connectivity:</strong> Rural areas often lack reliable internet access</li>
+          <li><strong>Device availability:</strong> Smartphone access is growing but not universal</li>
+          <li><strong>Data privacy:</strong> Ensuring farmer data is protected</li>
+        </ul>
+
+        <p>However, these challenges are being addressed through partnerships with telecommunications companies, government programs, and non-profit organizations dedicated to agricultural development.</p>
+
+        <h2>Conclusion</h2>
+        <p>AI-powered soil health monitoring represents a significant leap forward for African agriculture. By making precision agriculture accessible to smallholder farmers, this technology has the potential to increase food security, protect the environment, and build more resilient farming communities.</p>
+
+        <p>As the technology continues to evolve and become more affordable, we can expect to see widespread adoption across the continent. The future of African agriculture is data-driven, and AI is leading the way.</p>
+      </div>
+
+      <div style="margin-top: 60px; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 40px;">
+        <h3 style="margin-bottom: 20px;">Related Articles</h3>
+        <div class="card-grid">
+          <div class="card article-card">
+            <div class="card-img"><i class="fas fa-microchip"></i></div>
+            <div class="card-body">
+              <h3>AI in Agriculture: The Future of Farming</h3>
+              <p>How machine learning is transforming crop yields and farm management.</p>
+              <a href="article-4.html" class="btn btn-primary" style="margin-top: 12px;">Read More</a>
+            </div>
+          </div>
+          <div class="card article-card">
+            <div class="card-img"><i class="fas fa-satellite"></i></div>
+            <div class="card-body">
+              <h3>Precision Agriculture with Satellite Data</h3>
+              <p>How satellite imagery drives smarter farming decisions.</p>
+              <a href="article-6.html" class="btn btn-primary" style="margin-top: 12px;">Read More</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </main>
@@ -72,14 +178,54 @@
   <footer>
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-brand"><h4>Hivemaa</h4><p>AgriTech for Africa.</p></div>
-        <div><h4>Quick Links</h4><ul><li><a href="../about.html">About</a></li><li><a href="../articles.html">Articles</a></li></ul></div>
-        <div><h4>Resources</h4><ul><li><a href="../research.html">Research</a></li></ul></div>
-        <div><h4>Legal</h4><ul><li><a href="#">Privacy</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
+        <div class="footer-brand">
+          <h4>Hivemaa</h4>
+          <p>AgriTech for Africa — connecting agriculture with technology.</p>
+          <div class="footer-socials">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+          <div style="margin-top: 16px; font-size: 0.95rem; opacity: 0.8;">
+            <p><i class="fas fa-phone"></i> +234 07066347583, +234 08181464849</p>
+            <p><i class="fas fa-envelope"></i> hivemaainnovative@gmail.com</p>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../news.html">News</a></li>
+            <li><a href="../articles.html">Articles</a></li>
+            <li><a href="../opportunities.html">Opportunities</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="../research.html">Research</a></li>
+            <li><a href="../innovation.html">Innovation</a></li>
+            <li><a href="../resources.html">Resources</a></li>
+            <li><a href="https://whatsapp.com/channel/0029VbCFWDHLSmbhFp89fk37" target="_blank">Community</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="https://whatsapp.com/channel/0029VbCFWDHLSmbhFp89fk37" target="_blank">Contact</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="footer-bottom"><span>&copy; 2026 Hivemaa</span></div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Hivemaa. All rights reserved.</span>
+        <span>Designed with <i class="fas fa-heart" style="color: var(--primary);"></i> for Africa</span>
+      </div>
     </div>
   </footer>
+
   <script src="../js/script.js"></script>
 </body>
 </html>
