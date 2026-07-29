@@ -9,12 +9,62 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .about-content h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 24px;
+    }
+    .about-content p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      opacity: 0.85;
+      margin-bottom: 20px;
+    }
+    .about-content h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-top: 40px;
+      margin-bottom: 16px;
+    }
+    .about-content ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+    .about-content ul li {
+      padding: 8px 0;
+      font-size: 1.05rem;
+      opacity: 0.85;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .about-content ul li strong {
+      color: var(--primary);
+    }
+    .about-motto {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      background: var(--light-grey);
+      border-radius: var(--border-radius);
+    }
+    body.dark .about-content ul li {
+      border-bottom-color: rgba(255,255,255,0.05);
+    }
+  </style>
 </head>
 <body>
   <nav class="container">
     <a href="index.html" class="logo">
-      <span class="logo-icon"><i class="fas fa-seedling"></i></span>
-      Hivemaa
+      <img src="hivemaa-home-logo.png" alt="Hivemaa" style="height: 40px; width: auto; display: inline-block; vertical-align: middle;" />
+      <span style="font-weight: 700; font-size: 1.6rem; margin-left: 10px; vertical-align: middle;">Hivemaa</span>
     </a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -25,30 +75,105 @@
       <li><a href="research.html">Research</a></li>
       <li><a href="innovation.html">Innovation</a></li>
       <li><a href="resources.html">Resources</a></li>
-      <li><a href="community.html">Community</a></li>
+      <li><a href="https://whatsapp.com/channel/0029VbCFWDHLSmbhFp89fk37" target="_blank">Community</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="nav-actions">
       <button class="dark-toggle" id="darkToggle"><i class="fas fa-moon"></i></button>
     </div>
   </nav>
+
   <main class="container">
     <section class="section">
-      <h1 class="section-title">About Hivemaa</h1>
-      <p style="font-size:1.2rem; max-width:700px; opacity:0.7;">Connecting Agriculture with Technology across Africa.</p>
+      <div class="about-content">
+        <h1>About Hivemaa</h1>
+
+        <p>Hivemaa is an AgriTech platform dedicated to connecting agriculture with technology, knowledge and opportunity. We believe the future of agriculture lies at the intersection of innovation, data and collaboration, and our mission is to make that future accessible to everyone.</p>
+
+        <p>We serve as a trusted source for agricultural news, research, educational resources, career opportunities and emerging technologies that are transforming the agricultural sector. Whether you're a farmer, student, researcher, entrepreneur, investor or policymaker, Hivemaa provides the insights and tools needed to thrive in a rapidly evolving industry.</p>
+
+        <p>Our platform brings together the latest developments in precision agriculture, artificial intelligence, climate-smart farming, agribusiness, market intelligence and digital innovation, helping individuals and organisations make informed decisions that drive sustainable growth.</p>
+
+        <p>More than a website, Hivemaa is a growing community of forward-thinking people who believe agriculture is not just about feeding the world, but about creating opportunities, solving global challenges and building resilient economies.</p>
+
+        <p>As technology reshapes the future of food and farming, Hivemaa is committed to ensuring that Africa remains at the forefront of agricultural innovation by connecting people with ideas, resources and opportunities that matter.</p>
+
+        <h2>Our Mission</h2>
+        <p>To bridge the gap between agriculture and technology by delivering reliable information, practical resources and meaningful opportunities that empower individuals and strengthen agricultural systems.</p>
+
+        <h2>Our Vision</h2>
+        <p>To become Africa's leading digital platform for agricultural innovation, recognised for advancing knowledge, fostering collaboration and accelerating sustainable development through technology.</p>
+
+        <h2>Our Core Values</h2>
+        <ul>
+          <li><strong>Innovation</strong> — Embracing technology to solve agricultural challenges.</li>
+          <li><strong>Integrity</strong> — Delivering accurate, trustworthy and unbiased information.</li>
+          <li><strong>Sustainability</strong> — Promoting practices that protect people, communities and the environment.</li>
+          <li><strong>Collaboration</strong> — Building partnerships that create lasting impact.</li>
+          <li><strong>Excellence</strong> — Maintaining the highest standards in everything we publish and create.</li>
+          <li><strong>Empowerment</strong> — Equipping individuals with the knowledge and opportunities to succeed.</li>
+        </ul>
+
+        <div class="about-motto">
+          <i class="fas fa-quote-left" style="margin-right: 12px; opacity: 0.5;"></i>
+          Connecting Agriculture with Technology.
+          <i class="fas fa-quote-right" style="margin-left: 12px; opacity: 0.5;"></i>
+        </div>
+      </div>
     </section>
   </main>
+
   <footer>
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-brand"><h4>Hivemaa</h4><p>AgriTech for Africa.</p></div>
-        <div><h4>Quick Links</h4><ul><li><a href="about.html">About</a></li><li><a href="articles.html">Articles</a></li></ul></div>
-        <div><h4>Resources</h4><ul><li><a href="research.html">Research</a></li><li><a href="innovation.html">Innovation</a></li></ul></div>
-        <div><h4>Legal</h4><ul><li><a href="#">Privacy</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="footer-brand">
+          <h4>Hivemaa</h4>
+          <p>AgriTech for Africa — connecting agriculture with technology.</p>
+          <div class="footer-socials">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+          <div style="margin-top: 16px; font-size: 0.95rem; opacity: 0.8;">
+            <p><i class="fas fa-phone"></i> +234 07066347583, +234 08181464849</p>
+            <p><i class="fas fa-envelope"></i> hivemaainnovative@gmail.com</p>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="articles.html">Articles</a></li>
+            <li><a href="opportunities.html">Opportunities</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="innovation.html">Innovation</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="https://whatsapp.com/channel/0029VbCFWDHLSmbhFp89fk37" target="_blank">Community</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="https://whatsapp.com/channel/0029VbCFWDHLSmbhFp89fk37" target="_blank">Contact</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="footer-bottom"><span>&copy; 2026 Hivemaa</span></div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Hivemaa. All rights reserved.</span>
+        <span>Designed with <i class="fas fa-heart" style="color: var(--primary);"></i> for Africa</span>
+      </div>
     </div>
   </footer>
+
   <script src="js/script.js"></script>
 </body>
 </html>
