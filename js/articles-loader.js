@@ -40,7 +40,6 @@ document.addEventListener('DOMContentLoaded', function() {
       articlesGrid.appendChild(card);
     });
 
-    // Trigger animations
     setTimeout(() => {
       document.querySelectorAll('.fade-up').forEach(el => {
         el.classList.add('visible');
