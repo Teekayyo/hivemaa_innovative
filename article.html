@@ -10,51 +10,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     <style>
-        /* Additional styles for article cards */
-        .article-card .card-img {
-            height: 180px;
-            background: var(--light-grey);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-size: 3rem;
-        }
-        .article-card .card-body {
-            padding: 24px;
-        }
-        .article-card .card-body h3 {
-            font-size: 1.2rem;
-            margin-bottom: 6px;
-        }
-        .article-card .meta {
-            display: flex;
-            gap: 16px;
-            font-size: 0.8rem;
-            opacity: 0.6;
-            margin-top: 12px;
-            flex-wrap: wrap;
-        }
-        .article-card .meta i {
-            font-size: 0.8rem;
-            margin-right: 4px;
-            color: inherit;
-        }
-        .tag-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 12px;
-        }
-        .tag {
-            background: var(--light-grey);
-            padding: 6px 16px;
-            border-radius: 60px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--text);
-            opacity: 0.8;
-        }
+        .article-card .card-img { height: 180px; background: var(--light-grey); display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 3rem; }
+        .article-card .card-body { padding: 24px; }
+        .article-card .card-body h3 { font-size: 1.2rem; margin-bottom: 6px; }
+        .article-card .meta { display: flex; gap: 16px; font-size: 0.8rem; opacity: 0.6; margin-top: 12px; flex-wrap: wrap; }
+        .tag-group { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+        .tag { background: var(--light-grey); padding: 6px 16px; border-radius: 60px; font-size: 0.8rem; font-weight: 500; color: var(--text); opacity: 0.8; }
     </style>
 </head>
 <body>
@@ -90,7 +51,9 @@
                 <button id="searchBtn"><i class="fas fa-search"></i></button>
             </div>
 
-            <div id="articlesGrid" class="card-grid"></div>
+            <div id="articlesGrid" class="card-grid">
+                <!-- Articles will be loaded here -->
+            </div>
         </section>
     </main>
 
@@ -145,10 +108,9 @@
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
     <script>
         // ==========================================
-        // ALL ARTICLE DATA IS HERE (no external file needed)
+        // ALL ARTICLE DATA
         // ==========================================
         const articlesData = [
             {
@@ -160,7 +122,6 @@
                 date: "May 12, 2026",
                 readTime: "5 min read",
                 tags: ["AI", "Soil", "Technology"],
-                featured: true,
                 url: "articles/article-1.html"
             },
             {
@@ -172,7 +133,6 @@
                 date: "May 10, 2026",
                 readTime: "3 min read",
                 tags: ["Drones", "Kenya", "Innovation"],
-                featured: true,
                 url: "articles/article-2.html"
             },
             {
@@ -184,7 +144,6 @@
                 date: "May 8, 2026",
                 readTime: "4 min read",
                 tags: ["Market", "Data", "Farmers"],
-                featured: false,
                 url: "articles/article-3.html"
             },
             {
@@ -196,7 +155,6 @@
                 date: "April 28, 2026",
                 readTime: "8 min read",
                 tags: ["AI", "Machine Learning", "Future"],
-                featured: true,
                 url: "articles/article-4.html"
             },
             {
@@ -208,7 +166,6 @@
                 date: "April 22, 2026",
                 readTime: "6 min read",
                 tags: ["Hydroponics", "Urban", "Food Security"],
-                featured: false,
                 url: "articles/article-5.html"
             },
             {
@@ -220,7 +177,6 @@
                 date: "April 15, 2026",
                 readTime: "7 min read",
                 tags: ["Satellite", "Precision", "Data"],
-                featured: true,
                 url: "articles/article-6.html"
             }
         ];
@@ -236,7 +192,7 @@
                 grid.innerHTML = '';
 
                 if (!articles || articles.length === 0) {
-                    grid.innerHTML = '<p style="text-align:center;opacity:0.6;padding:40px 0;">No articles found. Check back soon!</p>';
+                    grid.innerHTML = '<p style="text-align:center;opacity:0.6;padding:40px 0;">No articles found.</p>';
                     return;
                 }
 
@@ -274,7 +230,6 @@
                     grid.appendChild(card);
                 });
 
-                // Trigger fade-in animations
                 setTimeout(() => {
                     document.querySelectorAll('.fade-up').forEach(el => {
                         el.classList.add('visible');
@@ -282,32 +237,25 @@
                 }, 100);
             }
 
-            // Render the articles
             renderArticles(articlesData);
 
-            // ==========================================
-            // SEARCH FUNCTIONALITY
-            // ==========================================
+            // Search
             const searchInput = document.getElementById('searchInput');
             const searchBtn = document.getElementById('searchBtn');
 
             if (searchInput && searchBtn) {
                 function performSearch() {
                     const query = searchInput.value.trim().toLowerCase();
+                    const cards = document.querySelectorAll('.article-card');
 
                     if (!query) {
-                        document.querySelectorAll('.article-card').forEach(card => {
-                            card.style.border = 'none';
-                            card.style.opacity = '1';
-                        });
+                        cards.forEach(card => { card.style.border = 'none'; card.style.opacity = '1'; });
                         const msg = document.querySelector('.search-result-msg');
                         if (msg) msg.remove();
                         return;
                     }
 
-                    const cards = document.querySelectorAll('.article-card');
                     let found = 0;
-
                     cards.forEach((card) => {
                         const title = card.querySelector('h3')?.textContent?.toLowerCase() || '';
                         const excerpt = card.querySelector('p')?.textContent?.toLowerCase() || '';
@@ -342,6 +290,20 @@
                 searchBtn.addEventListener('click', performSearch);
                 searchInput.addEventListener('keypress', (e) => {
                     if (e.key === 'Enter') performSearch();
+                });
+            }
+
+            // Dark Mode Toggle
+            const toggle = document.getElementById('darkToggle');
+            if (toggle) {
+                toggle.addEventListener('click', function() {
+                    document.body.classList.toggle('dark');
+                    const icon = this.querySelector('i');
+                    if (document.body.classList.contains('dark')) {
+                        icon.classList.replace('fa-moon', 'fa-sun');
+                    } else {
+                        icon.classList.replace('fa-sun', 'fa-moon');
+                    }
                 });
             }
         });
