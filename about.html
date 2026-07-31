@@ -10,54 +10,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    .about-content {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .about-content h1 {
-      font-size: 2.8rem;
-      font-weight: 800;
-      margin-bottom: 24px;
-    }
-    .about-content p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      opacity: 0.85;
-      margin-bottom: 20px;
-    }
-    .about-content h2 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-top: 40px;
-      margin-bottom: 16px;
-    }
-    .about-content ul {
-      list-style: none;
-      padding: 0;
-      margin-bottom: 20px;
-    }
-    .about-content ul li {
-      padding: 8px 0;
-      font-size: 1.05rem;
-      opacity: 0.85;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-    }
-    .about-content ul li strong {
-      color: var(--primary);
-    }
-    .about-motto {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--primary);
-      text-align: center;
-      margin-top: 40px;
-      padding: 20px;
-      background: var(--light-grey);
-      border-radius: var(--border-radius);
-    }
-    body.dark .about-content ul li {
-      border-bottom-color: rgba(255,255,255,0.05);
-    }
+    .about-content { max-width: 800px; margin: 0 auto; }
+    .about-content h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 24px; }
+    .about-content p { font-size: 1.1rem; line-height: 1.8; opacity: 0.85; margin-bottom: 20px; }
+    .about-content h2 { font-size: 1.8rem; font-weight: 700; margin-top: 40px; margin-bottom: 16px; }
+    .about-content ul { list-style: none; padding: 0; margin-bottom: 20px; }
+    .about-content ul li { padding: 8px 0; font-size: 1.05rem; opacity: 0.85; border-bottom: 1px solid rgba(0,0,0,0.05); }
+    .about-content ul li strong { color: var(--primary); }
+    .about-motto { font-size: 1.4rem; font-weight: 700; color: var(--primary); text-align: center; margin-top: 40px; padding: 20px; background: var(--light-grey); border-radius: var(--border-radius); }
+    body.dark .about-content ul li { border-bottom-color: rgba(255,255,255,0.05); }
   </style>
 </head>
 <body>
@@ -72,8 +33,6 @@
       <li><a href="news.html">News</a></li>
       <li><a href="articles.html">Articles</a></li>
       <li><a href="opportunities.html">Opportunities</a></li>
-      <li><a href="research.html">Research</a></li>
-      <li><a href="innovation.html">Innovation</a></li>
       <li><a href="resources.html">Resources</a></li>
       <li><a href="https://whatsapp.com/channel/0029VbCFWDHLSmbhFp89fk37" target="_blank">Community</a></li>
       <li><a href="contact.html">Contact</a></li>
@@ -87,15 +46,10 @@
     <section class="section">
       <div class="about-content">
         <h1>About Hivemaa</h1>
-
         <p>Hivemaa is an AgriTech platform dedicated to connecting agriculture with technology, knowledge and opportunity. We believe the future of agriculture lies at the intersection of innovation, data and collaboration, and our mission is to make that future accessible to everyone.</p>
-
         <p>We serve as a trusted source for agricultural news, research, educational resources, career opportunities and emerging technologies that are transforming the agricultural sector. Whether you're a farmer, student, researcher, entrepreneur, investor or policymaker, Hivemaa provides the insights and tools needed to thrive in a rapidly evolving industry.</p>
-
         <p>Our platform brings together the latest developments in precision agriculture, artificial intelligence, climate-smart farming, agribusiness, market intelligence and digital innovation, helping individuals and organisations make informed decisions that drive sustainable growth.</p>
-
         <p>More than a website, Hivemaa is a growing community of forward-thinking people who believe agriculture is not just about feeding the world, but about creating opportunities, solving global challenges and building resilient economies.</p>
-
         <p>As technology reshapes the future of food and farming, Hivemaa is committed to ensuring that Africa remains at the forefront of agricultural innovation by connecting people with ideas, resources and opportunities that matter.</p>
 
         <h2>Our Mission</h2>
@@ -147,15 +101,9 @@
             <li><a href="news.html">News</a></li>
             <li><a href="articles.html">Articles</a></li>
             <li><a href="opportunities.html">Opportunities</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Resources</h4>
-          <ul>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="innovation.html">Innovation</a></li>
             <li><a href="resources.html">Resources</a></li>
             <li><a href="https://whatsapp.com/channel/0029VbCFWDHLSmbhFp89fk37" target="_blank">Community</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
         <div>
@@ -175,5 +123,27 @@
   </footer>
 
   <script src="js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggle = document.getElementById('darkToggle');
+      if (toggle) {
+        if (localStorage.getItem('darkMode') === 'enabled') {
+          document.body.classList.add('dark');
+          toggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
+        }
+        toggle.addEventListener('click', function() {
+          document.body.classList.toggle('dark');
+          const icon = this.querySelector('i');
+          if (document.body.classList.contains('dark')) {
+            icon.classList.replace('fa-moon', 'fa-sun');
+            localStorage.setItem('darkMode', 'enabled');
+          } else {
+            icon.classList.replace('fa-sun', 'fa-moon');
+            localStorage.setItem('darkMode', 'disabled');
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
