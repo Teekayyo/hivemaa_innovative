@@ -184,4 +184,64 @@
           card.innerHTML = `
             <div class="card-img"><i class="fas ${icon}"></i></div>
             <div class="card-body">
-              <
+              <h3>${article.title}</h3>
+              <p>${article.excerpt}</p>
+              <div class="meta">
+                <span><i class="far fa-calendar-alt"></i> ${article.date}</span>
+                <span><i class="far fa-clock"></i> ${article.readTime}</span>
+                <span><i class="far fa-user"></i> ${article.author}</span>
+              </div>
+              <div class="tag-group">${article.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}</div>
+              <a href="${article.url}" class="btn btn-primary" style="margin-top: 16px; width: 100%; justify-content: center;"><i class="fas fa-book-open"></i> Read Article</a>
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+        setTimeout(() => { document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible')); }, 100);
+      }
+      renderArticles(articlesData);
+
+      const searchInput = document.getElementById('searchInput');
+      const searchBtn = document.getElementById('searchBtn');
+      if (searchInput && searchBtn) {
+        function performSearch() {
+          const query = searchInput.value.trim().toLowerCase();
+          const cards = document.querySelectorAll('.article-card');
+          if (!query) { cards.forEach(card => { card.style.display = 'block'; card.style.border = 'none'; card.style.opacity = '1'; }); return; }
+          let found = 0;
+          cards.forEach((card) => {
+            const title = card.querySelector('h3')?.textContent?.toLowerCase() || '';
+            const excerpt = card.querySelector('p')?.textContent?.toLowerCase() || '';
+            const tags = card.dataset.tags?.toLowerCase() || '';
+            if (title.includes(query) || excerpt.includes(query) || tags.includes(query)) {
+              card.style.display = 'block';
+              card.style.border = '2px solid var(--primary)';
+              card.style.opacity = '1';
+              found++;
+            } else {
+              card.style.display = 'none';
+              card.style.border = 'none';
+              card.style.opacity = '0.3';
+            }
+          });
+          const oldMsg = document.querySelector('.search-result-msg');
+          if (oldMsg) oldMsg.remove();
+          if (found === 0) {
+            const msg = document.createElement('p');
+            msg.className = 'search-result-msg';
+            msg.style.textAlign = 'center';
+            msg.style.marginTop = '20px';
+            msg.style.padding = '20px';
+            msg.style.color = 'var(--primary)';
+            msg.style.fontWeight = '500';
+            msg.textContent = '🔍 No articles found. Try a different keyword.';
+            grid.after(msg);
+          }
+        }
+        searchBtn.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', function(e) { if (e.key === 'Enter') { e.preventDefault(); performSearch(); } });
+      }
+    });
+  </script>
+</body>
+</html>
