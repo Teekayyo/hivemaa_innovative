@@ -23,7 +23,7 @@
       <li><a href="articles.html">Articles</a></li>
       <li><a href="opportunities.html" class="active">Opportunities</a></li>
       <li><a href="resources.html">Resources</a></li>
-      <li><a href="https://whatsapp.com/channel/0029VbCFWDHLSmbhFp89fk37" target="_blank">Community</a></li>
+      <li><a href="community.html">Community</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="nav-actions">
@@ -36,6 +36,7 @@
       <h1 class="section-title">Opportunities</h1>
       <p class="section-sub">Scholarships, jobs, internships, competitions, grants &amp; fellowships for African agripreneurs.</p>
       <div class="card-grid">
+        <!-- SCHOLARSHIPS -->
         <a href="scholarships.html" style="text-decoration: none; color: inherit; display: block;">
           <div class="card fade-up">
             <i class="fas fa-graduation-cap"></i>
@@ -44,6 +45,8 @@
             <div class="tag-group"><span class="tag">15+ open</span></div>
           </div>
         </a>
+
+        <!-- JOBS -->
         <a href="jobs.html" style="text-decoration: none; color: inherit; display: block;">
           <div class="card fade-up">
             <i class="fas fa-briefcase"></i>
@@ -52,6 +55,8 @@
             <div class="tag-group"><span class="tag">40+ roles</span></div>
           </div>
         </a>
+
+        <!-- INTERNSHIPS -->
         <a href="internships.html" style="text-decoration: none; color: inherit; display: block;">
           <div class="card fade-up">
             <i class="fas fa-laptop-code"></i>
@@ -60,6 +65,8 @@
             <div class="tag-group"><span class="tag">12 programs</span></div>
           </div>
         </a>
+
+        <!-- COMPETITIONS -->
         <a href="competitions.html" style="text-decoration: none; color: inherit; display: block;">
           <div class="card fade-up">
             <i class="fas fa-trophy"></i>
@@ -68,6 +75,8 @@
             <div class="tag-group"><span class="tag">3 active</span></div>
           </div>
         </a>
+
+        <!-- GRANTS -->
         <a href="grants.html" style="text-decoration: none; color: inherit; display: block;">
           <div class="card fade-up">
             <i class="fas fa-hand-holding-usd"></i>
@@ -76,6 +85,8 @@
             <div class="tag-group"><span class="tag">8 available</span></div>
           </div>
         </a>
+
+        <!-- FELLOWSHIPS -->
         <a href="fellowships.html" style="text-decoration: none; color: inherit; display: block;">
           <div class="card fade-up">
             <i class="fas fa-users"></i>
@@ -100,4 +111,61 @@
             <a href="#"><i class="fab fa-youtube"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
           </div>
-          <div style="
+          <div style="margin-top: 16px; font-size: 0.95rem; opacity: 0.8;">
+            <p><i class="fas fa-phone"></i> +234 07066347583, +234 08181464849</p>
+            <p><i class="fas fa-envelope"></i> hivemaainnovative@gmail.com</p>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="articles.html">Articles</a></li>
+            <li><a href="opportunities.html">Opportunities</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="https://whatsapp.com/channel/0029VbCFWDHLSmbhFp89fk37" target="_blank">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Hivemaa. All rights reserved.</span>
+        <span>Designed with <i class="fas fa-heart" style="color: var(--primary);"></i> for Africa</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggle = document.getElementById('darkToggle');
+      if (toggle) {
+        if (localStorage.getItem('darkMode') === 'enabled') {
+          document.body.classList.add('dark');
+          toggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
+        }
+        toggle.addEventListener('click', function() {
+          document.body.classList.toggle('dark');
+          const icon = this.querySelector('i');
+          if (document.body.classList.contains('dark')) {
+            icon.classList.replace('fa-moon', 'fa-sun');
+            localStorage.setItem('darkMode', 'enabled');
+          } else {
+            icon.classList.replace('fa-sun', 'fa-moon');
+            localStorage.setItem('darkMode', 'disabled');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
