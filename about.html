@@ -19,6 +19,25 @@
     .about-content ul li strong { color: var(--primary); }
     .about-motto { font-size: 1.4rem; font-weight: 700; color: var(--primary); text-align: center; margin-top: 40px; padding: 20px; background: var(--light-grey); border-radius: var(--border-radius); }
     body.dark .about-content ul li { border-bottom-color: rgba(255,255,255,0.05); }
+
+    /* ===== HAMBURGER MENU ===== */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 8px; z-index: 1000; }
+    .hamburger span { display: block; width: 28px; height: 3px; background: var(--text); border-radius: 3px; transition: 0.3s ease; }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+
+    @media (max-width: 768px) {
+      .hamburger { display: flex !important; }
+      nav { position: relative; flex-wrap: wrap; }
+      .nav-links { display: none !important; flex-direction: column; width: 100%; padding: 20px 0; gap: 16px; background: var(--bg); border-top: 1px solid rgba(0,0,0,0.05); position: absolute; top: 75px; left: 0; box-shadow: var(--shadow); z-index: 999; }
+      body.dark .nav-links { border-top-color: rgba(255,255,255,0.05); }
+      .nav-links.open { display: flex !important; }
+      .nav-links li { width: 100%; text-align: center; padding: 8px 0; }
+      .nav-links li a { font-size: 1.1rem; padding: 8px 16px; display: block; }
+      .nav-actions { margin-left: auto; }
+    }
+    @media (min-width: 769px) { .nav-links { display: flex !important; position: static !important; flex-direction: row !important; width: auto !important; padding: 0 !important; background: transparent !important; border: none !important; box-shadow: none !important; } }
   </style>
 </head>
 <body>
@@ -27,18 +46,23 @@
       <img src="hivemaa-home-logo.png" alt="Hivemaa" style="height: 40px; width: auto; display: inline-block; vertical-align: middle;" />
       <span style="font-weight: 700; font-size: 1.6rem; margin-left: 10px; vertical-align: middle;">Hivemaa</span>
     </a>
-    <ul class="nav-links">
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html" class="active">About</a></li>
       <li><a href="news.html">News</a></li>
       <li><a href="articles.html">Articles</a></li>
       <li><a href="opportunities.html">Opportunities</a></li>
       <li><a href="resources.html">Resources</a></li>
-      <li><a href="https://whatsapp.com/channel/0029VbCFWDHLSmbhFp89fk37" target="_blank">Community</a></li>
+      <li><a href="community.html">Community</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="nav-actions">
-      <button class="dark-toggle" id="darkToggle"><i class="fas fa-moon"></i></button>
+      <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+      </button>
     </div>
   </nav>
 
@@ -51,13 +75,10 @@
         <p>Our platform brings together the latest developments in precision agriculture, artificial intelligence, climate-smart farming, agribusiness, market intelligence and digital innovation, helping individuals and organisations make informed decisions that drive sustainable growth.</p>
         <p>More than a website, Hivemaa is a growing community of forward-thinking people who believe agriculture is not just about feeding the world, but about creating opportunities, solving global challenges and building resilient economies.</p>
         <p>As technology reshapes the future of food and farming, Hivemaa is committed to ensuring that Africa remains at the forefront of agricultural innovation by connecting people with ideas, resources and opportunities that matter.</p>
-
         <h2>Our Mission</h2>
         <p>To bridge the gap between agriculture and technology by delivering reliable information, practical resources and meaningful opportunities that empower individuals and strengthen agricultural systems.</p>
-
         <h2>Our Vision</h2>
         <p>To become Africa's leading digital platform for agricultural innovation, recognised for advancing knowledge, fostering collaboration and accelerating sustainable development through technology.</p>
-
         <h2>Our Core Values</h2>
         <ul>
           <li><strong>Innovation</strong> — Embracing technology to solve agricultural challenges.</li>
@@ -67,7 +88,6 @@
           <li><strong>Excellence</strong> — Maintaining the highest standards in everything we publish and create.</li>
           <li><strong>Empowerment</strong> — Equipping individuals with the knowledge and opportunities to succeed.</li>
         </ul>
-
         <div class="about-motto">
           <i class="fas fa-quote-left" style="margin-right: 12px; opacity: 0.5;"></i>
           Connecting Agriculture with Technology.
@@ -102,7 +122,7 @@
             <li><a href="articles.html">Articles</a></li>
             <li><a href="opportunities.html">Opportunities</a></li>
             <li><a href="resources.html">Resources</a></li>
-            <li><a href="https://whatsapp.com/channel/0029VbCFWDHLSmbhFp89fk37" target="_blank">Community</a></li>
+            <li><a href="community.html">Community</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
@@ -111,7 +131,7 @@
           <ul>
             <li><a href="#">Privacy Policy</a></li>
             <li><a href="#">Terms of Use</a></li>
-            <li><a href="https://whatsapp.com/channel/0029VbCFWDHLSmbhFp89fk37" target="_blank">Contact</a></li>
+            <li><a href="community.html">Contact</a></li>
           </ul>
         </div>
       </div>
@@ -124,6 +144,7 @@
 
   <script src="js/script.js"></script>
   <script>
+    // ===== DARK MODE TOGGLE =====
     document.addEventListener('DOMContentLoaded', function() {
       const toggle = document.getElementById('darkToggle');
       if (toggle) {
@@ -140,6 +161,29 @@
           } else {
             icon.classList.replace('fa-sun', 'fa-moon');
             localStorage.setItem('darkMode', 'disabled');
+          }
+        });
+      }
+
+      // ===== HAMBURGER MENU =====
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function(e) {
+          e.stopPropagation();
+          this.classList.toggle('active');
+          navLinks.classList.toggle('open');
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('open');
+          });
+        });
+        document.addEventListener('click', function(e) {
+          if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('open');
           }
         });
       }
