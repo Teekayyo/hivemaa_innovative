@@ -32,14 +32,11 @@
     .whatsapp-btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 32px; background: #25D366; color: white; border-radius: 60px; font-weight: 600; text-decoration: none; transition: 0.2s; margin-top: 12px; }
     .whatsapp-btn:hover { transform: scale(1.05); background: #1DA851; }
     @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; gap: 40px; } }
-
-    /* ===== HAMBURGER MENU ===== */
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 8px; z-index: 1000; }
     .hamburger span { display: block; width: 28px; height: 3px; background: var(--text); border-radius: 3px; transition: 0.3s ease; }
     .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
     .hamburger.active span:nth-child(2) { opacity: 0; }
     .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
-
     @media (max-width: 768px) {
       .hamburger { display: flex !important; }
       nav { position: relative; flex-wrap: wrap; }
@@ -83,12 +80,10 @@
     <section class="section">
       <h1 class="section-title">Contact Us</h1>
       <p class="section-sub">We'd love to hear from you. Reach out through any of the channels below.</p>
-
       <div class="contact-grid">
         <div class="contact-info">
           <h2>Get in Touch</h2>
           <p>Have questions, feedback, or partnership ideas? We're here to help.</p>
-
           <div class="contact-item">
             <i class="fas fa-phone"></i>
             <div>
@@ -96,7 +91,6 @@
               <a href="tel:+2347066347583">+234 07066347583</a>, <a href="tel:+2348181464849">+234 08181464849</a>
             </div>
           </div>
-
           <div class="contact-item">
             <i class="fas fa-envelope"></i>
             <div>
@@ -104,7 +98,6 @@
               <a href="mailto:hivemaainnovative@gmail.com">hivemaainnovative@gmail.com</a>
             </div>
           </div>
-
           <div class="contact-item">
             <i class="fab fa-whatsapp"></i>
             <div>
@@ -112,16 +105,13 @@
               <a href="https://whatsapp.com/channel/0029VbCFWDHLSmbhFp89fk37" target="_blank">Join our WhatsApp Channel</a>
             </div>
           </div>
-
           <a href="https://whatsapp.com/channel/0029VbCFWDHLSmbhFp89fk37" target="_blank" class="whatsapp-btn">
             <i class="fab fa-whatsapp"></i> Join Our WhatsApp Community
           </a>
         </div>
-
         <div class="contact-form">
           <h2>Send a Message</h2>
           <p>We'll get back to you within 24 hours.</p>
-
           <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
             <div class="form-group">
               <label for="name">Your Name</label>
@@ -217,7 +207,6 @@
           }
         });
       }
-
       const hamburger = document.getElementById('hamburger');
       const navLinks = document.getElementById('navLinks');
       if (hamburger && navLinks) {
