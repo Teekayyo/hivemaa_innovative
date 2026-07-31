@@ -1,1 +1,45 @@
-
+{
+  "last_updated": "2026-07-31T12:00:00",
+  "scholarships": [
+    {
+      "title": "FAO-Hungarian Government Scholarship",
+      "organization": "Food and Agriculture Organization (FAO)",
+      "deadline": "February 28, 2026",
+      "amount": "Fully Funded",
+      "description": "Masters program in agriculture for students from eligible countries.",
+      "link": "https://www.fao.org/hungary/scholarships"
+    },
+    {
+      "title": "1890 National Scholars Program",
+      "organization": "USDA NIFA",
+      "deadline": "Rolling",
+      "amount": "Full Tuition + Stipend",
+      "description": "For students attending 1890 land-grant institutions.",
+      "link": "https://www.nifa.usda.gov/grants/programs/1890-national-scholars-program"
+    },
+    {
+      "title": "AGCO Agriculture Foundation Scholarship",
+      "organization": "AGCO",
+      "deadline": "May 2026",
+      "amount": "$1,500",
+      "description": "For students in sustainability-related agricultural sciences.",
+      "link": "https://www.agcofoundation.org/scholarships"
+    },
+    {
+      "title": "Purina Animal Nutrition Scholarship",
+      "organization": "Purina",
+      "deadline": "March 2026",
+      "amount": "$30,000",
+      "description": "For students with livestock experience pursuing agriculture degrees.",
+      "link": "https://www.purina.com/scholarships"
+    },
+    {
+      "title": "Angus Foundation Scholarships",
+      "organization": "Angus Foundation",
+      "deadline": "April 2026",
+      "amount": "Varies",
+      "description": "For youth involved in agriculture and Angus cattle.",
+      "link": "https://www.angusfoundation.org/scholarships"
+    }
+  ]
+}
