@@ -10,6 +10,19 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      margin-bottom: 20px;
+      transition: 0.2s;
+    }
+    .back-link:hover {
+      transform: translateX(-4px);
+    }
     .deadline-urgent { color: #e74c3c; font-weight: 700; }
     .last-updated { text-align: center; opacity: 0.5; font-size: 0.85rem; margin-top: -20px; margin-bottom: 30px; }
   </style>
@@ -26,16 +39,8 @@
       <li><a href="news.html">News</a></li>
       <li><a href="articles.html">Articles</a></li>
       <li><a href="opportunities.html">Opportunities</a></li>
-      <li><a href="scholarships.html" class="active">Scholarships</a></li>
-      <li><a href="jobs.html">Jobs</a></li>
-      <li><a href="internships.html">Internships</a></li>
-      <li><a href="competitions.html">Competitions</a></li>
-      <li><a href="grants.html">Grants</a></li>
-      <li><a href="fellowships.html">Fellowships</a></li>
-      <li><a href="research.html">Research</a></li>
-      <li><a href="innovation.html">Innovation</a></li>
       <li><a href="resources.html">Resources</a></li>
-      <li><a href="https://whatsapp.com/channel/0029VbCFWDHLSmbhFp89fk37" target="_blank">Community</a></li>
+      <li><a href="community.html">Community</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="nav-actions">
@@ -45,8 +50,11 @@
 
   <main class="container">
     <section class="section">
-      <h1 class="section-title">🌾 Agricultural Scholarships</h1>
-      <p class="section-sub">Automatically updated scholarships from across the web</p>
+      <a href="opportunities.html" class="back-link">
+        <i class="fas fa-arrow-left"></i> Back to Opportunities
+      </a>
+      <h1 class="section-title" style="margin-top: 0;">🎓 Scholarships</h1>
+      <p class="section-sub">Full-ride agritech scholarships for African students.</p>
       <p id="lastUpdated" class="last-updated">Loading...</p>
       <div id="scholarshipGrid" class="card-grid">
         <div class="card fade-up" style="text-align: center; padding: 60px 20px;">
@@ -81,15 +89,9 @@
             <li><a href="news.html">News</a></li>
             <li><a href="articles.html">Articles</a></li>
             <li><a href="opportunities.html">Opportunities</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Resources</h4>
-          <ul>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="innovation.html">Innovation</a></li>
             <li><a href="resources.html">Resources</a></li>
-            <li><a href="https://whatsapp.com/channel/0029VbCFWDHLSmbhFp89fk37" target="_blank">Community</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
         <div>
@@ -97,7 +99,7 @@
           <ul>
             <li><a href="#">Privacy Policy</a></li>
             <li><a href="#">Terms of Use</a></li>
-            <li><a href="https://whatsapp.com/channel/0029VbCFWDHLSmbhFp89fk37" target="_blank">Contact</a></li>
+            <li><a href="community.html">Contact</a></li>
           </ul>
         </div>
       </div>
@@ -110,74 +112,83 @@
 
   <script src="js/script.js"></script>
   <script>
-    async function loadScholarships() {
-      try {
-        const response = await fetch('data/scholarships.json');
-        const data = await response.json();
-        if (data.last_updated) {
-          const date = new Date(data.last_updated);
-          document.getElementById('lastUpdated').textContent = `📅 Last updated: ${date.toLocaleString()}`;
-        }
-        renderScholarships(data.scholarships || []);
-      } catch (error) {
-        document.getElementById('scholarshipGrid').innerHTML = `
-          <div class="card fade-up" style="text-align: center; padding: 60px 20px;">
-            <i class="fas fa-exclamation-circle" style="font-size: 2.5rem; color: #e74c3c;"></i>
-            <h3>Unable to load scholarships</h3>
-            <p style="opacity: 0.6;">Please check back later.</p>
-          </div>
-        `;
-      }
-    }
-
-    function renderScholarships(scholarships) {
-      const grid = document.getElementById('scholarshipGrid');
-      if (!scholarships || scholarships.length === 0) {
-        grid.innerHTML = `<div class="card fade-up" style="text-align: center; padding: 60px 20px;">
-          <i class="fas fa-search" style="font-size: 2.5rem; color: var(--primary);"></i>
-          <h3>No scholarships found</h3>
-          <p style="opacity: 0.6;">Check back later for updates.</p>
-        </div>`;
-        return;
-      }
-      grid.innerHTML = '';
-      scholarships.forEach(s => {
-        const card = document.createElement('div');
-        card.className = 'card scholarship-card fade-up';
-        const isUrgent = s.deadline && (s.deadline.includes('March') || s.deadline.includes('April') || s.deadline.includes('February'));
-        card.innerHTML = `
-          <i class="fas fa-award" style="color: var(--primary);"></i>
-          <h3>${s.title}</h3>
-          <p><strong>🏢 Organization:</strong> ${s.organization}</p>
-          <p><strong>📅 Deadline:</strong> <span class="${isUrgent ? 'deadline-urgent' : ''}">${s.deadline}</span></p>
-          <p><strong>💰 Amount:</strong> ${s.amount}</p>
-          <p style="margin-top: 8px; opacity: 0.8;">${s.description}</p>
-          ${isUrgent ? '<span class="badge" style="display: inline-block; padding: 4px 12px; border-radius: 60px; font-size: 0.75rem; font-weight: 600; background: var(--primary); color: white; margin-top: 8px;">🔴 URGENT</span>' : ''}
-          <a href="${s.link}" target="_blank" class="btn btn-primary" style="margin-top: 12px; width: 100%; justify-content: center;">
-            Apply Now <i class="fas fa-arrow-right"></i>
-          </a>
-        `;
-        grid.appendChild(card);
-      });
-      setTimeout(() => {
-        document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
-      }, 100);
-    }
-
+    // Dark mode toggle
     document.addEventListener('DOMContentLoaded', function() {
-      loadScholarships();
       const toggle = document.getElementById('darkToggle');
       if (toggle) {
+        if (localStorage.getItem('darkMode') === 'enabled') {
+          document.body.classList.add('dark');
+          toggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
+        }
         toggle.addEventListener('click', function() {
           document.body.classList.toggle('dark');
           const icon = this.querySelector('i');
           if (document.body.classList.contains('dark')) {
             icon.classList.replace('fa-moon', 'fa-sun');
+            localStorage.setItem('darkMode', 'enabled');
           } else {
             icon.classList.replace('fa-sun', 'fa-moon');
+            localStorage.setItem('darkMode', 'disabled');
           }
         });
       }
+
+      // Load scholarships from JSON
+      async function loadScholarships() {
+        try {
+          const response = await fetch('data/scholarships.json');
+          const data = await response.json();
+          if (data.last_updated) {
+            const date = new Date(data.last_updated);
+            document.getElementById('lastUpdated').textContent = `📅 Last updated: ${date.toLocaleString()}`;
+          }
+          renderScholarships(data.scholarships || []);
+        } catch (error) {
+          document.getElementById('scholarshipGrid').innerHTML = `
+            <div class="card fade-up" style="text-align: center; padding: 60px 20px;">
+              <i class="fas fa-exclamation-circle" style="font-size: 2.5rem; color: #e74c3c;"></i>
+              <h3>Unable to load scholarships</h3>
+              <p style="opacity: 0.6;">Please check back later.</p>
+            </div>
+          `;
+        }
+      }
+
+      function renderScholarships(scholarships) {
+        const grid = document.getElementById('scholarshipGrid');
+        if (!scholarships || scholarships.length === 0) {
+          grid.innerHTML = `<div class="card fade-up" style="text-align: center; padding: 60px 20px;">
+            <i class="fas fa-search" style="font-size: 2.5rem; color: var(--primary);"></i>
+            <h3>No scholarships found</h3>
+            <p style="opacity: 0.6;">Check back later for updates.</p>
+          </div>`;
+          return;
+        }
+        grid.innerHTML = '';
+        scholarships.forEach(s => {
+          const card = document.createElement('div');
+          card.className = 'card scholarship-card fade-up';
+          const isUrgent = s.deadline && (s.deadline.includes('March') || s.deadline.includes('April') || s.deadline.includes('February'));
+          card.innerHTML = `
+            <i class="fas fa-award" style="color: var(--primary);"></i>
+            <h3>${s.title}</h3>
+            <p><strong>🏢 Organization:</strong> ${s.organization}</p>
+            <p><strong>📅 Deadline:</strong> <span class="${isUrgent ? 'deadline-urgent' : ''}">${s.deadline}</span></p>
+            <p><strong>💰 Amount:</strong> ${s.amount}</p>
+            <p style="margin-top: 8px; opacity: 0.8;">${s.description}</p>
+            ${isUrgent ? '<span class="badge" style="display: inline-block; padding: 4px 12px; border-radius: 60px; font-size: 0.75rem; font-weight: 600; background: var(--primary); color: white; margin-top: 8px;">🔴 URGENT</span>' : ''}
+            <a href="${s.link}" target="_blank" class="btn btn-primary" style="margin-top: 12px; width: 100%; justify-content: center;">
+              Apply Now <i class="fas fa-arrow-right"></i>
+            </a>
+          `;
+          grid.appendChild(card);
+        });
+        setTimeout(() => {
+          document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+        }, 100);
+      }
+
+      loadScholarships();
     });
   </script>
 </body>
