@@ -22,8 +22,6 @@
       <li><a href="news.html">News</a></li>
       <li><a href="articles.html">Articles</a></li>
       <li><a href="opportunities.html">Opportunities</a></li>
-      <li><a href="research.html">Research</a></li>
-      <li><a href="innovation.html">Innovation</a></li>
       <li><a href="resources.html" class="active">Resources</a></li>
       <li><a href="https://whatsapp.com/channel/0029VbCFWDHLSmbhFp89fk37" target="_blank">Community</a></li>
       <li><a href="contact.html">Contact</a></li>
@@ -37,7 +35,6 @@
     <section class="section">
       <h1 class="section-title">Resources</h1>
       <p class="section-sub">Guides, templates, downloads, books, and videos to support your agritech journey.</p>
-      
       <div class="card-grid">
         <div class="card fade-up">
           <i class="fas fa-book-open"></i>
@@ -81,4 +78,71 @@
 
   <footer>
     <div class="container">
-      <div
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>Hivemaa</h4>
+          <p>AgriTech for Africa — connecting agriculture with technology.</p>
+          <div class="footer-socials">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+          <div style="margin-top: 16px; font-size: 0.95rem; opacity: 0.8;">
+            <p><i class="fas fa-phone"></i> +234 07066347583, +234 08181464849</p>
+            <p><i class="fas fa-envelope"></i> hivemaainnovative@gmail.com</p>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="articles.html">Articles</a></li>
+            <li><a href="opportunities.html">Opportunities</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="https://whatsapp.com/channel/0029VbCFWDHLSmbhFp89fk37" target="_blank">Community</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="https://whatsapp.com/channel/0029VbCFWDHLSmbhFp89fk37" target="_blank">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Hivemaa. All rights reserved.</span>
+        <span>Designed with <i class="fas fa-heart" style="color: var(--primary);"></i> for Africa</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggle = document.getElementById('darkToggle');
+      if (toggle) {
+        if (localStorage.getItem('darkMode') === 'enabled') {
+          document.body.classList.add('dark');
+          toggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
+        }
+        toggle.addEventListener('click', function() {
+          document.body.classList.toggle('dark');
+          const icon = this.querySelector('i');
+          if (document.body.classList.contains('dark')) {
+            icon.classList.replace('fa-moon', 'fa-sun');
+            localStorage.setItem('darkMode', 'enabled');
+          } else {
+            icon.classList.replace('fa-sun', 'fa-moon');
+            localStorage.setItem('darkMode', 'disabled');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
