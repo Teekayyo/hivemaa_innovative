@@ -9,6 +9,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      margin-bottom: 20px;
+      transition: 0.2s;
+    }
+    .back-link:hover {
+      transform: translateX(-4px);
+    }
+  </style>
 </head>
 <body>
   <nav class="container">
@@ -22,16 +37,8 @@
       <li><a href="news.html">News</a></li>
       <li><a href="articles.html">Articles</a></li>
       <li><a href="opportunities.html">Opportunities</a></li>
-      <li><a href="scholarships.html">Scholarships</a></li>
-      <li><a href="jobs.html">Jobs</a></li>
-      <li><a href="internships.html">Internships</a></li>
-      <li><a href="competitions.html">Competitions</a></li>
-      <li><a href="grants.html" class="active">Grants</a></li>
-      <li><a href="fellowships.html">Fellowships</a></li>
-      <li><a href="research.html">Research</a></li>
-      <li><a href="innovation.html">Innovation</a></li>
       <li><a href="resources.html">Resources</a></li>
-      <li><a href="https://whatsapp.com/channel/0029VbCFWDHLSmbhFp89fk37" target="_blank">Community</a></li>
+      <li><a href="community.html">Community</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="nav-actions">
@@ -41,7 +48,10 @@
 
   <main class="container">
     <section class="section">
-      <h1 class="section-title">💰 Grants</h1>
+      <a href="opportunities.html" class="back-link">
+        <i class="fas fa-arrow-left"></i> Back to Opportunities
+      </a>
+      <h1 class="section-title" style="margin-top: 0;">💰 Grants</h1>
       <p class="section-sub">Funding opportunities for agricultural startups and researchers.</p>
 
       <div class="card-grid">
@@ -105,15 +115,9 @@
             <li><a href="news.html">News</a></li>
             <li><a href="articles.html">Articles</a></li>
             <li><a href="opportunities.html">Opportunities</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Resources</h4>
-          <ul>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="innovation.html">Innovation</a></li>
             <li><a href="resources.html">Resources</a></li>
-            <li><a href="https://whatsapp.com/channel/0029VbCFWDHLSmbhFp89fk37" target="_blank">Community</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
         <div>
@@ -121,7 +125,7 @@
           <ul>
             <li><a href="#">Privacy Policy</a></li>
             <li><a href="#">Terms of Use</a></li>
-            <li><a href="https://whatsapp.com/channel/0029VbCFWDHLSmbhFp89fk37" target="_blank">Contact</a></li>
+            <li><a href="community.html">Contact</a></li>
           </ul>
         </div>
       </div>
@@ -133,5 +137,27 @@
   </footer>
 
   <script src="js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggle = document.getElementById('darkToggle');
+      if (toggle) {
+        if (localStorage.getItem('darkMode') === 'enabled') {
+          document.body.classList.add('dark');
+          toggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
+        }
+        toggle.addEventListener('click', function() {
+          document.body.classList.toggle('dark');
+          const icon = this.querySelector('i');
+          if (document.body.classList.contains('dark')) {
+            icon.classList.replace('fa-moon', 'fa-sun');
+            localStorage.setItem('darkMode', 'enabled');
+          } else {
+            icon.classList.replace('fa-sun', 'fa-moon');
+            localStorage.setItem('darkMode', 'disabled');
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
