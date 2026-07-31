@@ -22,8 +22,6 @@
       <li><a href="news.html" class="active">News</a></li>
       <li><a href="articles.html">Articles</a></li>
       <li><a href="opportunities.html">Opportunities</a></li>
-      <li><a href="research.html">Research</a></li>
-      <li><a href="innovation.html">Innovation</a></li>
       <li><a href="resources.html">Resources</a></li>
       <li><a href="https://whatsapp.com/channel/0029VbCFWDHLSmbhFp89fk37" target="_blank">Community</a></li>
       <li><a href="contact.html">Contact</a></li>
@@ -36,8 +34,7 @@
   <main class="container">
     <section class="section">
       <h1 class="section-title">Latest News</h1>
-      <p class="section-sub">Stay updated with agricultural innovations and developments across Africa.</p>
-      
+      <p class="section-sub">Stay updated with agricultural innovations across Africa.</p>
       <div class="card-grid">
         <div class="card fade-up">
           <i class="fas fa-newspaper"></i>
@@ -62,18 +59,6 @@
           <h3>AI in Agriculture: The Future of Farming</h3>
           <p>How machine learning is transforming crop yields and farm management.</p>
           <div class="meta"><span><i class="far fa-calendar-alt"></i> Apr 28, 2026</span></div>
-        </div>
-        <div class="card fade-up">
-          <i class="fas fa-water"></i>
-          <h3>Hydroponics: Soilless Farming for Africa</h3>
-          <p>Urban agriculture solutions for food security in growing cities.</p>
-          <div class="meta"><span><i class="far fa-calendar-alt"></i> Apr 22, 2026</span></div>
-        </div>
-        <div class="card fade-up">
-          <i class="fas fa-satellite"></i>
-          <h3>Precision Agriculture with Satellite Data</h3>
-          <p>How satellite imagery drives smarter farming decisions.</p>
-          <div class="meta"><span><i class="far fa-calendar-alt"></i> Apr 15, 2026</span></div>
         </div>
       </div>
     </section>
@@ -103,15 +88,9 @@
             <li><a href="news.html">News</a></li>
             <li><a href="articles.html">Articles</a></li>
             <li><a href="opportunities.html">Opportunities</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Resources</h4>
-          <ul>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="innovation.html">Innovation</a></li>
             <li><a href="resources.html">Resources</a></li>
             <li><a href="https://whatsapp.com/channel/0029VbCFWDHLSmbhFp89fk37" target="_blank">Community</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
         <div>
@@ -131,5 +110,27 @@
   </footer>
 
   <script src="js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggle = document.getElementById('darkToggle');
+      if (toggle) {
+        if (localStorage.getItem('darkMode') === 'enabled') {
+          document.body.classList.add('dark');
+          toggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
+        }
+        toggle.addEventListener('click', function() {
+          document.body.classList.toggle('dark');
+          const icon = this.querySelector('i');
+          if (document.body.classList.contains('dark')) {
+            icon.classList.replace('fa-moon', 'fa-sun');
+            localStorage.setItem('darkMode', 'enabled');
+          } else {
+            icon.classList.replace('fa-sun', 'fa-moon');
+            localStorage.setItem('darkMode', 'disabled');
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
