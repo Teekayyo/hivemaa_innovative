@@ -1,50 +1,52 @@
 // ===== HAMBURGER MENU =====
 document.addEventListener('DOMContentLoaded', function() {
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('navLinks');
-
-  if (hamburger && navLinks) {
-    hamburger.addEventListener('click', function(e) {
+  var btn = document.getElementById('hamburger');
+  var menu = document.getElementById('navLinks');
+  
+  if (btn && menu) {
+    // Toggle menu on button click
+    btn.addEventListener('click', function(e) {
       e.stopPropagation();
       this.classList.toggle('active');
-      navLinks.classList.toggle('open');
+      menu.classList.toggle('open');
     });
 
     // Close menu when a link is clicked
-    navLinks.querySelectorAll('a').forEach(link => {
+    menu.querySelectorAll('a').forEach(function(link) {
       link.addEventListener('click', function() {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('open');
+        btn.classList.remove('active');
+        menu.classList.remove('open');
       });
     });
 
     // Close menu when clicking outside
     document.addEventListener('click', function(e) {
-      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('open');
+      if (!btn.contains(e.target) && !menu.contains(e.target)) {
+        btn.classList.remove('active');
+        menu.classList.remove('open');
       }
     });
   }
 
   // ===== SCROLL FADE-IN =====
-  const fadeEls = document.querySelectorAll('.fade-up');
+  var fadeEls = document.querySelectorAll('.fade-up');
   if (fadeEls.length > 0) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
         }
       });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-    fadeEls.forEach(el => observer.observe(el));
+    }, { threshold: 0.15 });
+    fadeEls.forEach(function(el) {
+      observer.observe(el);
+    });
   }
 
   // ===== ACTIVE NAV LINK =====
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    const linkPage = link.getAttribute('href');
-    if (linkPage === currentPage) {
+  var currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-links a').forEach(function(link) {
+    if (link.getAttribute('href') === currentPage) {
       link.classList.add('active');
     }
   });
