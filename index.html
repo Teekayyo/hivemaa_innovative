@@ -193,7 +193,7 @@
   <script src="js/script.js"></script>
   <script src="js/search.js"></script>
   <script>
-    // ===== ARTICLES DATA (Sorted by Date - Newest First) =====
+    // ===== ARTICLES DATA =====
     const articles = [
       { id: 7, title: "African Swine Fever: Protecting Pig Farms", excerpt: "How farmers can protect their herds from this deadly disease through biosecurity.", date: "2026-08-13", icon: "fa-disease", url: "articles/article-7.html" },
       { id: 1, title: "AI-powered soil health monitoring", excerpt: "New platform helps farmers monitor soil in real-time using machine learning.", date: "2026-05-12", icon: "fa-newspaper", url: "articles/article-1.html" },
@@ -205,52 +205,67 @@
     ];
 
     // Sort by date (newest first)
-    const sortedArticles = articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+    const sortedArticles = articles.sort(function(a, b) {
+      return new Date(b.date) - new Date(a.date);
+    });
+
+    function formatDate(dateString) {
+      const date = new Date(dateString);
+      return date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+    }
 
     // Render Latest News (first 3)
     function renderLatestNews() {
-      const container = document.getElementById('latestNews');
+      var container = document.getElementById('latestNews');
       if (!container) return;
       
-      const latest = sortedArticles.slice(0, 3);
-      container.innerHTML = latest.map(article => `
-        <a href="${article.url}" style="text-decoration: none; color: inherit; display: block;">
-          <article class="card article-card fade-up">
-            <div class="card-img"><i class="fas ${article.icon}"></i></div>
-            <div class="card-body">
-              <h3>${article.title}</h3>
-              <p>${article.excerpt}</p>
-              <div class="meta">
-                <span><i class="far fa-calendar-alt"></i> ${new Date(article.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
-                <span><i class="far fa-clock"></i> 5 min read</span>
+      var latest = sortedArticles.slice(0, 3);
+      var html = '';
+      latest.forEach(function(article) {
+        html += `
+          <a href="${article.url}" style="text-decoration: none; color: inherit; display: block;">
+            <div class="card article-card" style="display: block; opacity: 1;">
+              <div class="card-img"><i class="fas ${article.icon}"></i></div>
+              <div class="card-body">
+                <h3>${article.title}</h3>
+                <p>${article.excerpt}</p>
+                <div class="meta">
+                  <span><i class="far fa-calendar-alt"></i> ${formatDate(article.date)}</span>
+                  <span><i class="far fa-clock"></i> 5 min read</span>
+                </div>
               </div>
             </div>
-          </article>
-        </a>
-      `).join('');
+          </a>
+        `;
+      });
+      container.innerHTML = html;
     }
 
     // Render Featured Articles (next 3)
     function renderFeaturedArticles() {
-      const container = document.getElementById('featuredArticles');
+      var container = document.getElementById('featuredArticles');
       if (!container) return;
       
-      const featured = sortedArticles.slice(3, 6);
-      container.innerHTML = featured.map(article => `
-        <a href="${article.url}" style="text-decoration: none; color: inherit; display: block;">
-          <article class="card article-card fade-up">
-            <div class="card-img"><i class="fas ${article.icon}"></i></div>
-            <div class="card-body">
-              <h3>${article.title}</h3>
-              <p>${article.excerpt}</p>
-              <div class="meta">
-                <span><i class="far fa-calendar-alt"></i> ${new Date(article.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
-                <span><i class="far fa-clock"></i> 5 min read</span>
+      var featured = sortedArticles.slice(3, 6);
+      var html = '';
+      featured.forEach(function(article) {
+        html += `
+          <a href="${article.url}" style="text-decoration: none; color: inherit; display: block;">
+            <div class="card article-card" style="display: block; opacity: 1;">
+              <div class="card-img"><i class="fas ${article.icon}"></i></div>
+              <div class="card-body">
+                <h3>${article.title}</h3>
+                <p>${article.excerpt}</p>
+                <div class="meta">
+                  <span><i class="far fa-calendar-alt"></i> ${formatDate(article.date)}</span>
+                  <span><i class="far fa-clock"></i> 5 min read</span>
+                </div>
               </div>
             </div>
-          </article>
-        </a>
-      `).join('');
+          </a>
+        `;
+      });
+      container.innerHTML = html;
     }
 
     document.addEventListener('DOMContentLoaded', function() {
@@ -263,7 +278,7 @@
           this.classList.toggle('active');
           navLinks.classList.toggle('open');
         });
-        navLinks.querySelectorAll('a').forEach(link => {
+        navLinks.querySelectorAll('a').forEach(function(link) {
           link.addEventListener('click', function() {
             hamburger.classList.remove('active');
             navLinks.classList.remove('open');
@@ -280,6 +295,13 @@
       // ===== RENDER ARTICLES =====
       renderLatestNews();
       renderFeaturedArticles();
+
+      // ===== FADE-IN ANIMATION FOR SECTION TITLES =====
+      setTimeout(function() {
+        document.querySelectorAll('.fade-up').forEach(function(el) {
+          el.classList.add('visible');
+        });
+      }, 200);
     });
   </script>
 </body>
