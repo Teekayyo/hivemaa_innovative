@@ -16,22 +16,94 @@
     .article-card .meta { display: flex; gap: 16px; font-size: 0.8rem; opacity: 0.6; margin-top: 12px; flex-wrap: wrap; }
     .tag-group { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
     .tag { background: var(--light-grey); padding: 6px 16px; border-radius: 60px; font-size: 0.8rem; font-weight: 500; color: var(--text); opacity: 0.8; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 8px; z-index: 1000; }
-    .hamburger span { display: block; width: 28px; height: 3px; background: var(--text); border-radius: 3px; transition: 0.3s ease; }
-    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
-    .hamburger.active span:nth-child(2) { opacity: 0; }
-    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
-    @media (max-width: 768px) {
-      .hamburger { display: flex !important; }
-      nav { position: relative; flex-wrap: wrap; }
-      .nav-links { display: none !important; flex-direction: column; width: 100%; padding: 20px 0; gap: 16px; background: var(--bg); border-top: 1px solid rgba(0,0,0,0.05); position: absolute; top: 75px; left: 0; box-shadow: var(--shadow); z-index: 999; }
-      body.dark .nav-links { border-top-color: rgba(255,255,255,0.05); }
-      .nav-links.open { display: flex !important; }
-      .nav-links li { width: 100%; text-align: center; padding: 8px 0; }
-      .nav-links li a { font-size: 1.1rem; padding: 8px 16px; display: block; }
-      .nav-actions { margin-left: auto; }
+
+    /* ===== HAMBURGER MENU ===== */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 8px;
+      z-index: 1000;
     }
-    @media (min-width: 769px) { .nav-links { display: flex !important; position: static !important; flex-direction: row !important; width: auto !important; padding: 0 !important; background: transparent !important; border: none !important; box-shadow: none !important; } }
+    .hamburger span {
+      display: block;
+      width: 28px;
+      height: 3px;
+      background: var(--text);
+      border-radius: 3px;
+      transition: 0.3s ease;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 6px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -6px);
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex !important;
+      }
+      nav {
+        position: relative;
+        flex-wrap: wrap;
+      }
+      .nav-links {
+        display: none !important;
+        flex-direction: column;
+        width: 100%;
+        padding: 20px 0;
+        gap: 16px;
+        background: var(--bg);
+        border-top: 1px solid rgba(0,0,0,0.05);
+        position: absolute;
+        top: 75px;
+        left: 0;
+        box-shadow: var(--shadow);
+        z-index: 999;
+      }
+      body.dark .nav-links {
+        border-top-color: rgba(255,255,255,0.05);
+      }
+      .nav-links.open {
+        display: flex !important;
+      }
+      .nav-links li {
+        width: 100%;
+        text-align: center;
+        padding: 8px 0;
+      }
+      .nav-links li a {
+        font-size: 1.1rem;
+        padding: 8px 16px;
+        display: block;
+      }
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-left: auto;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .nav-links {
+        display: flex !important;
+        position: static !important;
+        flex-direction: row !important;
+        width: auto !important;
+        padding: 0 !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -40,9 +112,6 @@
       <img src="hivemaa-home-logo.png" alt="Hivemaa" style="height: 40px; width: auto; display: inline-block; vertical-align: middle;" />
       <span style="font-weight: 700; font-size: 1.6rem; margin-left: 10px; vertical-align: middle;">Hivemaa</span>
     </a>
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
@@ -54,6 +123,11 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="nav-actions">
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">
         <i class="fas fa-moon"></i>
       </button>
@@ -129,6 +203,7 @@
     ];
 
     document.addEventListener('DOMContentLoaded', function() {
+      // ===== DARK MODE =====
       const toggle = document.getElementById('darkToggle');
       if (toggle) {
         if (localStorage.getItem('darkMode') === 'enabled') {
@@ -147,6 +222,8 @@
           }
         });
       }
+
+      // ===== HAMBURGER MENU =====
       const hamburger = document.getElementById('hamburger');
       const navLinks = document.getElementById('navLinks');
       if (hamburger && navLinks) {
@@ -169,6 +246,7 @@
         });
       }
 
+      // ===== RENDER ARTICLES =====
       const grid = document.getElementById('articlesGrid');
       if (!grid) return;
 
@@ -202,6 +280,7 @@
       }
       renderArticles(articlesData);
 
+      // ===== SEARCH =====
       const searchInput = document.getElementById('searchInput');
       const searchBtn = document.getElementById('searchBtn');
       if (searchInput && searchBtn) {
