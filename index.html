@@ -352,32 +352,26 @@
   <script src="js/search.js"></script>
   <script>
     // ===== HAMBURGER MENU (Direct inline fix) =====
-    document.addEventListener('DOMContentLoaded', function() {
-      var hamburger = document.getElementById('hamburger');
-      var navLinks = document.getElementById('navLinks');
+<nav class="container">
+  <a href="index.html" class="logo">
+    <img src="hivemaa-home-logo.png" alt="Hivemaa" style="height: 40px; width: auto; display: inline-block; vertical-align: middle;" />
+    <span style="font-weight: 700; font-size: 1.6rem; margin-left: 10px; vertical-align: middle;">Hivemaa</span>
+  </a>
 
-      if (hamburger && navLinks) {
-        hamburger.addEventListener('click', function(e) {
-          e.stopPropagation();
-          this.classList.toggle('active');
-          navLinks.classList.toggle('open');
-        });
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 
-        navLinks.querySelectorAll('a').forEach(function(link) {
-          link.addEventListener('click', function() {
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('open');
-          });
-        });
-
-        document.addEventListener('click', function(e) {
-          if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('open');
-          }
-        });
-      }
-    });
-  </script>
-</body>
-</html>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="articles.html">Articles</a></li>
+    <li><a href="opportunities.html">Opportunities</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="community.html">Community</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
