@@ -214,7 +214,6 @@
       return date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
     }
 
-    // Render Latest News (first 3)
     function renderLatestNews() {
       var container = document.getElementById('latestNews');
       if (!container) return;
@@ -241,7 +240,6 @@
       container.innerHTML = html;
     }
 
-    // Render Featured Articles (next 3)
     function renderFeaturedArticles() {
       var container = document.getElementById('featuredArticles');
       if (!container) return;
@@ -270,8 +268,8 @@
 
     document.addEventListener('DOMContentLoaded', function() {
       // ===== HAMBURGER =====
-      const hamburger = document.getElementById('hamburger');
-      const navLinks = document.getElementById('navLinks');
+      var hamburger = document.getElementById('hamburger');
+      var navLinks = document.getElementById('navLinks');
       if (hamburger && navLinks) {
         hamburger.addEventListener('click', function(e) {
           e.stopPropagation();
@@ -296,7 +294,7 @@
       renderLatestNews();
       renderFeaturedArticles();
 
-      // ===== FADE-IN ANIMATION FOR SECTION TITLES =====
+      // ===== FADE-IN ANIMATION =====
       setTimeout(function() {
         document.querySelectorAll('.fade-up').forEach(function(el) {
           el.classList.add('visible');
