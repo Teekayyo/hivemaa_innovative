@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>African Swine Fever: Protecting Pig Farms - Hivemaa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .article-content { max-width: 800px; margin: 0 auto; padding: 40px 0; }
+    .article-content h1 { font-size: 2.8rem; margin-bottom: 20px; font-weight: 800; line-height: 1.1; }
+    .article-meta { display: flex; gap: 20px; opacity: 0.6; margin-bottom: 30px; flex-wrap: wrap; }
+    .article-body { font-size: 1.1rem; line-height: 1.8; opacity: 0.9; }
+    .article-body p { margin-bottom: 20px; }
+    .article-body h2 { margin-top: 40px; margin-bottom: 16px; font-size: 1.8rem; }
+    .article-body ul { margin-bottom: 20px; padding-left: 30px; }
+    .article-body li { margin-bottom: 10px; }
+    .share-buttons { display: flex; gap: 12px; margin: 30px 0; flex-wrap: wrap; }
+    .share-btn { padding: 10px 20px; border-radius: 60px; border: none; cursor: pointer; transition: 0.2s; display: inline-flex; align-items: center; gap: 8px; }
+    .share-btn:hover { transform: scale(1.05); }
+    .share-twitter { background: #1DA1F2; color: white; }
+    .share-linkedin { background: #0A66C2; color: white; }
+    .share-facebook { background: #1877F2; color: white; }
+    .share-whatsapp { background: #25D366; color: white; }
+    .alert-box { background: #fff3cd; border-left: 4px solid #ffc107; padding: 16px 20px; border-radius: 8px; margin: 20px 0; color: #856404; }
+    .highlight-box { background: var(--light-grey); padding: 20px 24px; border-radius: 12px; margin: 24px 0; }
+
+    /* ===== HAMBURGER MENU ===== */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 8px; z-index: 1000; }
+    .hamburger span { display: block; width: 28px; height: 3px; background: var(--text); border-radius: 3px; transition: 0.3s ease; }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+    @media (max-width: 768px) {
+      .hamburger { display: flex !important; }
+      nav { position: relative; flex-wrap: wrap; }
+      .nav-links { display: none !important; flex-direction: column; width: 100%; padding: 20px 0; gap: 16px; background: var(--bg); border-top: 1px solid rgba(0,0,0,0.05); position: absolute; top: 75px; left: 0; box-shadow: var(--shadow); z-index: 999; }
+      .nav-links.open { display: flex !important; }
+      .nav-links li { width: 100%; text-align: center; padding: 8px 0; }
+      .nav-links li a { font-size: 1.1rem; padding: 8px 16px; display: block; }
+      .nav-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+    }
+    @media (min-width: 769px) { .nav-links { display: flex !important; position: static !important; flex-direction: row !important; width: auto !important; padding: 0 !important; background: transparent !important; border: none !important; box-shadow: none !important; } }
+  </style>
+</head>
+<body>
+  <nav class="container">
+    <a href="../index.html" class="logo">
+      <img src="../hivemaa-home-logo.png" alt="Hivemaa" style="height: 40px; width: auto; display: inline-block; vertical-align: middle;" />
+      <span style="font-weight: 700; font-size: 1.6rem; margin-left: 10px; vertical-align: middle;">Hivemaa</span>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../news.html">News</a></li>
+      <li><a href="../articles.html" class="active">Articles</a></li>
+      <li><a href="../opportunities.html">Opportunities</a></li>
+      <li><a href="../resources.html">Resources</a></li>
+      <li><a href="../community.html">Community</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <div class="article-content">
+      <h1>African Swine Fever Is Killing Pigs. Here's How Farmers Can Protect Their Farms</h1>
+
+      <div class="article-meta">
+        <span><i class="far fa-user"></i> Hivemaa Team</span>
+        <span><i class="far fa-calendar-alt"></i> August 13, 2026</span>
+        <span><i class="far fa-clock"></i> 5 min read</span>
+        <span><i class="fas fa-tags"></i> African Swine Fever, Biosecurity, Pig Farming</span>
+      </div>
+
+      <div class="share-buttons">
+        <button class="share-btn share-twitter"><i class="fab fa-twitter"></i> Share</button>
+        <button class="share-btn share-linkedin"><i class="fab fa-linkedin-in"></i> Share</button>
+        <button class="share-btn share-facebook"><i class="fab fa-facebook-f"></i> Share</button>
+        <button class="share-btn share-whatsapp"><i class="fab fa-whatsapp"></i> Share</button>
+      </div>
+
+      <div class="article-body">
+        <div class="alert-box">
+          <strong>⚠️ Important:</strong> This article is for educational purposes. Always consult a veterinarian for professional advice.
+        </div>
+
+        <p>Imagine waking up one morning and finding several of your pigs dead.</p>
+        <p>Then another.</p>
+        <p>Then another.</p>
+        <p>For a pig farmer, this isn't just a bad day. It can wipe out years of investment in a matter of days.</p>
+        <p>That is the kind of damage African Swine Fever, commonly called ASF, can cause.</p>
+        <p>ASF is a highly contagious viral disease that affects domestic and wild pigs. In severe outbreaks, mortality can reach 100%. The good news for humans is that ASF does not infect people. The bad news for pig farmers is that once the virus enters a herd, things can get ugly very quickly.</p>
+        <p>And this is why farmers shouldn't wait until pigs start dying before thinking about biosecurity.</p>
+
+        <h2>How Does ASF Enter a Farm?</h2>
+        <p>This is where things get interesting.</p>
+        <p>The virus doesn't need a pig to walk directly into your farm.</p>
+        <p>It can hitch a ride on contaminated boots, clothes, vehicles, equipment and other materials. It can also spread through infected pigs, pork products and contaminated feed or food waste.</p>
+        <p>In other words, that visitor who just came from another pig farm?</p>
+        <p><strong>Potential problem.</strong></p>
+        <p>That truck that transported pigs somewhere else yesterday?</p>
+        <p><strong>Potential problem.</strong></p>
+        <p>Those kitchen leftovers containing pork that someone wants to feed the pigs?</p>
+        <p><strong>Big problem.</strong></p>
+        <p>The virus is also remarkably persistent in the environment, which means ordinary "I swept the place this morning" farm hygiene isn't enough.</p>
+
+        <h2>The First Rule: Don't Turn Your Farm Into a Bus Stop</h2>
+        <p>One of the easiest ways to reduce the risk is to control who and what enters the farm.</p>
+        <p>Visitors should be limited to people who actually need to be there. Workers should ideally have dedicated farm clothing and footwear, while boots, equipment and vehicles should be properly cleaned and disinfected.</p>
+        <p>Because if someone walks into an infected farm and then walks into yours, your pigs don't know that person came with bad news.</p>
+        <p>They just see a human being.</p>
+        <p>That's why farm biosecurity has to assume that people and equipment can accidentally transport disease.</p>
+
+        <h2>Stop Buying Pigs from "My Guy Has Pigs"</h2>
+        <p>We know how these things work.</p>
+        <p><em>"Boss, I get some fine pigs for you."</em></p>
+        <p><em>"Where are they from?"</em></p>
+        <p><em>"Don't worry, na healthy pigs."</em></p>
+        <p>For ASF prevention, <strong>"don't worry" is not a biosecurity strategy.</strong></p>
+        <p>Farmers should source animals from reliable suppliers and have proper health checks. New pigs should be separated from the existing herd for an appropriate quarantine period and monitored before they are introduced.</p>
+        <p>Mixing animals from multiple unknown sources is an unnecessary gamble.</p>
+
+        <div class="highlight-box">
+          <p><strong>⚠️ That leftover pork may look like free feed.</strong></p>
+          <p><strong>It could become an expensive meal.</strong></p>
+        </div>
+
+        <h2>And Please, Stop Feeding Pigs Untreated Food Waste</h2>
+        <p>This deserves its own paragraph because it is one of those things that sounds harmless until it isn't.</p>
+        <p>Feeding pigs untreated kitchen scraps or swill containing meat or pork products can introduce ASF into a herd. WOAH specifically recommends that farmers do not feed pigs untreated swill or kitchen scraps containing meat.</p>
+
+        <h2>Watch Your Pigs</h2>
+        <p>Farmers need to know what is normal for their animals so they can recognise when something changes.</p>
+        <p>Sudden deaths, unusual illness, weakness, fever, skin discolouration, vomiting, diarrhoea or bleeding can be signs of serious disease, although these symptoms alone cannot confirm ASF.</p>
+        <p>If something looks wrong, don't start guessing.</p>
+        <ul>
+          <li>Don't move the sick pigs to another farm.</li>
+          <li>Don't sell them.</li>
+          <li>Don't slaughter and distribute them.</li>
+          <li>Don't wait for WhatsApp University to diagnose the problem.</li>
+        </ul>
+        <p>Contact a veterinarian or the appropriate Veterinary Authority and have the disease properly investigated. ASF requires laboratory confirmation because other pig diseases can look similar.</p>
+
+        <h2>Markets Need Biosecurity Too</h2>
+        <p>Here's where the conversation becomes bigger than individual farms.</p>
+        <p>A farmer can have excellent biosecurity at home and still be exposed to disease through a poorly managed livestock market.</p>
+        <p>Think about a market where pigs from different farms arrive, trucks come and go, traders move between locations, equipment is shared and animals are mixed.</p>
+        <p><strong>That's basically a networking event for viruses.</strong></p>
+        <p>This is why biosecurity shouldn't stop at the farm gate. It needs to extend through animal markets, transportation, slaughter facilities and the wider livestock value chain. WOAH emphasises biosecurity throughout the production and movement system, alongside surveillance and rapid reporting.</p>
+
+        <h2>Technology Can Help Too</h2>
+        <p>This is one reason livestock traceability matters.</p>
+        <p>Imagine every animal entering a commercial livestock facility having a digital record showing where it came from, where it has travelled, its health information and where it eventually went.</p>
+        <p>If a disease is detected, authorities and farmers have a much better chance of identifying where that animal came from and which other animals may have been exposed.</p>
+        <p>Instead of asking:</p>
+        <p><em>"Where did this pig come from?"</em></p>
+        <p>you can actually check the record.</p>
+        <p>That is the direction modern livestock systems are moving towards: identification, traceability, surveillance and stronger biosecurity working together.</p>
+
+        <h2>The Uncomfortable Truth</h2>
+        <p>There is no magic medicine that allows a farmer to simply treat an ASF outbreak and carry on as normal.</p>
+        <p><strong>Prevention is still the main defence.</strong></p>
+        <p>WOAH describes biosecurity as the most important and effective measure available for preventing and controlling ASF. Countries and livestock industries are also continuing to work on vaccine research and vaccination strategies, but farmers should not treat vaccination as a substitute for proper biosecurity.</p>
+        <p>So, before the next pig enters your farm, ask yourself:</p>
+        <ul>
+          <li>Where did it come from?</li>
+          <li>Who handled it?</li>
+          <li>What other farms has it visited?</li>
+          <li>Has it been properly checked?</li>
+          <li>Are my workers and visitors carrying dedicated clothing and footwear?</li>
+          <li>Are my vehicles and equipment being disinfected?</li>
+          <li>What happens when a pig becomes sick?</li>
+        </ul>
+        <p>And perhaps the biggest question:</p>
+        <p><strong>If disease enters this farm tomorrow, how quickly will I know?</strong></p>
+        <p>Because with ASF, prevention isn't being paranoid.</p>
+        <p>It's protecting your animals, your investment and your livelihood.</p>
+        <p>A healthy pig farm isn't just about feeding pigs well.</p>
+        <p>It's about making sure disease doesn't get an invitation in the first place.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>Hivemaa</h4>
+          <p>AgriTech for Africa — connecting agriculture with technology.</p>
+          <div class="footer-socials">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+          <div style="margin-top: 16px; font-size: 0.95rem; opacity: 0.8;">
+            <p><i class="fas fa-phone"></i> +234 07066347583, +234 08181464849</p>
+            <p><i class="fas fa-envelope"></i> hivemaainnovative@gmail.com</p>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../news.html">News</a></li>
+            <li><a href="../articles.html">Articles</a></li>
+            <li><a href="../opportunities.html">Opportunities</a></li>
+            <li><a href="../resources.html">Resources</a></li>
+            <li><a href="../community.html">Community</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="../community.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Hivemaa. All rights reserved.</span>
+        <span>Designed with <i class="fas fa-heart" style="color: var(--primary);"></i> for Africa</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // ===== HAMBURGER =====
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function(e) {
+          e.stopPropagation();
+          this.classList.toggle('active');
+          navLinks.classList.toggle('open');
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('open');
+          });
+        });
+        document.addEventListener('click', function(e) {
+          if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('open');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
