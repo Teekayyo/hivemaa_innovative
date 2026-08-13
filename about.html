@@ -18,7 +18,6 @@
     .about-content ul li { padding: 8px 0; font-size: 1.05rem; opacity: 0.85; border-bottom: 1px solid rgba(0,0,0,0.05); }
     .about-content ul li strong { color: var(--primary); }
     .about-motto { font-size: 1.4rem; font-weight: 700; color: var(--primary); text-align: center; margin-top: 40px; padding: 20px; background: var(--light-grey); border-radius: var(--border-radius); }
-    body.dark .about-content ul li { border-bottom-color: rgba(255,255,255,0.05); }
 
     /* ===== HAMBURGER MENU ===== */
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 8px; z-index: 1000; }
@@ -30,7 +29,6 @@
       .hamburger { display: flex !important; }
       nav { position: relative; flex-wrap: wrap; }
       .nav-links { display: none !important; flex-direction: column; width: 100%; padding: 20px 0; gap: 16px; background: var(--bg); border-top: 1px solid rgba(0,0,0,0.05); position: absolute; top: 75px; left: 0; box-shadow: var(--shadow); z-index: 999; }
-      body.dark .nav-links { border-top-color: rgba(255,255,255,0.05); }
       .nav-links.open { display: flex !important; }
       .nav-links li { width: 100%; text-align: center; padding: 8px 0; }
       .nav-links li a { font-size: 1.1rem; padding: 8px 16px; display: block; }
@@ -58,9 +56,6 @@
     <div class="nav-actions">
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
-      </button>
-      <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">
-        <i class="fas fa-moon"></i>
       </button>
     </div>
   </nav>
@@ -144,24 +139,7 @@
   <script src="js/script.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const toggle = document.getElementById('darkToggle');
-      if (toggle) {
-        if (localStorage.getItem('darkMode') === 'enabled') {
-          document.body.classList.add('dark');
-          toggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
-        }
-        toggle.addEventListener('click', function() {
-          document.body.classList.toggle('dark');
-          const icon = this.querySelector('i');
-          if (document.body.classList.contains('dark')) {
-            icon.classList.replace('fa-moon', 'fa-sun');
-            localStorage.setItem('darkMode', 'enabled');
-          } else {
-            icon.classList.replace('fa-sun', 'fa-moon');
-            localStorage.setItem('darkMode', 'disabled');
-          }
-        });
-      }
+      // ===== HAMBURGER MENU =====
       const hamburger = document.getElementById('hamburger');
       const navLinks = document.getElementById('navLinks');
       if (hamburger && navLinks) {
