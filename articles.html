@@ -16,94 +16,6 @@
     .article-card .meta { display: flex; gap: 16px; font-size: 0.8rem; opacity: 0.6; margin-top: 12px; flex-wrap: wrap; }
     .tag-group { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
     .tag { background: var(--light-grey); padding: 6px 16px; border-radius: 60px; font-size: 0.8rem; font-weight: 500; color: var(--text); opacity: 0.8; }
-
-    /* ===== HAMBURGER MENU ===== */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 8px;
-      z-index: 1000;
-    }
-    .hamburger span {
-      display: block;
-      width: 28px;
-      height: 3px;
-      background: var(--text);
-      border-radius: 3px;
-      transition: 0.3s ease;
-    }
-    .hamburger.active span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 6px);
-    }
-    .hamburger.active span:nth-child(2) {
-      opacity: 0;
-    }
-    .hamburger.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -6px);
-    }
-
-    @media (max-width: 768px) {
-      .hamburger {
-        display: flex !important;
-      }
-      nav {
-        position: relative;
-        flex-wrap: wrap;
-      }
-      .nav-links {
-        display: none !important;
-        flex-direction: column;
-        width: 100%;
-        padding: 20px 0;
-        gap: 16px;
-        background: var(--bg);
-        border-top: 1px solid rgba(0,0,0,0.05);
-        position: absolute;
-        top: 75px;
-        left: 0;
-        box-shadow: var(--shadow);
-        z-index: 999;
-      }
-      body.dark .nav-links {
-        border-top-color: rgba(255,255,255,0.05);
-      }
-      .nav-links.open {
-        display: flex !important;
-      }
-      .nav-links li {
-        width: 100%;
-        text-align: center;
-        padding: 8px 0;
-      }
-      .nav-links li a {
-        font-size: 1.1rem;
-        padding: 8px 16px;
-        display: block;
-      }
-      .nav-actions {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        margin-left: auto;
-      }
-    }
-
-    @media (min-width: 769px) {
-      .nav-links {
-        display: flex !important;
-        position: static !important;
-        flex-direction: row !important;
-        width: auto !important;
-        padding: 0 !important;
-        background: transparent !important;
-        border: none !important;
-        box-shadow: none !important;
-      }
-    }
   </style>
 </head>
 <body>
@@ -112,6 +24,9 @@
       <img src="hivemaa-home-logo.png" alt="Hivemaa" style="height: 40px; width: auto; display: inline-block; vertical-align: middle;" />
       <span style="font-weight: 700; font-size: 1.6rem; margin-left: 10px; vertical-align: middle;">Hivemaa</span>
     </a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
@@ -122,16 +37,6 @@
       <li><a href="community.html">Community</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <div class="nav-actions">
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">
-        <i class="fas fa-moon"></i>
-      </button>
-    </div>
   </nav>
 
   <main class="container">
@@ -193,37 +98,22 @@
 
   <script src="js/script.js"></script>
   <script>
+    // ===== ARTICLES DATA (Sorted by Date - Newest First) =====
     const articlesData = [
-      { id: 1, title: "AI-powered soil health monitoring", excerpt: "New platform helps farmers monitor soil in real-time.", category: "Technology", author: "Dr. Sarah Okonkwo", date: "May 12, 2026", readTime: "5 min read", tags: ["AI", "Soil"], url: "articles/article-1.html" },
-      { id: 2, title: "Drone seeding initiative in Kenya", excerpt: "Startup scales reforestation efforts with drone technology.", category: "Innovation", author: "James Mwangi", date: "May 10, 2026", readTime: "3 min read", tags: ["Drones", "Kenya"], url: "articles/article-2.html" },
-      { id: 3, title: "Real-time market prices dashboard", excerpt: "Empowering smallholder farmers with live commodity pricing data.", category: "Data", author: "Amara Okafor", date: "May 8, 2026", readTime: "4 min read", tags: ["Market", "Data"], url: "articles/article-3.html" },
-      { id: 4, title: "AI in Agriculture: The Future of Farming", excerpt: "How machine learning is transforming crop yields.", category: "Technology", author: "Prof. Kwame Nkrumah", date: "April 28, 2026", readTime: "8 min read", tags: ["AI", "Future"], url: "articles/article-4.html" },
-      { id: 5, title: "Hydroponics: Soilless Farming for Africa", excerpt: "Urban agriculture solutions for food security.", category: "Innovation", author: "Zainab Ahmed", date: "April 22, 2026", readTime: "6 min read", tags: ["Hydroponics", "Urban"], url: "articles/article-5.html" },
-      { id: 6, title: "African Swine Fever Is Killing Pigs. Here's How Farmers Can Protect Their Farms", excerpt: "A highly contagious viral disease is devastating pig farms across Africa. Here's what every farmer needs to know about prevention and biosecurity.", category: "Innovation", author: "Hivemaa Team", date: "August 13, 2026", readTime: "5 min read", tags: ["African Swine Fever", "Biosecurity", "Pig Farming", "Animal Health"], url: "articles/article-6.html" }
+      { id: 7, title: "African Swine Fever: Protecting Pig Farms", excerpt: "How farmers can protect their herds from this deadly disease through biosecurity.", category: "Health", author: "Hivemaa Team", date: "2026-08-13", readTime: "5 min read", tags: ["ASF", "Biosecurity", "Pig Farming"], icon: "fa-disease", url: "articles/article-7.html" },
+      { id: 1, title: "AI-powered soil health monitoring", excerpt: "New platform helps farmers monitor soil in real-time using machine learning.", category: "Technology", author: "Dr. Sarah Okonkwo", date: "2026-05-12", readTime: "5 min read", tags: ["AI", "Soil"], icon: "fa-newspaper", url: "articles/article-1.html" },
+      { id: 2, title: "Drone seeding initiative in Kenya", excerpt: "Startup scales reforestation efforts with drone technology.", category: "Innovation", author: "James Mwangi", date: "2026-05-10", readTime: "3 min read", tags: ["Drones", "Kenya"], icon: "fa-tractor", url: "articles/article-2.html" },
+      { id: 3, title: "Real-time market prices dashboard", excerpt: "Empowering smallholder farmers with live commodity pricing data.", category: "Data", author: "Amara Okafor", date: "2026-05-08", readTime: "4 min read", tags: ["Market", "Data"], icon: "fa-chart-line", url: "articles/article-3.html" },
+      { id: 4, title: "AI in Agriculture: The Future of Farming", excerpt: "How machine learning is transforming crop yields.", category: "Technology", author: "Prof. Kwame Nkrumah", date: "2026-04-28", readTime: "8 min read", tags: ["AI", "Future"], icon: "fa-microchip", url: "articles/article-4.html" },
+      { id: 5, title: "Hydroponics: Soilless Farming for Africa", excerpt: "Urban agriculture solutions for food security.", category: "Innovation", author: "Zainab Ahmed", date: "2026-04-22", readTime: "6 min read", tags: ["Hydroponics", "Urban"], icon: "fa-water", url: "articles/article-5.html" },
+      { id: 6, title: "Precision Agriculture with Satellite Data", excerpt: "How satellite imagery drives smarter farming decisions.", category: "Technology", author: "Hivemaa Team", date: "2026-04-15", readTime: "7 min read", tags: ["Satellite", "Precision"], icon: "fa-satellite", url: "articles/article-6.html" }
     ];
 
-    document.addEventListener('DOMContentLoaded', function() {
-      // ===== DARK MODE =====
-      const toggle = document.getElementById('darkToggle');
-      if (toggle) {
-        if (localStorage.getItem('darkMode') === 'enabled') {
-          document.body.classList.add('dark');
-          toggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
-        }
-        toggle.addEventListener('click', function() {
-          document.body.classList.toggle('dark');
-          const icon = this.querySelector('i');
-          if (document.body.classList.contains('dark')) {
-            icon.classList.replace('fa-moon', 'fa-sun');
-            localStorage.setItem('darkMode', 'enabled');
-          } else {
-            icon.classList.replace('fa-sun', 'fa-moon');
-            localStorage.setItem('darkMode', 'disabled');
-          }
-        });
-      }
+    // Sort by date (newest first)
+    const sortedArticles = articlesData.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-      // ===== HAMBURGER MENU =====
+    document.addEventListener('DOMContentLoaded', function() {
+      // ===== HAMBURGER =====
       const hamburger = document.getElementById('hamburger');
       const navLinks = document.getElementById('navLinks');
       if (hamburger && navLinks) {
@@ -250,23 +140,25 @@
       const grid = document.getElementById('articlesGrid');
       if (!grid) return;
 
+      function formatDate(dateString) {
+        const date = new Date(dateString);
+        return date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+      }
+
       function renderArticles(articles) {
         grid.innerHTML = '';
         articles.forEach(article => {
           const card = document.createElement('article');
           card.className = 'card article-card fade-up';
           card.dataset.tags = article.tags.join(' ');
-          let icon = 'fa-newspaper';
-          if (article.category === 'Technology') icon = 'fa-microchip';
-          else if (article.category === 'Innovation') icon = 'fa-lightbulb';
-          else if (article.category === 'Data') icon = 'fa-chart-line';
+          let icon = article.icon || 'fa-newspaper';
           card.innerHTML = `
             <div class="card-img"><i class="fas ${icon}"></i></div>
             <div class="card-body">
               <h3>${article.title}</h3>
               <p>${article.excerpt}</p>
               <div class="meta">
-                <span><i class="far fa-calendar-alt"></i> ${article.date}</span>
+                <span><i class="far fa-calendar-alt"></i> ${formatDate(article.date)}</span>
                 <span><i class="far fa-clock"></i> ${article.readTime}</span>
                 <span><i class="far fa-user"></i> ${article.author}</span>
               </div>
@@ -278,7 +170,7 @@
         });
         setTimeout(() => { document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible')); }, 100);
       }
-      renderArticles(articlesData);
+      renderArticles(sortedArticles);
 
       // ===== SEARCH =====
       const searchInput = document.getElementById('searchInput');
