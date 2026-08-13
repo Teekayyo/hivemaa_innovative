@@ -197,17 +197,19 @@
   <script src="js/script.js"></script>
   <script src="js/search.js"></script>
   <script>
-    // ===== ARTICLES DATA (with thumbnails) =====
-    const articles = [
-      { id: 7, title: "African Swine Fever: Protecting Pig Farms", excerpt: "How farmers can protect their herds from this deadly disease through biosecurity.", date: "2026-08-13", icon: "fa-disease", thumbnail: "../file_00000000222881f6b51ecc8809ac794b.png", url: "articles/article-7.html" },
-      { id: 1, title: "AI-powered soil health monitoring", excerpt: "New platform helps farmers monitor soil in real-time using machine learning.", date: "2026-05-12", icon: "fa-newspaper", url: "articles/article-1.html" },
-      { id: 2, title: "Drone seeding initiative in Kenya", excerpt: "Startup scales reforestation efforts with drone technology.", date: "2026-05-10", icon: "fa-tractor", url: "articles/article-2.html" },
-      { id: 3, title: "Real-time market prices dashboard", excerpt: "Empowering smallholder farmers with live commodity pricing data.", date: "2026-05-08", icon: "fa-chart-line", url: "articles/article-3.html" },
-      { id: 4, title: "AI in Agriculture: The Future of Farming", excerpt: "How machine learning is transforming crop yields.", date: "2026-04-28", icon: "fa-microchip", url: "articles/article-4.html" },
-      { id: 5, title: "Hydroponics: Soilless Farming for Africa", excerpt: "Urban agriculture solutions for food security.", date: "2026-04-22", icon: "fa-water", url: "articles/article-5.html" },
-      { id: 6, title: "Precision Agriculture with Satellite Data", excerpt: "How satellite imagery drives smarter farming decisions.", date: "2026-04-15", icon: "fa-satellite", url: "articles/article-6.html" }
-    ];
-
+   // ===== ARTICLES DATA (with thumbnails) =====
+const articles = [
+  // NEW ARTICLE (ID 8) - ADD THIS FIRST
+  { id: 8, title: "China Opens Market to Nigerian Fish: What It Means", excerpt: "Nigeria and China have signed a new agreement opening China's market to Nigerian wild aquatic products after four years of negotiations.", date: "2026-08-13", icon: "fa-fish", thumbnail: "china-naqs.jpg", url: "articles/article-8.html" },
+  // Existing articles
+  { id: 7, title: "African Swine Fever: Protecting Pig Farms", excerpt: "How farmers can protect their herds from this deadly disease through biosecurity.", date: "2026-08-13", icon: "fa-disease", thumbnail: "../file_00000000222881f6b51ecc8809ac794b.png", url: "articles/article-7.html" },
+  { id: 1, title: "AI-powered soil health monitoring", excerpt: "New platform helps farmers monitor soil in real-time using machine learning.", date: "2026-05-12", icon: "fa-newspaper", url: "articles/article-1.html" },
+  { id: 2, title: "Drone seeding initiative in Kenya", excerpt: "Startup scales reforestation efforts with drone technology.", date: "2026-05-10", icon: "fa-tractor", url: "articles/article-2.html" },
+  { id: 3, title: "Real-time market prices dashboard", excerpt: "Empowering smallholder farmers with live commodity pricing data.", date: "2026-05-08", icon: "fa-chart-line", url: "articles/article-3.html" },
+  { id: 4, title: "AI in Agriculture: The Future of Farming", excerpt: "How machine learning is transforming crop yields.", date: "2026-04-28", icon: "fa-microchip", url: "articles/article-4.html" },
+  { id: 5, title: "Hydroponics: Soilless Farming for Africa", excerpt: "Urban agriculture solutions for food security.", date: "2026-04-22", icon: "fa-water", url: "articles/article-5.html" },
+  { id: 6, title: "Precision Agriculture with Satellite Data", excerpt: "How satellite imagery drives smarter farming decisions.", date: "2026-04-15", icon: "fa-satellite", url: "articles/article-6.html" }
+];
     const sortedArticles = articles.sort((a, b) => new Date(b.date) - new Date(a.date));
 
     function formatDate(dateString) {
