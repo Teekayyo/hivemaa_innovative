@@ -101,13 +101,105 @@
   <script>
     // ===== ARTICLES DATA (with thumbnails) =====
     const articlesData = [
-      { id: 7, title: "African Swine Fever: Protecting Pig Farms", excerpt: "How farmers can protect their herds from this deadly disease through biosecurity.", category: "Health", author: "Hivemaa Team", date: "2026-08-13", readTime: "5 min read", tags: ["ASF", "Biosecurity", "Pig Farming"], thumbnail: "../file_00000000222881f6b51ecc8809ac794b.png", icon: "fa-disease", url: "articles/article-7.html" },
-      { id: 1, title: "AI-powered soil health monitoring", excerpt: "New platform helps farmers monitor soil in real-time using machine learning.", category: "Technology", author: "Dr. Sarah Okonkwo", date: "2026-05-12", readTime: "5 min read", tags: ["AI", "Soil"], icon: "fa-newspaper", url: "articles/article-1.html" },
-      { id: 2, title: "Drone seeding initiative in Kenya", excerpt: "Startup scales reforestation efforts with drone technology.", category: "Innovation", author: "James Mwangi", date: "2026-05-10", readTime: "3 min read", tags: ["Drones", "Kenya"], icon: "fa-tractor", url: "articles/article-2.html" },
-      { id: 3, title: "Real-time market prices dashboard", excerpt: "Empowering smallholder farmers with live commodity pricing data.", category: "Data", author: "Amara Okafor", date: "2026-05-08", readTime: "4 min read", tags: ["Market", "Data"], icon: "fa-chart-line", url: "articles/article-3.html" },
-      { id: 4, title: "AI in Agriculture: The Future of Farming", excerpt: "How machine learning is transforming crop yields.", category: "Technology", author: "Prof. Kwame Nkrumah", date: "2026-04-28", readTime: "8 min read", tags: ["AI", "Future"], icon: "fa-microchip", url: "articles/article-4.html" },
-      { id: 5, title: "Hydroponics: Soilless Farming for Africa", excerpt: "Urban agriculture solutions for food security.", category: "Innovation", author: "Zainab Ahmed", date: "2026-04-22", readTime: "6 min read", tags: ["Hydroponics", "Urban"], icon: "fa-water", url: "articles/article-5.html" },
-      { id: 6, title: "Precision Agriculture with Satellite Data", excerpt: "How satellite imagery drives smarter farming decisions.", category: "Technology", author: "Hivemaa Team", date: "2026-04-15", readTime: "7 min read", tags: ["Satellite", "Precision"], icon: "fa-satellite", url: "articles/article-6.html" }
+      // NEW ARTICLE (ID 8) - ADDED AT TOP
+      { 
+        id: 8, 
+        title: "China Opens Market to Nigerian Fish: What It Means", 
+        excerpt: "Nigeria and China have signed a new agreement opening China's market to Nigerian wild aquatic products after four years of negotiations.", 
+        category: "Trade", 
+        author: "Hivemaa Team", 
+        date: "2026-08-13", 
+        readTime: "4 min read", 
+        tags: ["Trade", "China", "Nigeria", "Fisheries", "Exports"], 
+        icon: "fa-fish",
+        thumbnail: "china-naqs.jpg", 
+        url: "articles/article-8.html" 
+      },
+      { 
+        id: 7, 
+        title: "African Swine Fever: Protecting Pig Farms", 
+        excerpt: "How farmers can protect their herds from this deadly disease through biosecurity.", 
+        category: "Health", 
+        author: "Hivemaa Team", 
+        date: "2026-08-13", 
+        readTime: "5 min read", 
+        tags: ["ASF", "Biosecurity", "Pig Farming"], 
+        thumbnail: "../file_00000000222881f6b51ecc8809ac794b.png", 
+        icon: "fa-disease", 
+        url: "articles/article-7.html" 
+      },
+      { 
+        id: 1, 
+        title: "AI-powered soil health monitoring", 
+        excerpt: "New platform helps farmers monitor soil in real-time using machine learning.", 
+        category: "Technology", 
+        author: "Dr. Sarah Okonkwo", 
+        date: "2026-05-12", 
+        readTime: "5 min read", 
+        tags: ["AI", "Soil"], 
+        icon: "fa-newspaper", 
+        url: "articles/article-1.html" 
+      },
+      { 
+        id: 2, 
+        title: "Drone seeding initiative in Kenya", 
+        excerpt: "Startup scales reforestation efforts with drone technology.", 
+        category: "Innovation", 
+        author: "James Mwangi", 
+        date: "2026-05-10", 
+        readTime: "3 min read", 
+        tags: ["Drones", "Kenya"], 
+        icon: "fa-tractor", 
+        url: "articles/article-2.html" 
+      },
+      { 
+        id: 3, 
+        title: "Real-time market prices dashboard", 
+        excerpt: "Empowering smallholder farmers with live commodity pricing data.", 
+        category: "Data", 
+        author: "Amara Okafor", 
+        date: "2026-05-08", 
+        readTime: "4 min read", 
+        tags: ["Market", "Data"], 
+        icon: "fa-chart-line", 
+        url: "articles/article-3.html" 
+      },
+      { 
+        id: 4, 
+        title: "AI in Agriculture: The Future of Farming", 
+        excerpt: "How machine learning is transforming crop yields.", 
+        category: "Technology", 
+        author: "Prof. Kwame Nkrumah", 
+        date: "2026-04-28", 
+        readTime: "8 min read", 
+        tags: ["AI", "Future"], 
+        icon: "fa-microchip", 
+        url: "articles/article-4.html" 
+      },
+      { 
+        id: 5, 
+        title: "Hydroponics: Soilless Farming for Africa", 
+        excerpt: "Urban agriculture solutions for food security.", 
+        category: "Innovation", 
+        author: "Zainab Ahmed", 
+        date: "2026-04-22", 
+        readTime: "6 min read", 
+        tags: ["Hydroponics", "Urban"], 
+        icon: "fa-water", 
+        url: "articles/article-5.html" 
+      },
+      { 
+        id: 6, 
+        title: "Precision Agriculture with Satellite Data", 
+        excerpt: "How satellite imagery drives smarter farming decisions.", 
+        category: "Technology", 
+        author: "Hivemaa Team", 
+        date: "2026-04-15", 
+        readTime: "7 min read", 
+        tags: ["Satellite", "Precision"], 
+        icon: "fa-satellite", 
+        url: "articles/article-6.html" 
+      }
     ];
 
     // Sort by date (newest first)
