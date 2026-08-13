@@ -76,12 +76,6 @@
         padding: 8px 16px;
         display: block;
       }
-      .nav-actions {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        margin-left: auto;
-      }
     }
 
     @media (min-width: 769px) {
@@ -104,6 +98,9 @@
       <img src="hivemaa-home-logo.png" alt="Hivemaa" style="height: 40px; width: auto; display: inline-block; vertical-align: middle;" />
       <span style="font-weight: 700; font-size: 1.6rem; margin-left: 10px; vertical-align: middle;">Hivemaa</span>
     </a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="about.html">About</a></li>
@@ -114,13 +111,6 @@
       <li><a href="community.html">Community</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <div class="nav-actions">
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
   </nav>
 
   <section class="hero">
@@ -156,81 +146,13 @@
     <section class="section">
       <h2 class="section-title fade-up">Latest News</h2>
       <p class="section-sub fade-up">Stay updated with agricultural innovations across Africa</p>
-      <div class="card-grid">
-        <article class="card article-card fade-up">
-          <div class="card-img"><i class="fas fa-newspaper"></i></div>
-          <div class="card-body">
-            <h3>AI-powered soil health monitoring</h3>
-            <p>New platform helps farmers monitor soil in real-time using machine learning.</p>
-            <div class="meta">
-              <span><i class="far fa-calendar-alt"></i> May 12, 2026</span>
-              <span><i class="far fa-clock"></i> 5 min read</span>
-            </div>
-          </div>
-        </article>
-        <article class="card article-card fade-up">
-          <div class="card-img"><i class="fas fa-tractor"></i></div>
-          <div class="card-body">
-            <h3>Drone seeding initiative in Kenya</h3>
-            <p>Startup scales reforestation efforts with drone technology.</p>
-            <div class="meta">
-              <span><i class="far fa-calendar-alt"></i> May 10, 2026</span>
-              <span><i class="far fa-clock"></i> 3 min read</span>
-            </div>
-          </div>
-        </article>
-        <article class="card article-card fade-up">
-          <div class="card-img"><i class="fas fa-chart-line"></i></div>
-          <div class="card-body">
-            <h3>Real-time market prices dashboard</h3>
-            <p>Empowering smallholder farmers with live commodity pricing data.</p>
-            <div class="meta">
-              <span><i class="far fa-calendar-alt"></i> May 8, 2026</span>
-              <span><i class="far fa-clock"></i> 4 min read</span>
-            </div>
-          </div>
-        </article>
-      </div>
+      <div class="card-grid" id="latestNews"></div>
     </section>
 
     <section class="section">
       <h2 class="section-title fade-up">Featured Articles</h2>
       <p class="section-sub fade-up">Deep dives into agritech, research and innovation</p>
-      <div class="card-grid">
-        <article class="card article-card fade-up">
-          <div class="card-img"><i class="fas fa-microchip"></i></div>
-          <div class="card-body">
-            <h3>AI in Agriculture: The Future of Farming</h3>
-            <p>How machine learning is transforming crop yields.</p>
-            <div class="meta">
-              <span><i class="far fa-calendar-alt"></i> Apr 28, 2026</span>
-              <span><i class="far fa-clock"></i> 8 min read</span>
-            </div>
-          </div>
-        </article>
-        <article class="card article-card fade-up">
-          <div class="card-img"><i class="fas fa-water"></i></div>
-          <div class="card-body">
-            <h3>Hydroponics: Soilless Farming for Africa</h3>
-            <p>Urban agriculture solutions for food security.</p>
-            <div class="meta">
-              <span><i class="far fa-calendar-alt"></i> Apr 22, 2026</span>
-              <span><i class="far fa-clock"></i> 6 min read</span>
-            </div>
-          </div>
-        </article>
-        <article class="card article-card fade-up">
-          <div class="card-img"><i class="fas fa-satellite"></i></div>
-          <div class="card-body">
-            <h3>Precision Agriculture with Satellite Data</h3>
-            <p>How satellite imagery drives smarter farming decisions.</p>
-            <div class="meta">
-              <span><i class="far fa-calendar-alt"></i> Apr 15, 2026</span>
-              <span><i class="far fa-clock"></i> 7 min read</span>
-            </div>
-          </div>
-        </article>
-      </div>
+      <div class="card-grid" id="featuredArticles"></div>
     </section>
 
     <section class="section">
@@ -351,29 +273,75 @@
   <script src="js/script.js"></script>
   <script src="js/search.js"></script>
   <script>
+    // ===== ARTICLES DATA =====
+    const articles = [
+      { id: 7, title: "African Swine Fever: Protecting Pig Farms", excerpt: "How farmers can protect their herds from this deadly disease through biosecurity.", date: "2026-08-13", icon: "fa-disease", url: "articles/article-7.html" },
+      { id: 1, title: "AI-powered soil health monitoring", excerpt: "New platform helps farmers monitor soil in real-time using machine learning.", date: "2026-05-12", icon: "fa-newspaper", url: "articles/article-1.html" },
+      { id: 2, title: "Drone seeding initiative in Kenya", excerpt: "Startup scales reforestation efforts with drone technology.", date: "2026-05-10", icon: "fa-tractor", url: "articles/article-2.html" },
+      { id: 3, title: "Real-time market prices dashboard", excerpt: "Empowering smallholder farmers with live commodity pricing data.", date: "2026-05-08", icon: "fa-chart-line", url: "articles/article-3.html" },
+      { id: 4, title: "AI in Agriculture: The Future of Farming", excerpt: "How machine learning is transforming crop yields.", date: "2026-04-28", icon: "fa-microchip", url: "articles/article-4.html" },
+      { id: 5, title: "Hydroponics: Soilless Farming for Africa", excerpt: "Urban agriculture solutions for food security.", date: "2026-04-22", icon: "fa-water", url: "articles/article-5.html" },
+      { id: 6, title: "Precision Agriculture with Satellite Data", excerpt: "How satellite imagery drives smarter farming decisions.", date: "2026-04-15", icon: "fa-satellite", url: "articles/article-6.html" }
+    ];
+
+    const sortedArticles = articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    function formatDate(dateString) {
+      const date = new Date(dateString);
+      return date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+    }
+
+    function renderLatestNews() {
+      const container = document.getElementById('latestNews');
+      if (!container) return;
+      const latest = sortedArticles.slice(0, 3);
+      container.innerHTML = latest.map(article => `
+        <a href="${article.url}" style="text-decoration: none; color: inherit; display: block;">
+          <div class="card article-card" style="display: block; opacity: 1;">
+            <div class="card-img"><i class="fas ${article.icon}"></i></div>
+            <div class="card-body">
+              <h3>${article.title}</h3>
+              <p>${article.excerpt}</p>
+              <div class="meta">
+                <span><i class="far fa-calendar-alt"></i> ${formatDate(article.date)}</span>
+                <span><i class="far fa-clock"></i> 5 min read</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      `).join('');
+    }
+
+    function renderFeaturedArticles() {
+      const container = document.getElementById('featuredArticles');
+      if (!container) return;
+      const featured = sortedArticles.slice(3, 6);
+      container.innerHTML = featured.map(article => `
+        <a href="${article.url}" style="text-decoration: none; color: inherit; display: block;">
+          <div class="card article-card" style="display: block; opacity: 1;">
+            <div class="card-img"><i class="fas ${article.icon}"></i></div>
+            <div class="card-body">
+              <h3>${article.title}</h3>
+              <p>${article.excerpt}</p>
+              <div class="meta">
+                <span><i class="far fa-calendar-alt"></i> ${formatDate(article.date)}</span>
+                <span><i class="far fa-clock"></i> 5 min read</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      `).join('');
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
-      // ===== HAMBURGER MENU =====
-      const hamburger = document.getElementById('hamburger');
-      const navLinks = document.getElementById('navLinks');
-      if (hamburger && navLinks) {
-        hamburger.addEventListener('click', function(e) {
-          e.stopPropagation();
-          this.classList.toggle('active');
-          navLinks.classList.toggle('open');
+      renderLatestNews();
+      renderFeaturedArticles();
+
+      setTimeout(() => {
+        document.querySelectorAll('.fade-up').forEach(el => {
+          el.classList.add('visible');
         });
-        navLinks.querySelectorAll('a').forEach(link => {
-          link.addEventListener('click', function() {
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('open');
-          });
-        });
-        document.addEventListener('click', function(e) {
-          if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('open');
-          }
-        });
-      }
+      }, 200);
     });
   </script>
 </body>
