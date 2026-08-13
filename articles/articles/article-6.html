@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Articles - Hivemaa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .article-card .card-img { height: 180px; background: var(--light-grey); display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 3rem; }
+    .article-card .card-body { padding: 24px; }
+    .article-card .card-body h3 { font-size: 1.2rem; margin-bottom: 6px; }
+    .article-card .meta { display: flex; gap: 16px; font-size: 0.8rem; opacity: 0.6; margin-top: 12px; flex-wrap: wrap; }
+    .tag-group { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .tag { background: var(--light-grey); padding: 6px 16px; border-radius: 60px; font-size: 0.8rem; font-weight: 500; color: var(--text); opacity: 0.8; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 8px; z-index: 1000; }
+    .hamburger span { display: block; width: 28px; height: 3px; background: var(--text); border-radius: 3px; transition: 0.3s ease; }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+    @media (max-width: 768px) {
+      .hamburger { display: flex !important; }
+      nav { position: relative; flex-wrap: wrap; }
+      .nav-links { display: none !important; flex-direction: column; width: 100%; padding: 20px 0; gap: 16px; background: var(--bg); border-top: 1px solid rgba(0,0,0,0.05); position: absolute; top: 75px; left: 0; box-shadow: var(--shadow); z-index: 999; }
+      body.dark .nav-links { border-top-color: rgba(255,255,255,0.05); }
+      .nav-links.open { display: flex !important; }
+      .nav-links li { width: 100%; text-align: center; padding: 8px 0; }
+      .nav-links li a { font-size: 1.1rem; padding: 8px 16px; display: block; }
+      .nav-actions { margin-left: auto; }
+    }
+    @media (min-width: 769px) { .nav-links { display: flex !important; position: static !important; flex-direction: row !important; width: auto !important; padding: 0 !important; background: transparent !important; border: none !important; box-shadow: none !important; } }
+  </style>
+</head>
+<body>
+  <nav class="container">
+    <a href="index.html" class="logo">
+      <img src="hivemaa-home-logo.png" alt="Hivemaa" style="height: 40px; width: auto; display: inline-block; vertical-align: middle;" />
+      <span style="font-weight: 700; font-size: 1.6rem; margin-left: 10px; vertical-align: middle;">Hivemaa</span>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="articles.html" class="active">Articles</a></li>
+      <li><a href="opportunities.html">Opportunities</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="community.html">Community</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="section">
+      <h1 class="section-title">All Articles</h1>
+      <p class="section-sub">Explore our collection of agricultural insights and innovations</p>
+      <div class="search-wrap">
+        <input type="text" id="searchInput" placeholder="Search articles..." />
+        <button id="searchBtn"><i class="fas fa-search"></i></button>
+      </div>
+      <div id="articlesGrid" class="card-grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>Hivemaa</h4>
+          <p>AgriTech for Africa — connecting agriculture with technology.</p>
+          <div class="footer-socials">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+          <div style="margin-top: 16px; font-size: 0.95rem; opacity: 0.8;">
+            <p><i class="fas fa-phone"></i> +234 07066347583, +234 08181464849</p>
+            <p><i class="fas fa-envelope"></i> hivemaainnovative@gmail.com</p>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="articles.html">Articles</a></li>
+            <li><a href="opportunities.html">Opportunities</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="community.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Hivemaa. All rights reserved.</span>
+        <span>Designed with <i class="fas fa-heart" style="color: var(--primary);"></i> for Africa</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    const articlesData = [
+      { id: 1, title: "AI-powered soil health monitoring", excerpt: "New platform helps farmers monitor soil in real-time.", category: "Technology", author: "Dr. Sarah Okonkwo", date: "May 12, 2026", readTime: "5 min read", tags: ["AI", "Soil"], url: "articles/article-1.html" },
+      { id: 2, title: "Drone seeding initiative in Kenya", excerpt: "Startup scales reforestation efforts with drone technology.", category: "Innovation", author: "James Mwangi", date: "May 10, 2026", readTime: "3 min read", tags: ["Drones", "Kenya"], url: "articles/article-2.html" },
+      { id: 3, title: "Real-time market prices dashboard", excerpt: "Empowering smallholder farmers with live commodity pricing data.", category: "Data", author: "Amara Okafor", date: "May 8, 2026", readTime: "4 min read", tags: ["Market", "Data"], url: "articles/article-3.html" },
+      { id: 4, title: "AI in Agriculture: The Future of Farming", excerpt: "How machine learning is transforming crop yields.", category: "Technology", author: "Prof. Kwame Nkrumah", date: "April 28, 2026", readTime: "8 min read", tags: ["AI", "Future"], url: "articles/article-4.html" },
+      { id: 5, title: "Hydroponics: Soilless Farming for Africa", excerpt: "Urban agriculture solutions for food security.", category: "Innovation", author: "Zainab Ahmed", date: "April 22, 2026", readTime: "6 min read", tags: ["Hydroponics", "Urban"], url: "articles/article-5.html" },
+      { id: 6, title: "African Swine Fever Is Killing Pigs. Here's How Farmers Can Protect Their Farms", excerpt: "A highly contagious viral disease is devastating pig farms across Africa. Here's what every farmer needs to know about prevention and biosecurity.", category: "Innovation", author: "Hivemaa Team", date: "August 13, 2026", readTime: "5 min read", tags: ["African Swine Fever", "Biosecurity", "Pig Farming", "Animal Health"], url: "articles/article-6.html" }
+    ];
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggle = document.getElementById('darkToggle');
+      if (toggle) {
+        if (localStorage.getItem('darkMode') === 'enabled') {
+          document.body.classList.add('dark');
+          toggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
+        }
+        toggle.addEventListener('click', function() {
+          document.body.classList.toggle('dark');
+          const icon = this.querySelector('i');
+          if (document.body.classList.contains('dark')) {
+            icon.classList.replace('fa-moon', 'fa-sun');
+            localStorage.setItem('darkMode', 'enabled');
+          } else {
+            icon.classList.replace('fa-sun', 'fa-moon');
+            localStorage.setItem('darkMode', 'disabled');
+          }
+        });
+      }
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function(e) {
+          e.stopPropagation();
+          this.classList.toggle('active');
+          navLinks.classList.toggle('open');
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('open');
+          });
+        });
+        document.addEventListener('click', function(e) {
+          if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('open');
+          }
+        });
+      }
+
+      const grid = document.getElementById('articlesGrid');
+      if (!grid) return;
+
+      function renderArticles(articles) {
+        grid.innerHTML = '';
+        articles.forEach(article => {
+          const card = document.createElement('article');
+          card.className = 'card article-card fade-up';
+          card.dataset.tags = article.tags.join(' ');
+          let icon = 'fa-newspaper';
+          if (article.category === 'Technology') icon = 'fa-microchip';
+          else if (article.category === 'Innovation') icon = 'fa-lightbulb';
+          else if (article.category === 'Data') icon = 'fa-chart-line';
+          card.innerHTML = `
+            <div class="card-img"><i class="fas ${icon}"></i></div>
+            <div class="card-body">
+              <h3>${article.title}</h3>
+              <p>${article.excerpt}</p>
+              <div class="meta">
+                <span><i class="far fa-calendar-alt"></i> ${article.date}</span>
+                <span><i class="far fa-clock"></i> ${article.readTime}</span>
+                <span><i class="far fa-user"></i> ${article.author}</span>
+              </div>
+              <div class="tag-group">${article.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}</div>
+              <a href="${article.url}" class="btn btn-primary" style="margin-top: 16px; width: 100%; justify-content: center;"><i class="fas fa-book-open"></i> Read Article</a>
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+        setTimeout(() => { document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible')); }, 100);
+      }
+      renderArticles(articlesData);
+
+      const searchInput = document.getElementById('searchInput');
+      const searchBtn = document.getElementById('searchBtn');
+      if (searchInput && searchBtn) {
+        function performSearch() {
+          const query = searchInput.value.trim().toLowerCase();
+          const cards = document.querySelectorAll('.article-card');
+          if (!query) { cards.forEach(card => { card.style.display = 'block'; card.style.border = 'none'; card.style.opacity = '1'; }); return; }
+          let found = 0;
+          cards.forEach((card) => {
+            const title = card.querySelector('h3')?.textContent?.toLowerCase() || '';
+            const excerpt = card.querySelector('p')?.textContent?.toLowerCase() || '';
+            const tags = card.dataset.tags?.toLowerCase() || '';
+            if (title.includes(query) || excerpt.includes(query) || tags.includes(query)) {
+              card.style.display = 'block';
+              card.style.border = '2px solid var(--primary)';
+              card.style.opacity = '1';
+              found++;
+            } else {
+              card.style.display = 'none';
+              card.style.border = 'none';
+              card.style.opacity = '0.3';
+            }
+          });
+          const oldMsg = document.querySelector('.search-result-msg');
+          if (oldMsg) oldMsg.remove();
+          if (found === 0) {
+            const msg = document.createElement('p');
+            msg.className = 'search-result-msg';
+            msg.style.textAlign = 'center';
+            msg.style.marginTop = '20px';
+            msg.style.padding = '20px';
+            msg.style.color = 'var(--primary)';
+            msg.style.fontWeight = '500';
+            msg.textContent = '🔍 No articles found. Try a different keyword.';
+            grid.after(msg);
+          }
+        }
+        searchBtn.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', function(e) { if (e.key === 'Enter') { e.preventDefault(); performSearch(); } });
+      }
+    });
+  </script>
+</body>
+</html>
