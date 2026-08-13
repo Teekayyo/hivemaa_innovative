@@ -1,23 +1,28 @@
-// ===== DARK MODE TOGGLE =====
+// ===== HAMBURGER MENU =====
 document.addEventListener('DOMContentLoaded', function() {
-  const toggle = document.getElementById('darkToggle');
-  if (toggle) {
-    // Check saved preference
-    if (localStorage.getItem('darkMode') === 'enabled') {
-      document.body.classList.add('dark');
-      toggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
-    }
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
 
-    toggle.addEventListener('click', function() {
-      document.body.classList.toggle('dark');
-      const icon = this.querySelector('i');
-      
-      if (document.body.classList.contains('dark')) {
-        icon.classList.replace('fa-moon', 'fa-sun');
-        localStorage.setItem('darkMode', 'enabled');
-      } else {
-        icon.classList.replace('fa-sun', 'fa-moon');
-        localStorage.setItem('darkMode', 'disabled');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      this.classList.toggle('active');
+      navLinks.classList.toggle('open');
+    });
+
+    // Close menu when a link is clicked
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function() {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('open');
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('open');
       }
     });
   }
@@ -43,30 +48,4 @@ document.addEventListener('DOMContentLoaded', function() {
       link.classList.add('active');
     }
   });
-
-  // ===== HAMBURGER MENU =====
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('navLinks');
-
-  if (hamburger && navLinks) {
-    hamburger.addEventListener('click', function(e) {
-      e.stopPropagation();
-      this.classList.toggle('active');
-      navLinks.classList.toggle('open');
-    });
-
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', function() {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('open');
-      });
-    });
-
-    document.addEventListener('click', function(e) {
-      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('open');
-      }
-    });
-  }
 });
