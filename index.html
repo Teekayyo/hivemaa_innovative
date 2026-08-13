@@ -11,6 +11,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .article-card .card-img { height: 180px; background: var(--light-grey); display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 3rem; overflow: hidden; }
+    .article-card .card-img img { width: 100%; height: 100%; object-fit: cover; }
+  </style>
 </head>
 <body>
   <nav class="container">
@@ -193,9 +197,9 @@
   <script src="js/script.js"></script>
   <script src="js/search.js"></script>
   <script>
-    // ===== ARTICLES DATA =====
+    // ===== ARTICLES DATA (with thumbnails) =====
     const articles = [
-      { id: 7, title: "African Swine Fever: Protecting Pig Farms", excerpt: "How farmers can protect their herds from this deadly disease through biosecurity.", date: "2026-08-13", icon: "fa-disease", url: "articles/article-7.html" },
+      { id: 7, title: "African Swine Fever: Protecting Pig Farms", excerpt: "How farmers can protect their herds from this deadly disease through biosecurity.", date: "2026-08-13", icon: "fa-disease", thumbnail: "../file_00000000222881f6b51ecc8809ac794b.png", url: "articles/article-7.html" },
       { id: 1, title: "AI-powered soil health monitoring", excerpt: "New platform helps farmers monitor soil in real-time using machine learning.", date: "2026-05-12", icon: "fa-newspaper", url: "articles/article-1.html" },
       { id: 2, title: "Drone seeding initiative in Kenya", excerpt: "Startup scales reforestation efforts with drone technology.", date: "2026-05-10", icon: "fa-tractor", url: "articles/article-2.html" },
       { id: 3, title: "Real-time market prices dashboard", excerpt: "Empowering smallholder farmers with live commodity pricing data.", date: "2026-05-08", icon: "fa-chart-line", url: "articles/article-3.html" },
@@ -208,61 +212,70 @@
 
     function formatDate(dateString) {
       const date = new Date(dateString);
-      return date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+      return date.toLocaleDateString('US-en', { month: 'long', day: 'numeric', year: 'numeric' });
     }
 
     function renderLatestNews() {
       const container = document.getElementById('latestNews');
       if (!container) return;
       const latest = sortedArticles.slice(0, 3);
-      container.innerHTML = latest.map(article => `
-        <a href="${article.url}" style="text-decoration: none; color: inherit; display: block;">
-          <div class="card article-card" style="display: block; opacity: 1;">
-            <div class="card-img"><i class="fas ${article.icon}"></i></div>
-            <div class="card-body">
-              <h3>${article.title}</h3>
-              <p>${article.excerpt}</p>
-              <div class="meta">
-                <span><i class="far fa-calendar-alt"></i> ${formatDate(article.date)}</span>
-                <span><i class="far fa-clock"></i> 5 min read</span>
+      container.innerHTML = latest.map(article => {
+        let imageHtml = '';
+        if (article.thumbnail) {
+          imageHtml = `<img src="${article.thumbnail}" alt="${article.title}">`;
+        } else {
+          imageHtml = `<i class="fas ${article.icon}"></i>`;
+        }
+        return `
+          <a href="${article.url}" style="text-decoration: none; color: inherit; display: block;">
+            <div class="card article-card" style="display: block; opacity: 1;">
+              <div class="card-img">${imageHtml}</div>
+              <div class="card-body">
+                <h3>${article.title}</h3>
+                <p>${article.excerpt}</p>
+                <div class="meta">
+                  <span><i class="far fa-calendar-alt"></i> ${formatDate(article.date)}</span>
+                  <span><i class="far fa-clock"></i> 5 min read</span>
+                </div>
               </div>
             </div>
-          </div>
-        </a>
-      `).join('');
+          </a>
+        `;
+      }).join('');
     }
 
     function renderFeaturedArticles() {
       const container = document.getElementById('featuredArticles');
       if (!container) return;
       const featured = sortedArticles.slice(3, 6);
-      container.innerHTML = featured.map(article => `
-        <a href="${article.url}" style="text-decoration: none; color: inherit; display: block;">
-          <div class="card article-card" style="display: block; opacity: 1;">
-            <div class="card-img"><i class="fas ${article.icon}"></i></div>
-            <div class="card-body">
-              <h3>${article.title}</h3>
-              <p>${article.excerpt}</p>
-              <div class="meta">
-                <span><i class="far fa-calendar-alt"></i> ${formatDate(article.date)}</span>
-                <span><i class="far fa-clock"></i> 5 min read</span>
+      container.innerHTML = featured.map(article => {
+        let imageHtml = '';
+        if (article.thumbnail) {
+          imageHtml = `<img src="${article.thumbnail}" alt="${article.title}">`;
+        } else {
+          imageHtml = `<i class="fas ${article.icon}"></i>`;
+        }
+        return `
+          <a href="${article.url}" style="text-decoration: none; color: inherit; display: block;">
+            <div class="card article-card" style="display: block; opacity: 1;">
+              <div class="card-img">${imageHtml}</div>
+              <div class="card-body">
+                <h3>${article.title}</h3>
+                <p>${article.excerpt}</p>
+                <div class="meta">
+                  <span><i class="far fa-calendar-alt"></i> ${formatDate(article.date)}</span>
+                  <span><i class="far fa-clock"></i> 5 min read</span>
+                </div>
               </div>
             </div>
-          </div>
-        </a>
-      `).join('');
+          </a>
+        `;
+      }).join('');
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-      // ===== ARTICLES RENDER (HAMBURGER HANDLED BY js/script.js) =====
       renderLatestNews();
       renderFeaturedArticles();
-
-      setTimeout(() => {
-        document.querySelectorAll('.fade-up').forEach(el => {
-          el.classList.add('visible');
-        });
-      }, 200);
     });
   </script>
 </body>
