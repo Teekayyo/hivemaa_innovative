@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <!-- ===== NAVIGATION (EXACT COPY FROM ABOUT.HTML) ===== -->
   <nav class="container">
     <a href="index.html" class="logo">
       <img src="hivemaa-home-logo.png" alt="Hivemaa" style="height: 40px; width: auto; display: inline-block; vertical-align: middle;" />
@@ -33,6 +34,7 @@
     </ul>
   </nav>
 
+  <!-- ===== REST OF YOUR INDEX.HTML CONTENT (UNCHANGED) ===== -->
   <section class="hero">
     <div class="hero-bg-shapes">
       <span></span>
@@ -66,17 +68,13 @@
     <section class="section">
       <h2 class="section-title fade-up">Latest News</h2>
       <p class="section-sub fade-up">Stay updated with agricultural innovations across Africa</p>
-      <div class="card-grid" id="latestNews">
-        <!-- Articles loaded by JavaScript -->
-      </div>
+      <div class="card-grid" id="latestNews"></div>
     </section>
 
     <section class="section">
       <h2 class="section-title fade-up">Featured Articles</h2>
       <p class="section-sub fade-up">Deep dives into agritech, research and innovation</p>
-      <div class="card-grid" id="featuredArticles">
-        <!-- Articles loaded by JavaScript -->
-      </div>
+      <div class="card-grid" id="featuredArticles"></div>
     </section>
 
     <section class="section">
@@ -197,7 +195,7 @@
   <script src="js/script.js"></script>
   <script src="js/search.js"></script>
   <script>
-    // ===== ARTICLES DATA (Sorted by Date - Newest First) =====
+    // ===== ARTICLES DATA =====
     const articles = [
       { id: 7, title: "African Swine Fever: Protecting Pig Farms", excerpt: "How farmers can protect their herds from this deadly disease through biosecurity.", date: "2026-08-13", icon: "fa-disease", url: "articles/article-7.html" },
       { id: 1, title: "AI-powered soil health monitoring", excerpt: "New platform helps farmers monitor soil in real-time using machine learning.", date: "2026-05-12", icon: "fa-newspaper", url: "articles/article-1.html" },
@@ -208,7 +206,6 @@
       { id: 6, title: "Precision Agriculture with Satellite Data", excerpt: "How satellite imagery drives smarter farming decisions.", date: "2026-04-15", icon: "fa-satellite", url: "articles/article-6.html" }
     ];
 
-    // Sort by date (newest first)
     const sortedArticles = articles.sort((a, b) => new Date(b.date) - new Date(a.date));
 
     function formatDate(dateString) {
@@ -219,7 +216,6 @@
     function renderLatestNews() {
       const container = document.getElementById('latestNews');
       if (!container) return;
-      
       const latest = sortedArticles.slice(0, 3);
       container.innerHTML = latest.map(article => `
         <a href="${article.url}" style="text-decoration: none; color: inherit; display: block;">
@@ -241,7 +237,6 @@
     function renderFeaturedArticles() {
       const container = document.getElementById('featuredArticles');
       if (!container) return;
-      
       const featured = sortedArticles.slice(3, 6);
       container.innerHTML = featured.map(article => `
         <a href="${article.url}" style="text-decoration: none; color: inherit; display: block;">
@@ -261,7 +256,7 @@
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-      // ===== HAMBURGER MENU (Same as about.html) =====
+      // ===== HAMBURGER (EXACT SAME AS ABOUT.HTML) =====
       const hamburger = document.getElementById('hamburger');
       const navLinks = document.getElementById('navLinks');
       if (hamburger && navLinks) {
@@ -287,7 +282,6 @@
       renderLatestNews();
       renderFeaturedArticles();
 
-      // Fade-in animation
       setTimeout(() => {
         document.querySelectorAll('.fade-up').forEach(el => {
           el.classList.add('visible');
