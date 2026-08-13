@@ -18,6 +18,7 @@
     .article-body h2 { margin-top: 40px; margin-bottom: 16px; font-size: 1.8rem; }
     .article-body ul { margin-bottom: 20px; padding-left: 30px; }
     .article-body li { margin-bottom: 10px; }
+    .article-body img { width: 100%; border-radius: 12px; margin: 20px 0; }
     .share-buttons { display: flex; gap: 12px; margin: 30px 0; flex-wrap: wrap; }
     .share-btn { padding: 10px 20px; border-radius: 60px; border: none; cursor: pointer; transition: 0.2s; display: inline-flex; align-items: center; gap: 8px; }
     .share-btn:hover { transform: scale(1.05); }
@@ -89,6 +90,9 @@
         <div class="alert-box">
           <strong>⚠️ Important:</strong> This article is for educational purposes. Always consult a veterinarian for professional advice.
         </div>
+
+        <!-- IMAGE ADDED HERE -->
+        <img src="../images/articles/asf-pig-farm.jpg" alt="African Swine Fever prevention on a pig farm" />
 
         <p>Imagine waking up one morning and finding several of your pigs dead.</p>
         <p>Then another.</p>
@@ -233,31 +237,5 @@
   </footer>
 
   <script src="../js/script.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // ===== HAMBURGER =====
-      const hamburger = document.getElementById('hamburger');
-      const navLinks = document.getElementById('navLinks');
-      if (hamburger && navLinks) {
-        hamburger.addEventListener('click', function(e) {
-          e.stopPropagation();
-          this.classList.toggle('active');
-          navLinks.classList.toggle('open');
-        });
-        navLinks.querySelectorAll('a').forEach(link => {
-          link.addEventListener('click', function() {
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('open');
-          });
-        });
-        document.addEventListener('click', function(e) {
-          if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('open');
-          }
-        });
-      }
-    });
-  </script>
 </body>
 </html>
