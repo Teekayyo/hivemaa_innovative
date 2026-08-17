@@ -199,9 +199,11 @@
   <script>
    // ===== ARTICLES DATA (with thumbnails) =====
 const articles = [
-  // NEW ARTICLE (ID 8) - ADD THIS FIRST
+  // ARTICLE 9 - BANKS LENDING (NEWEST)
+  { id: 9, title: "Nigerian Banks Are Starting to Look at Agriculture Differently", excerpt: "Banks increased lending to agriculture by ₦150 billion in three months, while oil and gas lending dropped by ₦335 billion.", date: "2026-08-17", icon: "fa-building-columns", thumbnail: "article9.png", url: "articles/article-9.html" },
+  // ARTICLE 8 - CHINA FISH
   { id: 8, title: "China Opens Market to Nigerian Fish: What It Means", excerpt: "Nigeria and China have signed a new agreement opening China's market to Nigerian wild aquatic products after four years of negotiations.", date: "2026-08-13", icon: "fa-fish", thumbnail: "china-naqs.jpg", url: "articles/article-8.html" },
-  // Existing articles
+  // ARTICLE 7 - ASF
   { id: 7, title: "African Swine Fever: Protecting Pig Farms", excerpt: "How farmers can protect their herds from this deadly disease through biosecurity.", date: "2026-08-13", icon: "fa-disease", thumbnail: "../file_00000000222881f6b51ecc8809ac794b.png", url: "articles/article-7.html" },
   { id: 1, title: "AI-powered soil health monitoring", excerpt: "New platform helps farmers monitor soil in real-time using machine learning.", date: "2026-05-12", icon: "fa-newspaper", url: "articles/article-1.html" },
   { id: 2, title: "Drone seeding initiative in Kenya", excerpt: "Startup scales reforestation efforts with drone technology.", date: "2026-05-10", icon: "fa-tractor", url: "articles/article-2.html" },
@@ -210,6 +212,7 @@ const articles = [
   { id: 5, title: "Hydroponics: Soilless Farming for Africa", excerpt: "Urban agriculture solutions for food security.", date: "2026-04-22", icon: "fa-water", url: "articles/article-5.html" },
   { id: 6, title: "Precision Agriculture with Satellite Data", excerpt: "How satellite imagery drives smarter farming decisions.", date: "2026-04-15", icon: "fa-satellite", url: "articles/article-6.html" }
 ];
+
     const sortedArticles = articles.sort((a, b) => new Date(b.date) - new Date(a.date));
 
     function formatDate(dateString) {
