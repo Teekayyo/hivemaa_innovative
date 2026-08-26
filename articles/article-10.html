@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Benue Grows the Food. So Why Are We Still Importing What We Can Make? - Hivemaa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .article-content { max-width: 800px; margin: 0 auto; padding: 40px 0; }
+    .article-content h1 { font-size: 2.8rem; margin-bottom: 20px; font-weight: 800; line-height: 1.1; }
+    .article-meta { display: flex; gap: 20px; opacity: 0.6; margin-bottom: 30px; flex-wrap: wrap; }
+    .article-body { font-size: 1.1rem; line-height: 1.8; opacity: 0.9; }
+    .article-body p { margin-bottom: 20px; }
+    .article-body h2 { margin-top: 40px; margin-bottom: 16px; font-size: 1.8rem; }
+    .article-body h3 { margin-top: 28px; margin-bottom: 12px; font-size: 1.4rem; }
+    .article-body ul { margin-bottom: 20px; padding-left: 30px; }
+    .article-body li { margin-bottom: 10px; }
+    .article-body .data-highlight { background: var(--light-grey); padding: 20px 24px; border-radius: 12px; margin: 24px 0; border-left: 4px solid var(--primary); }
+    .article-body .data-highlight strong { color: var(--primary); }
+    .article-body .data-highlight.warning { border-left-color: #e74c3c; }
+    .article-body .data-highlight.success { border-left-color: #27ae60; }
+    .article-body .data-highlight.info { border-left-color: #3498db; }
+    .article-body img { width: 100%; border-radius: 12px; margin: 20px 0; }
+    .article-body .stat-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 24px 0; }
+    .article-body .stat-card { background: var(--light-grey); padding: 20px; border-radius: 12px; text-align: center; }
+    .article-body .stat-card .number { font-size: 2.2rem; font-weight: 800; color: var(--primary); }
+    .article-body .stat-card .label { font-size: 0.95rem; opacity: 0.7; margin-top: 4px; }
+    .article-body .stat-card .sub { font-size: 0.8rem; opacity: 0.5; margin-top: 2px; }
+    .share-buttons { display: flex; gap: 12px; margin: 30px 0; flex-wrap: wrap; }
+    .share-btn { padding: 10px 20px; border-radius: 60px; border: none; cursor: pointer; transition: 0.2s; display: inline-flex; align-items: center; gap: 8px; }
+    .share-btn:hover { transform: scale(1.05); }
+    .share-twitter { background: #1DA1F2; color: white; }
+    .share-linkedin { background: #0A66C2; color: white; }
+    .share-facebook { background: #1877F2; color: white; }
+    .share-whatsapp { background: #25D366; color: white; }
+    .article-body .pull-quote { font-size: 1.4rem; font-weight: 600; padding: 20px 30px; border-left: 4px solid var(--primary); margin: 30px 0; background: var(--light-grey); border-radius: 0 12px 12px 0; font-style: italic; line-height: 1.5; }
+    .article-body .pull-quote cite { display: block; font-size: 0.9rem; font-weight: 400; font-style: normal; opacity: 0.6; margin-top: 8px; }
+
+    /* ===== HAMBURGER MENU ===== */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 8px; z-index: 1000; }
+    .hamburger span { display: block; width: 28px; height: 3px; background: var(--text); border-radius: 3px; transition: 0.3s ease; }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+    @media (max-width: 768px) {
+      .hamburger { display: flex !important; }
+      nav { position: relative; flex-wrap: wrap; }
+      .nav-links { display: none !important; flex-direction: column; width: 100%; padding: 20px 0; gap: 16px; background: var(--bg); border-top: 1px solid rgba(0,0,0,0.05); position: absolute; top: 75px; left: 0; box-shadow: var(--shadow); z-index: 999; }
+      .nav-links.open { display: flex !important; }
+      .nav-links li { width: 100%; text-align: center; padding: 8px 0; }
+      .nav-links li a { font-size: 1.1rem; padding: 8px 16px; display: block; }
+      .nav-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+      .article-body .stat-grid { grid-template-columns: 1fr 1fr; }
+      .article-content h1 { font-size: 2rem; }
+      .article-body .pull-quote { font-size: 1.1rem; padding: 16px 20px; }
+    }
+    @media (max-width: 480px) {
+      .article-body .stat-grid { grid-template-columns: 1fr; }
+    }
+    @media (min-width: 769px) { .nav-links { display: flex !important; position: static !important; flex-direction: row !important; width: auto !important; padding: 0 !important; background: transparent !important; border: none !important; box-shadow: none !important; } }
+  </style>
+</head>
+<body>
+  <nav class="container">
+    <a href="../index.html" class="logo">
+      <img src="../hivemaa-home-logo.png" alt="Hivemaa" style="height: 40px; width: auto; display: inline-block; vertical-align: middle;" />
+      <span style="font-weight: 700; font-size: 1.6rem; margin-left: 10px; vertical-align: middle;">Hivemaa</span>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../news.html" class="active">News</a></li>
+      <li><a href="../articles.html">Articles</a></li>
+      <li><a href="../opportunities.html">Opportunities</a></li>
+      <li><a href="../resources.html">Resources</a></li>
+      <li><a href="../community.html">Community</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="article-content">
+      <h1>Benue Grows the Food. So Why Are We Still Importing What We Can Make?</h1>
+
+      <div class="article-meta">
+        <span><i class="far fa-user"></i> The Hivemaa Team</span>
+        <span><i class="far fa-calendar-alt"></i> August 26, 2026</span>
+        <span><i class="far fa-clock"></i> 5 min read</span>
+        <span><i class="fas fa-tags"></i> Benue, Agriculture, Value Addition, Post-Harvest Loss, Agribusiness</span>
+      </div>
+
+      <div class="share-buttons">
+        <button class="share-btn share-twitter"><i class="fab fa-twitter"></i> Share</button>
+        <button class="share-btn share-linkedin"><i class="fab fa-linkedin-in"></i> Share</button>
+        <button class="share-btn share-facebook"><i class="fab fa-facebook-f"></i> Share</button>
+        <button class="share-btn share-whatsapp"><i class="fab fa-whatsapp"></i> Share</button>
+      </div>
+
+      <div class="article-body">
+
+        <p><strong>The state feeds Nigeria. But can it feed its own people's pockets?</strong></p>
+
+        <p>You know the story. Benue farmers wake up before the sun, till red earth, pray for rain, and deliver. Yam, cassava, rice, soybeans, oranges, mangoes—the state produces like it's showing off.</p>
+
+        <p>And the numbers back it up.</p>
+
+        <p>The International Institute of Tropical Agriculture (IITA) ranks Benue as the highest agricultural-producing state in Nigeria. Nigeria produces over 70% of the world's yams, and Benue alone accounts for over 51% of the country's total yam production.</p>
+
+        <p>Same story with cassava. Benue tops the chart, Kogi comes second. In citrus and soybean production, Benue is the undisputed leader. For soybean, the state produced over 200,000 metric tons in both 2022 and 2023.</p>
+
+        <!-- IMAGE -->
+        <img src="../article10.png" alt="Benue farmers harvesting cassava in the fields" />
+
+        <p>But here's the part that doesn't add up.</p>
+
+        <div class="data-highlight warning">
+          <p><strong>The same state that grows all this food is the same one where farmers watch their harvest rot because nobody came to buy.</strong></p>
+        </div>
+
+        <h2>The Cycle That Hurts</h2>
+
+        <p>Let's talk about post-harvest losses—fancy term for "food that never makes it to anyone's plate."</p>
+
+        <p>In Benue, it's brutal. A study on cassava farmers in Idoma land found that over 40% of post-harvest losses happen during processing and storage. Not pests. Not bad weather. Just no facilities to handle the abundance.</p>
+
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="number">40%+</div>
+            <div class="label">Cassava losses during processing & storage</div>
+            <div class="sub">Idoma land study</div>
+          </div>
+          <div class="stat-card">
+            <div class="number">61%</div>
+            <div class="label">Marketers lack proper storage</div>
+            <div class="sub">Makurdi leafy vegetable marketers</div>
+          </div>
+          <div class="stat-card">
+            <div class="number">61.56kg</div>
+            <div class="label">Lost per 100kg bag of rice</div>
+            <div class="sub">Due to inadequate drying facilities</div>
+          </div>
+        </div>
+
+        <p>For leafy vegetable marketers in Makurdi, the situation is even clearer. 61% reported lack of proper storage facilities as a major cause of losses. 57% blamed high temperatures, 60% said contaminants and filthy environments, 56% pointed to pest and disease infestation.</p>
+
+        <div class="data-highlight warning">
+          <p><strong>The average value of post-harvest losses per marketer? ₦21,925.91.</strong> Their average returns? Just ₦31,645.4. That's almost 70% of their potential income disappearing into thin air.</p>
+        </div>
+
+        <p>For rice processors in the state, inadequate drying facilities alone account for losses of about 61.56 kg per 100 kg bag—that's over 25% of their product gone before it even reaches a buyer.</p>
+
+        <div class="pull-quote">
+          "This is not a sad story. This is a Tuesday for too many Benue farmers."
+          <cite>— The Hivemaa Team</cite>
+        </div>
+
+        <h2>Now Flip It</h2>
+
+        <p>Imagine if instead of watching oranges rot, a farmer could walk into a processing plant five minutes away. They weigh his oranges, pay him properly, and turn those fruits into juice, concentrate, or export-grade products.</p>
+
+        <p>That's not a dream anymore. It's happening—just not enough.</p>
+
+        <div class="data-highlight success">
+          <p><strong>In June 2026, President Tinubu commissioned the Bensono Fruit Processing Plant in Makurdi</strong>, with a capacity of 40,000 metric tons per day. The plant is expected to generate thousands of direct and indirect jobs and reduce Nigeria's fruit concentrate import bill, which stood at about $68 million last year.</p>
+        </div>
+
+        <p>And the plant is expanding. Sono Group recently announced plans to increase capacity to 100,000 metric tons and introduce a new juice production line within six months.</p>
+
+        <div class="data-highlight info">
+          <p><strong>The Benue State government also secured a ₦25 billion agricultural partnership</strong> for commercial soybean production, irrigation farming, and value-chain development. The goal? Position Benue not just as Nigeria's food basket but as a gateway to Africa's food future.</p>
+        </div>
+
+        <h2>What's Still Missing</h2>
+
+        <p>But let's be real—a few plants and a ₦25 billion deal aren't enough when the problem is this deep.</p>
+
+        <p>Benue doesn't need more farmers. It has them in abundance. What it needs is the stuff that turns farming into an economy:</p>
+
+        <ul>
+          <li><strong>Processing plants</strong> that can handle cassava, oranges, rice, yam—you name it</li>
+          <li><strong>Cold storage</strong> so produce doesn't go to waste while waiting for buyers</li>
+          <li><strong>Roads</strong> that don't turn to mud during rainy season</li>
+          <li><strong>Packaging</strong> so products don't look like they were wrapped in old newspapers</li>
+          <li><strong>Distribution networks</strong> that can move Benue-made goods to every corner of Nigeria</li>
+        </ul>
+
+        <p>Right now, Benue grows the food, sends it out raw, and watches other states package it and sell it for 10x the price. Meanwhile, Nigeria's food import bill hit N7.65 trillion in 2025—a 265% jump from N2.86 trillion in 2022.</p>
+
+        <div class="data-highlight warning">
+          <p><strong>Make it make sense.</strong></p>
+        </div>
+
+        <h2>The Basket Needs to Stop Leaking</h2>
+
+        <div class="pull-quote">
+          "Food Basket of the Nation" is a nice title. But what's the point of carrying all that food if the basket has holes?
+          <cite>— The Hivemaa Team</cite>
+        </div>
+
+        <p>The next step for Benue isn't planting more. It's processing more. Keeping the value at home. Creating jobs. Building factories. Making sure that when you buy orange juice in Lagos, it says "Made in Benue" on the bottle, not "Imported from Brazil."</p>
+
+        <p>The land is there. The farmers are there. The numbers are there. The only thing missing is the will—and the investment—to connect all the dots.</p>
+
+        <div class="data-highlight" style="border-left-color: #6c757d; background: var(--light-grey);">
+          <p style="font-size: 0.9rem; opacity: 0.7; margin-bottom: 0;">
+            <strong>Sources:</strong> International Institute of Tropical Agriculture (IITA), Benue State Agricultural Development Programme, National Bureau of Statistics (NBS), CBN Quarterly Reports, Field Studies on Post-Harvest Losses in Benue State (2023-2025)
+          </p>
+        </div>
+
+        <hr style="margin: 40px 0; opacity: 0.1;" />
+
+        <p style="font-style: italic; opacity: 0.7; font-size: 0.95rem;">
+          <strong>About the author:</strong> This article was written by The Hivemaa Team. Hivemaa is an agricultural technology company dedicated to advocating for and building a sustainable future for the African Agricultural Technology Space.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>Hivemaa</h4>
+          <p>AgriTech for Africa — connecting agriculture with technology.</p>
+          <div class="footer-socials">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+          <div style="margin-top: 16px; font-size: 0.95rem; opacity: 0.8;">
+            <p><i class="fas fa-phone"></i> +234 07066347583, +234 08181464849</p>
+            <p><i class="fas fa-envelope"></i> hivemaainnovative@gmail.com</p>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../news.html">News</a></li>
+            <li><a href="../articles.html">Articles</a></li>
+            <li><a href="../opportunities.html">Opportunities</a></li>
+            <li><a href="../resources.html">Resources</a></li>
+            <li><a href="../community.html">Community</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="../community.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Hivemaa. All rights reserved.</span>
+        <span>Designed with <i class="fas fa-heart" style="color: var(--primary);"></i> for Africa</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>
