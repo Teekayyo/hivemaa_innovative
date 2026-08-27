@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>World Lake Day 2026: Why Africa's Lakes Are Everybody's Business - Hivemaa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .article-content { max-width: 800px; margin: 0 auto; padding: 40px 0; }
+    .article-content h1 { font-size: 2.8rem; margin-bottom: 20px; font-weight: 800; line-height: 1.1; }
+    .article-meta { display: flex; gap: 20px; opacity: 0.6; margin-bottom: 30px; flex-wrap: wrap; }
+    .article-body { font-size: 1.1rem; line-height: 1.8; opacity: 0.9; }
+    .article-body p { margin-bottom: 20px; }
+    .article-body h2 { margin-top: 40px; margin-bottom: 16px; font-size: 1.8rem; }
+    .article-body h3 { margin-top: 28px; margin-bottom: 12px; font-size: 1.4rem; }
+    .article-body ul { margin-bottom: 20px; padding-left: 30px; }
+    .article-body li { margin-bottom: 10px; }
+    .article-body .data-highlight { background: var(--light-grey); padding: 20px 24px; border-radius: 12px; margin: 24px 0; border-left: 4px solid var(--primary); }
+    .article-body .data-highlight strong { color: var(--primary); }
+    .article-body .data-highlight.warning { border-left-color: #e74c3c; }
+    .article-body .data-highlight.success { border-left-color: #27ae60; }
+    .article-body .data-highlight.info { border-left-color: #3498db; }
+    .article-body img { width: 100%; border-radius: 12px; margin: 20px 0; }
+    .article-body .stat-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 24px 0; }
+    .article-body .stat-card { background: var(--light-grey); padding: 20px; border-radius: 12px; text-align: center; }
+    .article-body .stat-card .number { font-size: 2.2rem; font-weight: 800; color: var(--primary); }
+    .article-body .stat-card .label { font-size: 0.95rem; opacity: 0.7; margin-top: 4px; }
+    .article-body .stat-card .sub { font-size: 0.8rem; opacity: 0.5; margin-top: 2px; }
+    .share-buttons { display: flex; gap: 12px; margin: 30px 0; flex-wrap: wrap; }
+    .share-btn { padding: 10px 20px; border-radius: 60px; border: none; cursor: pointer; transition: 0.2s; display: inline-flex; align-items: center; gap: 8px; }
+    .share-btn:hover { transform: scale(1.05); }
+    .share-twitter { background: #1DA1F2; color: white; }
+    .share-linkedin { background: #0A66C2; color: white; }
+    .share-facebook { background: #1877F2; color: white; }
+    .share-whatsapp { background: #25D366; color: white; }
+    .article-body .pull-quote { font-size: 1.4rem; font-weight: 600; padding: 20px 30px; border-left: 4px solid var(--primary); margin: 30px 0; background: var(--light-grey); border-radius: 0 12px 12px 0; font-style: italic; line-height: 1.5; }
+    .article-body .pull-quote cite { display: block; font-size: 0.9rem; font-weight: 400; font-style: normal; opacity: 0.6; margin-top: 8px; }
+    .article-body .table-wrap { overflow-x: auto; margin: 24px 0; }
+    .article-body .table-wrap table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+    .article-body .table-wrap th { background: var(--primary); color: white; padding: 12px 16px; text-align: left; }
+    .article-body .table-wrap td { padding: 12px 16px; border-bottom: 1px solid rgba(0,0,0,0.05); }
+    .article-body .table-wrap tr:nth-child(even) { background: var(--light-grey); }
+
+    /* ===== HAMBURGER MENU ===== */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 8px; z-index: 1000; }
+    .hamburger span { display: block; width: 28px; height: 3px; background: var(--text); border-radius: 3px; transition: 0.3s ease; }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+    @media (max-width: 768px) {
+      .hamburger { display: flex !important; }
+      nav { position: relative; flex-wrap: wrap; }
+      .nav-links { display: none !important; flex-direction: column; width: 100%; padding: 20px 0; gap: 16px; background: var(--bg); border-top: 1px solid rgba(0,0,0,0.05); position: absolute; top: 75px; left: 0; box-shadow: var(--shadow); z-index: 999; }
+      .nav-links.open { display: flex !important; }
+      .nav-links li { width: 100%; text-align: center; padding: 8px 0; }
+      .nav-links li a { font-size: 1.1rem; padding: 8px 16px; display: block; }
+      .nav-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+      .article-body .stat-grid { grid-template-columns: 1fr 1fr; }
+      .article-content h1 { font-size: 2rem; }
+      .article-body .pull-quote { font-size: 1.1rem; padding: 16px 20px; }
+    }
+    @media (max-width: 480px) {
+      .article-body .stat-grid { grid-template-columns: 1fr; }
+    }
+    @media (min-width: 769px) { .nav-links { display: flex !important; position: static !important; flex-direction: row !important; width: auto !important; padding: 0 !important; background: transparent !important; border: none !important; box-shadow: none !important; } }
+  </style>
+</head>
+<body>
+  <nav class="container">
+    <a href="../index.html" class="logo">
+      <img src="../hivemaa-home-logo.png" alt="Hivemaa" style="height: 40px; width: auto; display: inline-block; vertical-align: middle;" />
+      <span style="font-weight: 700; font-size: 1.6rem; margin-left: 10px; vertical-align: middle;">Hivemaa</span>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../news.html" class="active">News</a></li>
+      <li><a href="../articles.html">Articles</a></li>
+      <li><a href="../opportunities.html">Opportunities</a></li>
+      <li><a href="../resources.html">Resources</a></li>
+      <li><a href="../community.html">Community</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="article-content">
+      <h1>World Lake Day 2026: Why Africa's Lakes Are Everybody's Business</h1>
+
+      <div class="article-meta">
+        <span><i class="far fa-user"></i> The Hivemaa Team</span>
+        <span><i class="far fa-calendar-alt"></i> August 27, 2026</span>
+        <span><i class="far fa-clock"></i> 6 min read</span>
+        <span><i class="fas fa-tags"></i> World Lake Day, Water Conservation, AgriTech, Sustainability, Lake Chad</span>
+      </div>
+
+      <div class="share-buttons">
+        <button class="share-btn share-twitter"><i class="fab fa-twitter"></i> Share</button>
+        <button class="share-btn share-linkedin"><i class="fab fa-linkedin-in"></i> Share</button>
+        <button class="share-btn share-facebook"><i class="fab fa-facebook-f"></i> Share</button>
+        <button class="share-btn share-whatsapp"><i class="fab fa-whatsapp"></i> Share</button>
+      </div>
+
+      <div class="article-body">
+
+        <p><strong>Today Is World Lake Day. Here's Why It Matters.</strong></p>
+
+        <p>August 27 is now officially World Lake Day — the UN just established it in December 2024, making this the very first observance.</p>
+
+        <p>The date honours the first World Lake Conference held in Japan back in 1984, near Lake Biwa. But this isn't just about history. It's about something far more urgent.</p>
+
+        <p>Lakes hold about 90% of the world's unfrozen freshwater. That's the water that irrigates crops, sustains communities, and keeps food on our tables.</p>
+
+        <div class="data-highlight warning">
+          <p><strong>For Africa, this hits different.</strong> We have some of the most important lakes on the planet — Lake Victoria, Lake Chad, Lake Tanganyika. And right now, many of them are in serious trouble.</p>
+        </div>
+
+        <img src="../article11.png" alt="Lake Chad showing significant water loss over the decades" />
+
+        <h2>The Hard Truth About Lake Chad</h2>
+
+        <p><strong>Lake Chad has shrunk by 90% since the 1960s.</strong></p>
+
+        <p>Let that sink in.</p>
+
+        <p>Climate change, excessive irrigation, and reduced rainfall have turned what was once one of Africa's largest lakes into a shadow of itself. And about 30 million people across Nigeria, Niger, Chad, and Cameroon depend on it for their livelihoods.</p>
+
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="number">90%</div>
+            <div class="label">Lake Chad shrinkage since 1960s</div>
+            <div class="sub">Once one of Africa's largest lakes</div>
+          </div>
+          <div class="stat-card">
+            <div class="number">30M</div>
+            <div class="label">People who depend on Lake Chad</div>
+            <div class="sub">Across Nigeria, Niger, Chad & Cameroon</div>
+          </div>
+          <div class="stat-card">
+            <div class="number">90%</div>
+            <div class="label">World's unfrozen freshwater</div>
+            <div class="sub">Held in lakes globally</div>
+          </div>
+        </div>
+
+        <p>Farmers can't irrigate. Fishers can't fish. Herders can't find pasture. Communities are displaced. Conflicts over resources are rising.</p>
+
+        <div class="data-highlight warning">
+          <p><strong>This isn't an environmental issue. It's a food security issue. It's a stability issue. It's a survival issue.</strong></p>
+        </div>
+
+        <p>And it's not just Lake Chad. Lake Victoria is battling pollution from agricultural runoff and invasive species. Reservoirs across Nigeria are silting up. The pattern is clear: when lakes suffer, agriculture suffers, and people suffer.</p>
+
+        <h2>Why Lakes Matter to Agriculture</h2>
+
+        <p>You don't have to live near a lake to depend on one. Here's what lakes do for farming:</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>What Lakes Provide</th>
+                <th>Why It Matters</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Irrigation water</strong></td>
+                <td>Without lakes, dry-season farming becomes nearly impossible</td>
+              </tr>
+              <tr>
+                <td><strong>Microclimate regulation</strong></td>
+                <td>Lakes influence rainfall patterns in surrounding areas</td>
+              </tr>
+              <tr>
+                <td><strong>Fish and aquaculture</strong></td>
+                <td>A critical source of protein and income for rural communities</td>
+              </tr>
+              <tr>
+                <td><strong>Transport routes</strong></td>
+                <td>Moving produce from farms to markets</td>
+              </tr>
+              <tr>
+                <td><strong>Natural fertiliser</strong></td>
+                <td>Nutrient-rich lake sediments can enrich nearby farmlands</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="pull-quote">
+          "Lakes aren't just scenery. They're agricultural infrastructure. And when they break down, the entire system breaks down."
+          <cite>— The Hivemaa Team</cite>
+        </div>
+
+        <h2>Technology Can Help. Here's How.</h2>
+
+        <p>This is where AgriTech comes in. Innovation isn't just about increasing yields — it's about protecting the resources that make farming possible.</p>
+
+        <h3>Precision Agriculture = Less Pollution</h3>
+
+        <p>One of the biggest threats to lakes is agricultural runoff — fertilisers and pesticides washing into water bodies. Precision agriculture tackles this head-on:</p>
+
+        <ul>
+          <li><strong>Soil sensors</strong> monitor nutrient levels so farmers apply exactly what's needed, not more.</li>
+          <li><strong>Drone spraying</strong> targets specific areas, reducing overspray.</li>
+          <li><strong>AI-powered advisories</strong> recommend optimal application timing to minimise runoff.</li>
+        </ul>
+
+        <div class="data-highlight success">
+          <p><strong>Less chemicals in lakes = healthier ecosystems = longer lifespans for vital water sources.</strong></p>
+        </div>
+
+        <h3>Data-Driven Water Management</h3>
+
+        <p>Satellite data and IoT sensors can now track lake levels, rainfall patterns, and water usage in real time. This information helps farmers plan better and helps policymakers make informed decisions about water allocation.</p>
+
+        <p>Platforms like what we're building at Hivemaa are focused on getting this kind of data into the hands of the people who need it most — farmers, extension workers, and agribusinesses.</p>
+
+        <h3>Climate-Smart Farming</h3>
+
+        <p>Simple, practical changes can make a big difference:</p>
+
+        <ul>
+          <li><strong>Cover cropping</strong> to prevent soil erosion into lakes</li>
+          <li><strong>Agroforestry</strong> along lake shores to stabilise banks</li>
+          <li><strong>Integrated pest management</strong> to reduce chemical runoff</li>
+        </ul>
+
+        <p>These aren't complicated innovations — they just need awareness, training, and support to scale.</p>
+
+        <h2>Some Good News (Yes, There Is Some)</h2>
+
+        <h3>Lake Victoria</h3>
+
+        <p>Kenya, Uganda, and Tanzania have been working together through the Lake Victoria Basin Commission to train farmers on sustainable agriculture. In pilot areas, pollution has dropped by nearly 40%. Mobile technology has played a key role in spreading best practices.</p>
+
+        <div class="data-highlight success">
+          <p><strong>Lake Victoria:</strong> Pollution dropped by nearly <strong>40%</strong> in pilot areas through cross-border cooperation.</p>
+        </div>
+
+        <h3>Kainji Lake, Nigeria</h3>
+
+        <p>Kainji Lake supports irrigation, fishing, and hydroelectric power. Local AgriTech innovators are helping farmers adopt soil conservation techniques and water-saving irrigation methods. Small-scale, but impactful.</p>
+
+        <h3>Lake Chad</h3>
+
+        <p>The Lake Chad Basin Commission is promoting climate-resilient farming and drought-resistant crops. Progress is slow, but efforts are ongoing.</p>
+
+        <div class="pull-quote">
+          "The challenges are real, but so is the work being done to address them."
+          <cite>— The Hivemaa Team</cite>
+        </div>
+
+        <h2>What You Can Do</h2>
+
+        <p>Whether you're a farmer, an entrepreneur, a student, or a policymaker, you have a role to play.</p>
+
+        <p><strong>If you're a farmer:</strong></p>
+        <ul>
+          <li>Consider drip irrigation — it uses significantly less water.</li>
+          <li>Time fertiliser application to avoid runoff during rainy seasons.</li>
+          <li>Maintain vegetation along lake shores to reduce erosion.</li>
+        </ul>
+
+        <p><strong>If you're in agribusiness:</strong></p>
+        <ul>
+          <li>Invest in water-efficient technologies.</li>
+          <li>Support farmer education on sustainable lake management.</li>
+        </ul>
+
+        <p><strong>If you're a student or innovator:</strong></p>
+        <ul>
+          <li>Explore AgriTech solutions for water conservation.</li>
+          <li>Research sustainable farming practices near water bodies.</li>
+          <li>Advocate for policies that protect lakes.</li>
+        </ul>
+
+        <p><strong>If you're a policymaker:</strong></p>
+        <ul>
+          <li>Fund integrated water resource management.</li>
+          <li>Incentivise sustainable agriculture near lakes.</li>
+          <li>Support data collection on lake health and agricultural impacts.</li>
+        </ul>
+
+        <h2>The Bottom Line</h2>
+
+        <p>This first World Lake Day isn't just about celebration — it's about reflection and action.</p>
+
+        <p>For Africa, where agriculture sustains the majority of the population, lakes are strategic assets. They feed us. They employ us. They sustain us.</p>
+
+        <p>Technology won't save lakes by itself. But it can give us the tools to protect them — smarter farming, better data, and more informed decisions.</p>
+
+        <div class="data-highlight" style="border-left-color: var(--primary);">
+          <p><strong>At Hivemaa, we're committed to playing our part.</strong> Connecting agriculture with technology, knowledge, and opportunity means helping farmers and communities safeguard the resources they depend on.</p>
+        </div>
+
+        <div class="pull-quote">
+          "Because healthy lakes mean healthy farms. And healthy farms mean a healthier Africa. Happy World Lake Day 2026."
+          <cite>— The Hivemaa Team</cite>
+        </div>
+
+        <div class="data-highlight" style="border-left-color: #6c757d; background: var(--light-grey);">
+          <p style="font-size: 0.9rem; opacity: 0.7; margin-bottom: 0;">
+            <strong>Sources:</strong> United Nations, Lake Victoria Basin Commission, Lake Chad Basin Commission, International Institute of Tropical Agriculture (IITA), World Lake Day Official Documentation
+          </p>
+        </div>
+
+        <hr style="margin: 40px 0; opacity: 0.1;" />
+
+        <p style="font-style: italic; opacity: 0.7; font-size: 0.95rem;">
+          <strong>About the author:</strong> This article was written by The Hivemaa Team. Hivemaa is an agricultural technology company dedicated to advocating for and building a sustainable future for the African Agricultural Technology Space.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>Hivemaa</h4>
+          <p>AgriTech for Africa — connecting agriculture with technology.</p>
+          <div class="footer-socials">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+          <div style="margin-top: 16px; font-size: 0.95rem; opacity: 0.8;">
+            <p><i class="fas fa-phone"></i> +234 07066347583, +234 08181464849</p>
+            <p><i class="fas fa-envelope"></i> hivemaainnovative@gmail.com</p>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../news.html">News</a></li>
+            <li><a href="../articles.html">Articles</a></li>
+            <li><a href="../opportunities.html">Opportunities</a></li>
+            <li><a href="../resources.html">Resources</a></li>
+            <li><a href="../community.html">Community</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="../community.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Hivemaa. 
