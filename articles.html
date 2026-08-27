@@ -11,7 +11,17 @@
   <style>
     /* ===== RESET & BASE ===== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    :root { --primary: #2E7D32; --primary-light: #4CAF50; --secondary: #1B5E20; --text: #1a1a1a; --light-grey: #f5f5f5; --white: #ffffff; --shadow: 0 4px 20px rgba(0,0,0,0.08); --radius: 12px; --transition: 0.3s ease; }
+    :root { 
+      --primary: #2E7D32; 
+      --primary-light: #4CAF50; 
+      --secondary: #1B5E20; 
+      --text: #1a1a1a; 
+      --light-grey: #f5f5f5; 
+      --white: #ffffff; 
+      --shadow: 0 4px 20px rgba(0,0,0,0.08); 
+      --radius: 12px; 
+      --transition: 0.3s ease; 
+    }
     body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
     a { text-decoration: none; color: var(--primary); transition: var(--transition); }
@@ -59,7 +69,7 @@
     .tag { background: var(--light-grey); padding: 4px 14px; border-radius: 60px; font-size: 0.75rem; font-weight: 500; color: var(--text); opacity: 0.8; }
 
     /* ===== BUTTONS ===== */
-    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; border-radius: 60px; font-weight: 600; font-size: 0.95rem; transition: var(--transition); border: none; cursor: pointer; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; border-radius: 60px; font-weight: 600; font-size: 0.95rem; transition: var(--transition); border: none; cursor: pointer; text-decoration: none; }
     .btn-primary { background: var(--primary); color: white; }
     .btn-primary:hover { background: var(--secondary); color: white; transform: scale(1.02); }
 
@@ -94,7 +104,7 @@
 <body>
   <nav>
     <a href="index.html" class="logo">
-      <img src="hivemaa-home-logo.png" alt="Hivemaa" />
+      <img src="hivemaa-home-logo.png" alt="Hivemaa" onerror="this.style.display='none'" />
       <span>Hivemaa</span>
     </a>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -173,13 +183,18 @@
 
   <script>
     // ===== HAMBURGER MENU =====
-    document.getElementById('hamburger').addEventListener('click', function() {
-      document.getElementById('navLinks').classList.toggle('open');
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function() {
+          navLinks.classList.toggle('open');
+        });
+      }
     });
 
-    // ===== ARTICLES DATA (FIXED - COMMAS ADDED) =====
+    // ===== ARTICLES DATA =====
     const articlesData = [
-      // ARTICLE 11 - WORLD LAKE DAY 2026
       { 
         id: 11, 
         title: "World Lake Day 2026: Why Africa's Lakes Are Everybody's Business", 
@@ -190,10 +205,9 @@
         readTime: "6 min read", 
         tags: ["World Lake Day", "Water Conservation", "AgriTech", "Sustainability", "Lake Chad"], 
         icon: "fa-water",
-        thumbnail: "article11.png", 
+        thumbnail: "", 
         url: "articles/article-11.html" 
       },
-      // ARTICLE 10 - BENUE AGRICULTURE & VALUE ADDITION
       { 
         id: 10, 
         title: "Benue Grows the Food. So Why Are We Still Importing What We Can Make?", 
@@ -204,10 +218,9 @@
         readTime: "5 min read", 
         tags: ["Benue", "Agriculture", "Value Addition", "Post-Harvest Loss", "Agribusiness"], 
         icon: "fa-basket-shopping",
-        thumbnail: "article10.png", 
+        thumbnail: "", 
         url: "articles/article-10.html" 
       },
-      // ARTICLE 9 - BANKS LENDING
       { 
         id: 9, 
         title: "Nigerian Banks Are Starting to Look at Agriculture Differently", 
@@ -218,10 +231,9 @@
         readTime: "4 min read", 
         tags: ["Banking", "Agriculture Finance", "Nigeria", "CBN"], 
         icon: "fa-building-columns",
-        thumbnail: "article9.png", 
+        thumbnail: "", 
         url: "articles/article-9.html" 
       },
-      // ARTICLE 8 - CHINA FISH
       { 
         id: 8, 
         title: "China Opens Market to Nigerian Fish: What It Means", 
@@ -232,10 +244,9 @@
         readTime: "4 min read", 
         tags: ["Trade", "China", "Nigeria", "Fisheries", "Exports"], 
         icon: "fa-fish",
-        thumbnail: "china-naqs.jpg", 
+        thumbnail: "", 
         url: "articles/article-8.html" 
       },
-      // ARTICLE 7 - ASF
       { 
         id: 7, 
         title: "African Swine Fever: Protecting Pig Farms", 
@@ -245,11 +256,10 @@
         date: "2026-08-13", 
         readTime: "5 min read", 
         tags: ["ASF", "Biosecurity", "Pig Farming"], 
-        thumbnail: "asf-protection.jpg", 
+        thumbnail: "", 
         icon: "fa-disease", 
         url: "articles/article-7.html" 
       },
-      // ARTICLE 1 - AI SOIL
       { 
         id: 1, 
         title: "AI-powered soil health monitoring", 
@@ -259,11 +269,10 @@
         date: "2026-05-12", 
         readTime: "5 min read", 
         tags: ["AI", "Soil"], 
-        icon: "fa-newspaper", 
-        thumbnail: "ai-soil.jpg",
+        icon: "fa-newspaper",
+        thumbnail: "",
         url: "articles/article-1.html" 
       },
-      // ARTICLE 2 - DRONES
       { 
         id: 2, 
         title: "Drone seeding initiative in Kenya", 
@@ -273,11 +282,10 @@
         date: "2026-05-10", 
         readTime: "3 min read", 
         tags: ["Drones", "Kenya"], 
-        icon: "fa-tractor", 
-        thumbnail: "drone-seeding.jpg",
+        icon: "fa-tractor",
+        thumbnail: "",
         url: "articles/article-2.html" 
       },
-      // ARTICLE 3 - MARKET
       { 
         id: 3, 
         title: "Real-time market prices dashboard", 
@@ -287,11 +295,10 @@
         date: "2026-05-08", 
         readTime: "4 min read", 
         tags: ["Market", "Data"], 
-        icon: "fa-chart-line", 
-        thumbnail: "market-dashboard.jpg",
+        icon: "fa-chart-line",
+        thumbnail: "",
         url: "articles/article-3.html" 
       },
-      // ARTICLE 4 - AI FUTURE
       { 
         id: 4, 
         title: "AI in Agriculture: The Future of Farming", 
@@ -301,11 +308,10 @@
         date: "2026-04-28", 
         readTime: "8 min read", 
         tags: ["AI", "Future"], 
-        icon: "fa-microchip", 
-        thumbnail: "ai-future.jpg",
+        icon: "fa-microchip",
+        thumbnail: "",
         url: "articles/article-4.html" 
       },
-      // ARTICLE 5 - HYDROPONICS
       { 
         id: 5, 
         title: "Hydroponics: Soilless Farming for Africa", 
@@ -315,11 +321,10 @@
         date: "2026-04-22", 
         readTime: "6 min read", 
         tags: ["Hydroponics", "Urban"], 
-        icon: "fa-water", 
-        thumbnail: "hydroponics.jpg",
+        icon: "fa-water",
+        thumbnail: "",
         url: "articles/article-5.html" 
       },
-      // ARTICLE 6 - PRECISION AG
       { 
         id: 6, 
         title: "Precision Agriculture with Satellite Data", 
@@ -329,8 +334,8 @@
         date: "2026-04-15", 
         readTime: "7 min read", 
         tags: ["Satellite", "Precision"], 
-        icon: "fa-satellite", 
-        thumbnail: "precision-ag.jpg",
+        icon: "fa-satellite",
+        thumbnail: "",
         url: "articles/article-6.html" 
       }
     ];
@@ -357,9 +362,9 @@
           
           let imageHtml = '';
           if (article.thumbnail) {
-            imageHtml = `<img src="${article.thumbnail}" alt="${article.title}" onerror="this.parentElement.innerHTML='<i class=\\'fas ${icon}\\' style=\\'font-size:3rem;color:var(--primary);\\'></i>'">`;
+            imageHtml = `<img src="${article.thumbnail}" alt="${article.title}" onerror="this.style.display='none'">`;
           } else {
-            imageHtml = `<i class="fas ${icon}"></i>`;
+            imageHtml = `<i class="fas ${icon}" style="font-size:3rem;"></i>`;
           }
           
           card.innerHTML = `
@@ -378,45 +383,56 @@
           `;
           grid.appendChild(card);
         });
-        setTimeout(() => { document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible')); }, 100);
+        // Trigger fade-in animation
+        setTimeout(() => { 
+          document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible')); 
+        }, 100);
       }
+      
       renderArticles(sortedArticles);
 
-      // ===== SEARCH =====
+      // ===== SEARCH FUNCTIONALITY =====
       const searchInput = document.getElementById('searchInput');
       const searchBtn = document.getElementById('searchBtn');
-      if (searchInput && searchBtn) {
-        function performSearch() {
-          const query = searchInput.value.trim().toLowerCase();
-          const cards = document.querySelectorAll('.article-card');
-          const oldMsg = document.querySelector('.search-result-msg');
-          if (oldMsg) oldMsg.remove();
-          
-          if (!query) { 
-            cards.forEach(card => { 
-              card.style.display = 'block'; 
-              card.style.border = 'none'; 
-              card.style.opacity = '1'; 
-            }); 
-            return; 
+      
+      function performSearch() {
+        const query = searchInput.value.trim().toLowerCase();
+        const cards = document.querySelectorAll('.article-card');
+        const oldMsg = document.querySelector('.search-result-msg');
+        if (oldMsg) oldMsg.remove();
+        
+        if (!query) { 
+          cards.forEach(card => { 
+            card.style.display = 'block'; 
+            card.style.border = 'none'; 
+            card.style.opacity = '1'; 
+          }); 
+          return; 
+        }
+        
+        let found = 0;
+        cards.forEach((card) => {
+          const title = card.querySelector('h3')?.textContent?.toLowerCase() || '';
+          const excerpt = card.querySelector('p')?.textContent?.toLowerCase() || '';
+          const tags = card.dataset.tags?.toLowerCase() || '';
+          if (title.includes(query) || excerpt.includes(query) || tags.includes(query)) {
+            card.style.display = 'block';
+            card.style.border = '2px solid var(--primary)';
+            card.style.opacity = '1';
+            found++;
+          } else {
+            card.style.display = 'none';
+            card.style.border = 'none';
+            card.style.opacity = '0.3';
           }
-          
-          let found = 0;
-          cards.forEach((card) => {
-            const title = card.querySelector('h3')?.textContent?.toLowerCase() || '';
-            const excerpt = card.querySelector('p')?.textContent?.toLowerCase() || '';
-            const tags = card.dataset.tags?.toLowerCase() || '';
-            if (title.includes(query) || excerpt.includes(query) || tags.includes(query)) {
-              card.style.display = 'block';
-              card.style.border = '2px solid var(--primary)';
-              card.style.opacity = '1';
-              found++;
-            } else {
-              card.style.display = 'none';
-              card.style.border = 'none';
-              card.style.opacity = '0.3';
-            }
-          });
-          
-          if (found === 0) {
-            const msg = document.createElement('p');
+        });
+        
+        if (found === 0) {
+          const msg = document.createElement('p');
+          msg.className = 'search-result-msg';
+          msg.style.textAlign = 'center';
+          msg.style.marginTop = '20px';
+          msg.style.padding = '20px';
+          msg.style.color = 'var(--primary)';
+          msg.style.fontWeight = '500';
+          msg.textContent = '🔍 No articles found. Try a different keywor
