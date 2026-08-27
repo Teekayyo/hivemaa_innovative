@@ -8,104 +8,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
   <style>
-    /* ===== RESET & BASE ===== */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    :root { 
-      --primary: #2E7D32; 
-      --primary-light: #4CAF50; 
-      --secondary: #1B5E20; 
-      --text: #1a1a1a; 
-      --light-grey: #f5f5f5; 
-      --white: #ffffff; 
-      --shadow: 0 4px 20px rgba(0,0,0,0.08); 
-      --radius: 12px; 
-      --transition: 0.3s ease; 
-    }
-    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-    a { text-decoration: none; color: var(--primary); transition: var(--transition); }
-    a:hover { color: var(--secondary); }
-    img { max-width: 100%; display: block; }
-
-    /* ===== NAVBAR ===== */
-    nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 1000; }
-    .logo { display: flex; align-items: center; font-weight: 700; font-size: 1.6rem; color: var(--primary); }
-    .logo img { height: 40px; width: auto; }
-    .nav-links { display: flex; gap: 24px; list-style: none; align-items: center; flex-wrap: wrap; }
-    .nav-links a { font-weight: 500; font-size: 0.95rem; color: var(--text); padding: 6px 0; border-bottom: 2px solid transparent; }
-    .nav-links a:hover, .nav-links a.active { color: var(--primary); border-bottom-color: var(--primary); }
-    .hamburger { display: none; flex-direction: column; gap: 4px; background: none; border: none; cursor: pointer; padding: 4px; }
-    .hamburger span { display: block; width: 28px; height: 3px; background: var(--text); border-radius: 2px; transition: var(--transition); }
-
-    /* ===== SECTIONS ===== */
-    .section { padding: 48px 0; }
-    .section-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 8px; color: var(--secondary); }
-    .section-sub { font-size: 1.1rem; opacity: 0.7; margin-bottom: 32px; }
-
-    /* ===== SEARCH ===== */
-    .search-wrap { display: flex; gap: 12px; max-width: 500px; margin-bottom: 40px; }
-    .search-wrap input { flex: 1; padding: 12px 20px; border: 2px solid #e0e0e0; border-radius: 60px; font-size: 1rem; outline: none; transition: var(--transition); }
-    .search-wrap input:focus { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(46,125,50,0.1); }
-    .search-wrap button { padding: 12px 24px; background: var(--primary); color: white; border: none; border-radius: 60px; cursor: pointer; font-size: 1rem; transition: var(--transition); }
-    .search-wrap button:hover { background: var(--secondary); transform: scale(1.02); }
-
-    /* ===== CARD GRID ===== */
-    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
-    .card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; transition: var(--transition); border: 1px solid #f0f0f0; }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.12); }
-    .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
-
-    /* ===== ARTICLE CARD ===== */
-    .article-card .card-img { height: 200px; background: var(--light-grey); display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 3rem; overflow: hidden; }
+    .article-card .card-img { height: 180px; background: var(--light-grey); display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 3rem; overflow: hidden; }
     .article-card .card-img img { width: 100%; height: 100%; object-fit: cover; }
     .article-card .card-body { padding: 24px; }
-    .article-card .card-body h3 { font-size: 1.2rem; margin-bottom: 8px; color: var(--secondary); line-height: 1.3; }
-    .article-card .card-body p { font-size: 0.95rem; opacity: 0.8; margin-bottom: 12px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-    .meta { display: flex; gap: 16px; font-size: 0.8rem; opacity: 0.6; margin-top: 12px; flex-wrap: wrap; }
-    .meta span { display: flex; align-items: center; gap: 4px; }
-    .tag-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-    .tag { background: var(--light-grey); padding: 4px 14px; border-radius: 60px; font-size: 0.75rem; font-weight: 500; color: var(--text); opacity: 0.8; }
-
-    /* ===== BUTTONS ===== */
-    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; border-radius: 60px; font-weight: 600; font-size: 0.95rem; transition: var(--transition); border: none; cursor: pointer; text-decoration: none; }
-    .btn-primary { background: var(--primary); color: white; }
-    .btn-primary:hover { background: var(--secondary); color: white; transform: scale(1.02); }
-
-    /* ===== FOOTER ===== */
-    footer { background: #1a1a1a; color: #ddd; padding: 48px 0 24px; margin-top: 48px; }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 32px; }
-    .footer-brand h4 { font-size: 1.4rem; color: white; margin-bottom: 12px; }
-    .footer-brand p { opacity: 0.7; margin-bottom: 16px; }
-    .footer-socials { display: flex; gap: 12px; }
-    .footer-socials a { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: rgba(255,255,255,0.08); border-radius: 50%; color: white; transition: var(--transition); }
-    .footer-socials a:hover { background: var(--primary); transform: translateY(-2px); }
-    footer h4 { color: white; font-size: 1.1rem; margin-bottom: 16px; }
-    footer ul { list-style: none; }
-    footer ul li { margin-bottom: 8px; }
-    footer ul a { color: #aaa; transition: var(--transition); }
-    footer ul a:hover { color: white; }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 0.9rem; opacity: 0.7; }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
-      .hamburger { display: flex; }
-      .nav-links { display: none; flex-direction: column; width: 100%; padding: 16px 0; gap: 12px; }
-      .nav-links.open { display: flex; }
-      nav { flex-wrap: wrap; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .card-grid { grid-template-columns: 1fr; }
-      .section-title { font-size: 1.8rem; }
-      .search-wrap { max-width: 100%; }
-    }
+    .article-card .card-body h3 { font-size: 1.2rem; margin-bottom: 6px; }
+    .article-card .meta { display: flex; gap: 16px; font-size: 0.8rem; opacity: 0.6; margin-top: 12px; flex-wrap: wrap; }
+    .tag-group { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .tag { background: var(--light-grey); padding: 6px 16px; border-radius: 60px; font-size: 0.8rem; font-weight: 500; color: var(--text); opacity: 0.8; }
   </style>
 </head>
 <body>
-  <nav>
+  <nav class="container">
     <a href="index.html" class="logo">
-      <img src="hivemaa-home-logo.png" alt="Hivemaa" onerror="this.style.display='none'" />
-      <span>Hivemaa</span>
+      <img src="hivemaa-home-logo.png" alt="Hivemaa" style="height: 40px; width: auto; display: inline-block; vertical-align: middle;" />
+      <span style="font-weight: 700; font-size: 1.6rem; margin-left: 10px; vertical-align: middle;">Hivemaa</span>
     </a>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
       <span></span><span></span><span></span>
@@ -122,18 +40,16 @@
     </ul>
   </nav>
 
-  <main>
-    <div class="container">
-      <section class="section">
-        <h1 class="section-title">All Articles</h1>
-        <p class="section-sub">Explore our collection of agricultural insights and innovations</p>
-        <div class="search-wrap">
-          <input type="text" id="searchInput" placeholder="Search articles..." />
-          <button id="searchBtn"><i class="fas fa-search"></i></button>
-        </div>
-        <div id="articlesGrid" class="card-grid"></div>
-      </section>
-    </div>
+  <main class="container">
+    <section class="section">
+      <h1 class="section-title">All Articles</h1>
+      <p class="section-sub">Explore our collection of agricultural insights and innovations</p>
+      <div class="search-wrap">
+        <input type="text" id="searchInput" placeholder="Search articles..." />
+        <button id="searchBtn"><i class="fas fa-search"></i></button>
+      </div>
+      <div id="articlesGrid" class="card-grid"></div>
+    </section>
   </main>
 
   <footer>
@@ -176,51 +92,44 @@
       </div>
       <div class="footer-bottom">
         <span>&copy; 2026 Hivemaa. All rights reserved.</span>
-        <span>Designed with <i class="fas fa-heart" style="color: #4CAF50;"></i> for Africa</span>
+        <span>Designed with <i class="fas fa-heart" style="color: var(--primary);"></i> for Africa</span>
       </div>
     </div>
   </footer>
 
+  <script src="js/script.js"></script>
   <script>
-    // ===== HAMBURGER MENU =====
-    document.addEventListener('DOMContentLoaded', function() {
-      const hamburger = document.getElementById('hamburger');
-      const navLinks = document.getElementById('navLinks');
-      if (hamburger && navLinks) {
-        hamburger.addEventListener('click', function() {
-          navLinks.classList.toggle('open');
-        });
-      }
-    });
-
-    // ===== ARTICLES DATA =====
+    // ===== ARTICLES DATA (with thumbnails) =====
     const articlesData = [
-      { 
-        id: 11, 
-        title: "World Lake Day 2026: Why Africa's Lakes Are Everybody's Business", 
-        excerpt: "On this first World Lake Day, we examine why Africa's lakes are more than just water bodies—they're agricultural infrastructure. Lake Chad has shrunk by 90% since the 1960s, affecting 30 million people across four countries.", 
-        category: "News", 
-        author: "The Hivemaa Team", 
-        date: "2026-08-27", 
-        readTime: "6 min read", 
-        tags: ["World Lake Day", "Water Conservation", "AgriTech", "Sustainability", "Lake Chad"], 
-        icon: "fa-water",
-        thumbnail: "", 
-        url: "articles/article-11.html" 
-      },
-      { 
-        id: 10, 
-        title: "Benue Grows the Food. So Why Are We Still Importing What We Can Make?", 
-        excerpt: "Benue produces over 51% of Nigeria's yams and leads in cassava, soybeans, and citrus. Yet farmers watch their harvest rot while Nigeria's food import bill hits ₦7.65 trillion.", 
-        category: "News", 
-        author: "The Hivemaa Team", 
-        date: "2026-08-26", 
-        readTime: "5 min read", 
-        tags: ["Benue", "Agriculture", "Value Addition", "Post-Harvest Loss", "Agribusiness"], 
-        icon: "fa-basket-shopping",
-        thumbnail: "", 
-        url: "articles/article-10.html" 
-      },
+// ARTICLE 11 - WORLD LAKE DAY 2026
+{ 
+  id: 11, 
+  title: "World Lake Day 2026: Why Africa's Lakes Are Everybody's Business", 
+  excerpt: "On this first World Lake Day, we examine why Africa's lakes are more than just water bodies—they're agricultural infrastructure. Lake Chad has shrunk by 90% since the 1960s, affecting 30 million people across four countries.", 
+  category: "News", 
+  author: "The Hivemaa Team", 
+  date: "2026-08-27", 
+  readTime: "6 min read", 
+  tags: ["World Lake Day", "Water Conservation", "AgriTech", "Sustainability", "Lake Chad"], 
+  icon: "fa-water",
+  thumbnail: "article11.png", 
+  url: "articles/article-11.html" 
+}
+      // ARTICLE 10 - BENUE AGRICULTURE & VALUE ADDITION
+{ 
+  id: 10, 
+  title: "Benue Grows the Food. So Why Are We Still Importing What We Can Make?", 
+  excerpt: "Benue produces over 51% of Nigeria's yams and leads in cassava, soybeans, and citrus. Yet farmers watch their harvest rot while Nigeria's food import bill hits ₦7.65 trillion.", 
+  category: "News", 
+  author: "The Hivemaa Team", 
+  date: "2026-08-26", 
+  readTime: "5 min read", 
+  tags: ["Benue", "Agriculture", "Value Addition", "Post-Harvest Loss", "Agribusiness"], 
+  icon: "fa-basket-shopping",
+  thumbnail: "article10.png", 
+  url: "articles/article-10.html" 
+},
+      // ARTICLE 9 - BANKS LENDING
       { 
         id: 9, 
         title: "Nigerian Banks Are Starting to Look at Agriculture Differently", 
@@ -231,9 +140,10 @@
         readTime: "4 min read", 
         tags: ["Banking", "Agriculture Finance", "Nigeria", "CBN"], 
         icon: "fa-building-columns",
-        thumbnail: "", 
+        thumbnail: "article9.png", 
         url: "articles/article-9.html" 
       },
+      // ARTICLE 8 - CHINA FISH
       { 
         id: 8, 
         title: "China Opens Market to Nigerian Fish: What It Means", 
@@ -244,9 +154,10 @@
         readTime: "4 min read", 
         tags: ["Trade", "China", "Nigeria", "Fisheries", "Exports"], 
         icon: "fa-fish",
-        thumbnail: "", 
+        thumbnail: "china-naqs.jpg", 
         url: "articles/article-8.html" 
       },
+      // ARTICLE 7 - ASF
       { 
         id: 7, 
         title: "African Swine Fever: Protecting Pig Farms", 
@@ -256,10 +167,11 @@
         date: "2026-08-13", 
         readTime: "5 min read", 
         tags: ["ASF", "Biosecurity", "Pig Farming"], 
-        thumbnail: "", 
+        thumbnail: "../file_00000000222881f6b51ecc8809ac794b.png", 
         icon: "fa-disease", 
         url: "articles/article-7.html" 
       },
+      // ARTICLE 1 - AI SOIL
       { 
         id: 1, 
         title: "AI-powered soil health monitoring", 
@@ -269,10 +181,10 @@
         date: "2026-05-12", 
         readTime: "5 min read", 
         tags: ["AI", "Soil"], 
-        icon: "fa-newspaper",
-        thumbnail: "",
+        icon: "fa-newspaper", 
         url: "articles/article-1.html" 
       },
+      // ARTICLE 2 - DRONES
       { 
         id: 2, 
         title: "Drone seeding initiative in Kenya", 
@@ -282,10 +194,10 @@
         date: "2026-05-10", 
         readTime: "3 min read", 
         tags: ["Drones", "Kenya"], 
-        icon: "fa-tractor",
-        thumbnail: "",
+        icon: "fa-tractor", 
         url: "articles/article-2.html" 
       },
+      // ARTICLE 3 - MARKET
       { 
         id: 3, 
         title: "Real-time market prices dashboard", 
@@ -295,10 +207,10 @@
         date: "2026-05-08", 
         readTime: "4 min read", 
         tags: ["Market", "Data"], 
-        icon: "fa-chart-line",
-        thumbnail: "",
+        icon: "fa-chart-line", 
         url: "articles/article-3.html" 
       },
+      // ARTICLE 4 - AI FUTURE
       { 
         id: 4, 
         title: "AI in Agriculture: The Future of Farming", 
@@ -308,10 +220,10 @@
         date: "2026-04-28", 
         readTime: "8 min read", 
         tags: ["AI", "Future"], 
-        icon: "fa-microchip",
-        thumbnail: "",
+        icon: "fa-microchip", 
         url: "articles/article-4.html" 
       },
+      // ARTICLE 5 - HYDROPONICS
       { 
         id: 5, 
         title: "Hydroponics: Soilless Farming for Africa", 
@@ -321,10 +233,10 @@
         date: "2026-04-22", 
         readTime: "6 min read", 
         tags: ["Hydroponics", "Urban"], 
-        icon: "fa-water",
-        thumbnail: "",
+        icon: "fa-water", 
         url: "articles/article-5.html" 
       },
+      // ARTICLE 6 - PRECISION AG
       { 
         id: 6, 
         title: "Precision Agriculture with Satellite Data", 
@@ -334,8 +246,7 @@
         date: "2026-04-15", 
         readTime: "7 min read", 
         tags: ["Satellite", "Precision"], 
-        icon: "fa-satellite",
-        thumbnail: "",
+        icon: "fa-satellite", 
         url: "articles/article-6.html" 
       }
     ];
@@ -344,6 +255,7 @@
     const sortedArticles = articlesData.sort((a, b) => new Date(b.date) - new Date(a.date));
 
     document.addEventListener('DOMContentLoaded', function() {
+      // ===== RENDER ARTICLES =====
       const grid = document.getElementById('articlesGrid');
       if (!grid) return;
 
@@ -362,9 +274,9 @@
           
           let imageHtml = '';
           if (article.thumbnail) {
-            imageHtml = `<img src="${article.thumbnail}" alt="${article.title}" onerror="this.style.display='none'">`;
+            imageHtml = `<img src="${article.thumbnail}" alt="${article.title}">`;
           } else {
-            imageHtml = `<i class="fas ${icon}" style="font-size:3rem;"></i>`;
+            imageHtml = `<i class="fas ${icon}"></i>`;
           }
           
           card.innerHTML = `
@@ -383,56 +295,52 @@
           `;
           grid.appendChild(card);
         });
-        // Trigger fade-in animation
-        setTimeout(() => { 
-          document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible')); 
-        }, 100);
+        setTimeout(() => { document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible')); }, 100);
       }
-      
       renderArticles(sortedArticles);
 
-      // ===== SEARCH FUNCTIONALITY =====
+      // ===== SEARCH =====
       const searchInput = document.getElementById('searchInput');
       const searchBtn = document.getElementById('searchBtn');
-      
-      function performSearch() {
-        const query = searchInput.value.trim().toLowerCase();
-        const cards = document.querySelectorAll('.article-card');
-        const oldMsg = document.querySelector('.search-result-msg');
-        if (oldMsg) oldMsg.remove();
-        
-        if (!query) { 
-          cards.forEach(card => { 
-            card.style.display = 'block'; 
-            card.style.border = 'none'; 
-            card.style.opacity = '1'; 
-          }); 
-          return; 
-        }
-        
-        let found = 0;
-        cards.forEach((card) => {
-          const title = card.querySelector('h3')?.textContent?.toLowerCase() || '';
-          const excerpt = card.querySelector('p')?.textContent?.toLowerCase() || '';
-          const tags = card.dataset.tags?.toLowerCase() || '';
-          if (title.includes(query) || excerpt.includes(query) || tags.includes(query)) {
-            card.style.display = 'block';
-            card.style.border = '2px solid var(--primary)';
-            card.style.opacity = '1';
-            found++;
-          } else {
-            card.style.display = 'none';
-            card.style.border = 'none';
-            card.style.opacity = '0.3';
+      if (searchInput && searchBtn) {
+        function performSearch() {
+          const query = searchInput.value.trim().toLowerCase();
+          const cards = document.querySelectorAll('.article-card');
+          if (!query) { cards.forEach(card => { card.style.display = 'block'; card.style.border = 'none'; card.style.opacity = '1'; }); return; }
+          let found = 0;
+          cards.forEach((card) => {
+            const title = card.querySelector('h3')?.textContent?.toLowerCase() || '';
+            const excerpt = card.querySelector('p')?.textContent?.toLowerCase() || '';
+            const tags = card.dataset.tags?.toLowerCase() || '';
+            if (title.includes(query) || excerpt.includes(query) || tags.includes(query)) {
+              card.style.display = 'block';
+              card.style.border = '2px solid var(--primary)';
+              card.style.opacity = '1';
+              found++;
+            } else {
+              card.style.display = 'none';
+              card.style.border = 'none';
+              card.style.opacity = '0.3';
+            }
+          });
+          const oldMsg = document.querySelector('.search-result-msg');
+          if (oldMsg) oldMsg.remove();
+          if (found === 0) {
+            const msg = document.createElement('p');
+            msg.className = 'search-result-msg';
+            msg.style.textAlign = 'center';
+            msg.style.marginTop = '20px';
+            msg.style.padding = '20px';
+            msg.style.color = 'var(--primary)';
+            msg.style.fontWeight = '500';
+            msg.textContent = '🔍 No articles found. Try a different keyword.';
+            grid.after(msg);
           }
-        });
-        
-        if (found === 0) {
-          const msg = document.createElement('p');
-          msg.className = 'search-result-msg';
-          msg.style.textAlign = 'center';
-          msg.style.marginTop = '20px';
-          msg.style.padding = '20px';
-          msg.style.color = 'var(--primary)';
-          msg.style.fontWeight = '500';
-          msg.textContent = '🔍 No articles found. Try a different keywor
+        }
+        searchBtn.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', function(e) { if (e.key === 'Enter') { e.preventDefault(); performSearch(); } });
+      }
+    });
+  </script>
+</body>
+  </html>
