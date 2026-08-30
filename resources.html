@@ -9,6 +9,36 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ===== HAMBURGER MENU ===== */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 8px; z-index: 1000; }
+    .hamburger span { display: block; width: 28px; height: 3px; background: var(--text); border-radius: 3px; transition: 0.3s ease; }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+    @media (max-width: 768px) {
+      .hamburger { display: flex !important; }
+      nav { position: relative; flex-wrap: wrap; }
+      .nav-links { display: none !important; flex-direction: column; width: 100%; padding: 20px 0; gap: 16px; background: var(--bg); border-top: 1px solid rgba(0,0,0,0.05); position: absolute; top: 75px; left: 0; box-shadow: var(--shadow); z-index: 999; }
+      .nav-links.open { display: flex !important; }
+      .nav-links li { width: 100%; text-align: center; padding: 8px 0; }
+      .nav-links li a { font-size: 1.1rem; padding: 8px 16px; display: block; }
+      .nav-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+    }
+    @media (min-width: 769px) { .nav-links { display: flex !important; position: static !important; flex-direction: row !important; width: auto !important; padding: 0 !important; background: transparent !important; border: none !important; box-shadow: none !important; } }
+    
+    .resource-card { 
+      cursor: pointer; 
+      transition: transform 0.2s, box-shadow 0.2s; 
+      text-decoration: none; 
+      color: inherit; 
+      display: block;
+    }
+    .resource-card:hover { 
+      transform: translateY(-5px); 
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    }
+  </style>
 </head>
 <body>
   <nav class="container">
@@ -26,7 +56,6 @@
       <li><a href="articles.html">Articles</a></li>
       <li><a href="opportunities.html">Opportunities</a></li>
       <li><a href="resources.html" class="active">Resources</a></li>
-      <li><a href="community.html">Community</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
@@ -36,42 +65,42 @@
       <h1 class="section-title">Resources</h1>
       <p class="section-sub">Guides, templates, downloads, books, and videos to support your agritech journey.</p>
       <div class="card-grid">
-        <div class="card fade-up">
+        <a href="resources-guides.html" class="resource-card card fade-up">
           <i class="fas fa-book-open"></i>
           <h3>Guides &amp; Manuals</h3>
           <p>Step-by-step guides on precision farming, AI in agriculture, and more.</p>
           <div class="tag-group"><span class="tag">12 guides</span></div>
-        </div>
-        <div class="card fade-up">
+        </a>
+        <a href="resources-templates.html" class="resource-card card fade-up">
           <i class="fas fa-file-download"></i>
           <h3>Templates</h3>
           <p>Downloadable templates for farm planning, budgeting, and reporting.</p>
           <div class="tag-group"><span class="tag">8 templates</span></div>
-        </div>
-        <div class="card fade-up">
+        </a>
+        <a href="resources-downloads.html" class="resource-card card fade-up">
           <i class="fas fa-download"></i>
           <h3>Downloads</h3>
           <p>E-books, white papers, and reports on agricultural innovation.</p>
           <div class="tag-group"><span class="tag">25 downloads</span></div>
-        </div>
-        <div class="card fade-up">
+        </a>
+        <a href="resources-videos.html" class="resource-card card fade-up">
           <i class="fas fa-video"></i>
           <h3>Videos</h3>
           <p>Educational videos, webinars, and interviews with industry experts.</p>
           <div class="tag-group"><span class="tag">30+ videos</span></div>
-        </div>
-        <div class="card fade-up">
+        </a>
+        <a href="courses.html" class="resource-card card fade-up">
           <i class="fas fa-graduation-cap"></i>
           <h3>Courses</h3>
           <p>Free and paid courses on agritech, data science, and smart farming.</p>
           <div class="tag-group"><span class="tag">15 courses</span></div>
-        </div>
-        <div class="card fade-up">
+        </a>
+        <a href="resources-tools.html" class="resource-card card fade-up">
           <i class="fas fa-tools"></i>
           <h3>Tools &amp; Software</h3>
           <p>Recommended tools, apps, and software for agricultural professionals.</p>
           <div class="tag-group"><span class="tag">20+ tools</span></div>
-        </div>
+        </a>
       </div>
     </section>
   </main>
@@ -101,7 +130,6 @@
             <li><a href="articles.html">Articles</a></li>
             <li><a href="opportunities.html">Opportunities</a></li>
             <li><a href="resources.html">Resources</a></li>
-            <li><a href="community.html">Community</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
@@ -110,7 +138,7 @@
           <ul>
             <li><a href="#">Privacy Policy</a></li>
             <li><a href="#">Terms of Use</a></li>
-            <li><a href="community.html">Contact</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
       </div>
