@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
+    /* ===== HAMBURGER MENU ===== */
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 8px; z-index: 1000; }
     .hamburger span { display: block; width: 28px; height: 3px; background: var(--text); border-radius: 3px; transition: 0.3s ease; }
     .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
@@ -25,19 +26,9 @@
       .nav-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; }
     }
     @media (min-width: 769px) { .nav-links { display: flex !important; position: static !important; flex-direction: row !important; width: auto !important; padding: 0 !important; background: transparent !important; border: none !important; box-shadow: none !important; } }
-    
-    .section-title { font-size: 2.8rem; font-weight: 800; margin-bottom: 10px; }
-    .section-sub { opacity: 0.7; font-size: 1.1rem; margin-bottom: 40px; }
 
-    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
-    .card { background: white; border-radius: 16px; padding: 28px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); transition: 0.3s; border: 1px solid rgba(0,0,0,0.04); text-decoration: none; color: inherit; display: block; }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.10); }
+    /* Only for course card images */
     .card img { width: 100%; height: 160px; object-fit: cover; border-radius: 10px; margin-bottom: 16px; background: var(--light-grey); }
-    .card h3 { font-size: 1.2rem; margin-bottom: 8px; font-weight: 700; }
-    .card p { opacity: 0.75; line-height: 1.6; font-size: 0.95rem; }
-    .card .meta { display: flex; gap: 16px; flex-wrap: wrap; font-size: 0.8rem; opacity: 0.6; margin-top: 12px; }
-    .card .meta span { display: inline-flex; align-items: center; gap: 4px; }
-    .card .tag { display: inline-block; background: var(--light-grey); padding: 2px 12px; border-radius: 12px; font-size: 0.7rem; }
   </style>
 </head>
 <body>
@@ -62,71 +53,44 @@
 
   <main class="container">
     <section class="section">
-      <h1 class="section-title">📚 Courses</h1>
+      <h1 class="section-title">Courses</h1>
       <p class="section-sub">The Hivemaa Pioneer Series — 5 courses, 100 lessons, designed to build your AgriTech skills from the ground up.</p>
 
       <div class="card-grid">
-        
-        <!-- Course 01 -->
         <a href="course-01/index.html" class="card">
           <img src="course1.png" alt="Course 01" />
-          <h3>🌱 Course 01: Introduction to AgricTech</h3>
+          <h3>Course 01: Introduction to AgricTech</h3>
           <p>Understand the AgricTech landscape, value chains, and where technology fits into African agriculture.</p>
-          <div class="meta">
-            <span><i class="far fa-file-alt"></i> 20 lessons</span>
-            <span><i class="far fa-clock"></i> 4 weeks</span>
-            <span><span class="tag">Beginner</span></span>
-          </div>
+          <div class="tag-group"><span class="tag">20 lessons</span><span class="tag">Beginner</span></div>
         </a>
 
-        <!-- Course 02 -->
         <a href="course-02/index.html" class="card">
           <img src="course2.png" alt="Course 02" />
-          <h3>📊 Course 02: Agricultural Data Fundamentals</h3>
+          <h3>Course 02: Agricultural Data Fundamentals</h3>
           <p>Learn how to collect, clean, analyze, and visualize farm data to make better decisions.</p>
-          <div class="meta">
-            <span><i class="far fa-file-alt"></i> 20 lessons</span>
-            <span><i class="far fa-clock"></i> 4 weeks</span>
-            <span><span class="tag">Beginner</span></span>
-          </div>
+          <div class="tag-group"><span class="tag">20 lessons</span><span class="tag">Beginner</span></div>
         </a>
 
-        <!-- Course 03 -->
         <a href="course-03/index.html" class="card">
           <img src="course3.png" alt="Course 03" />
-          <h3>📱 Course 03: Digital Tools for the Modern Farmer</h3>
+          <h3>Course 03: Digital Tools for the Modern Farmer</h3>
           <p>Discover digital tools, apps, and platforms that help farmers manage their farms more efficiently.</p>
-          <div class="meta">
-            <span><i class="far fa-file-alt"></i> 20 lessons</span>
-            <span><i class="far fa-clock"></i> 4 weeks</span>
-            <span><span class="tag">Beginner</span></span>
-          </div>
+          <div class="tag-group"><span class="tag">20 lessons</span><span class="tag">Beginner</span></div>
         </a>
 
-        <!-- Course 04 -->
         <a href="course-04/index.html" class="card">
           <img src="course4.png" alt="Course 04" />
-          <h3>📈 Course 04: Excel for Agriculture</h3>
+          <h3>Course 04: Excel for Agriculture</h3>
           <p>Master Excel for farm record keeping, budgeting, production analysis, and dashboard creation.</p>
-          <div class="meta">
-            <span><i class="far fa-file-alt"></i> 20 lessons</span>
-            <span><i class="far fa-clock"></i> 4 weeks</span>
-            <span><span class="tag">Intermediate</span></span>
-          </div>
+          <div class="tag-group"><span class="tag">20 lessons</span><span class="tag">Intermediate</span></div>
         </a>
 
-        <!-- Course 05 -->
         <a href="course-05/index.html" class="card">
           <img src="course5.png" alt="Course 05" />
-          <h3>🐍 Course 05: Python for Agriculture</h3>
+          <h3>Course 05: Python for Agriculture</h3>
           <p>Learn Python programming for agricultural data analysis, visualization, and automation.</p>
-          <div class="meta">
-            <span><i class="far fa-file-alt"></i> 20 lessons</span>
-            <span><i class="far fa-clock"></i> 4 weeks</span>
-            <span><span class="tag">Intermediate</span></span>
-          </div>
+          <div class="tag-group"><span class="tag">20 lessons</span><span class="tag">Intermediate</span></div>
         </a>
-
       </div>
     </section>
   </main>
